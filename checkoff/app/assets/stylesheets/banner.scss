@@ -22,5 +22,64 @@ $font-sans: "Proxima Nova", "Helvetica Neue", Helvetica, Arial, sans-serif;
 .banner {
     background-color: $kolor_navy;
     font-family: $main-color;
+    display: flex;
+    justify-content: space-between;
+
+    .button {
+        // background-color: rgb(230, 165, 46);
+        // padding: 10px;
+        // box-shadow: 3px 3px 3px brown;
+        // text-decoration: none;
+        // margin-bottom: 2%;
+        font-size: 50px;
+        color: white;
+      }
+  
+    .button:hover {
+        background-color: rgb(109, 109, 24);
+        box-shadow: 1px 1px 1px brown;
+        color: beige
+    }
+
+    .logo-banner {
+        width: 20%;
+    }
+
+    .banner-nav{
+        display: flex,
+    }
 }
 
+
+
+.nav-bar {
+    display: flex;
+    
+    padding: 20px;
+    background: lightblue;
+    align-items: center;
+ }
+
+
+
+
+// .logo {
+//     background-image: url(/assets/logo.png);
+//     display: flex;
+//     height: 93px;
+//     margin-bottom: 7px;
+
+// }
+
+// .logo-letters {
+//     font-variant-caps: small-caps;
+//     font-size: 316%;
+//     color: green;
+//     margin-bottom: 0%;
+//     margin-top: 0%;
+// }
+
+// .map-container {
+//     width: 500px;
+//     height: 500px;
+// }

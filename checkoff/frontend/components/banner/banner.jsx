@@ -23,17 +23,21 @@ class Banner extends React.Component {
         <button onClick={logout}>Logout</button>
       </div>
     ) : (
-      <div>
-        <Link className="btn" to="/signup">Sign Up</Link>
-        <Link className="btn" to="/login">Log In</Link>
+      <div className="banner-nav">
+        <Link className="button" to="/">Tour</Link>
+        <Link className="button" to="/">What's New</Link>
+        <Link className="button" to="/">Upgrade</Link>
+        <Link className="button" to="/">Help</Link>
+        <Link className="button" to="/login">Log in</Link>
+        <Link className="button" to="/signup">Sign up for free</Link>
       </div>
     );
 
     return (
       <header className="banner">
-        <h1 className="logo">CHECKOFF</h1>
-        <figure>
-          <img src="" alt="" />
+        {/* <h1 className="logo">CHECKOFF</h1> */}
+        <figure >
+          <img className="logo-banner" src="/assets/checkoff_logo.png" alt="checkoff_logo" />
         </figure>
         <div>
           {display}

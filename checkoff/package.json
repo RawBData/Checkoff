@@ -1,6 +1,10 @@
 {
   "name": "Checkoff",
   "private": true,
+  "engines": {
+    "node": "10.13.0",
+    "npm": "6.4.1"
+  },
   "dependencies": {
     "babel-core": "^6.26.3",
     "babel-loader": "^7.1.5",
@@ -20,6 +24,7 @@
     "redux-devtools-extension": "^2.13.8"
   },
   "scripts": {
-    "start": "webpack -w --mode=development"
+    "start": "webpack -w --mode=development",
+    "postinstall": "webpack"
   }
 }
