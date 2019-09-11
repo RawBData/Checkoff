@@ -29,18 +29,24 @@ class Banner extends React.Component {
         <Link className="button" to="/">Upgrade</Link>
         <Link className="button" to="/">Help</Link>
         <Link className="button" to="/login">Log in</Link>
-        <Link className="button" to="/signup">Sign up for free</Link>
+        <div className="sign-up-demo">
+          <Link className="button" to="/signup">Sign up for free</Link>
+          <Link className="button" to="/signup">Demo</Link>
+        </div>
+        
       </div>
     );
 
     return (
       <header className="banner">
         {/* <h1 className="logo">CHECKOFF</h1> */}
-        <figure >
-          <img className="logo-banner" src="/assets/checkoff_logo.png" alt="checkoff_logo" />
+        <figure className="figure">
+          <img className="logo-banner" src={window.logoURL} alt="checkoff_logo" />
         </figure>
+        {display}
         <div>
-          {display}
+        
+
         </div>
       </header>
     );
