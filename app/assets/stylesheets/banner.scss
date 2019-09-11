@@ -82,7 +82,11 @@ $font-museo: "MuseoSansRounded", "Helvetica Neue", Helvetica, Arial, sans-serif;
     align-items: center;
  }
 
-
+ .sign-up-demo{
+     display: grid;
+    //  grid-template-columns: repeat(3,1fr)
+    grid-template-rows: 2fr 1fr;
+ }
 
 
 // .logo {

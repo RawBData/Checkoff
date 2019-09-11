@@ -14,7 +14,7 @@ class Banner extends React.Component {
     //   : 
     //   {title:"All The Chirps!",to:"/chirps"} ;
 
-    const display = currentUser ? (
+    const headernNav = currentUser ? (
       <div>
         <div>
           {/* <Link className="btn" to={likedAllPageToggle.to}>{likedAllPageToggle.title}</Link> */}
@@ -43,7 +43,7 @@ class Banner extends React.Component {
         <figure className="figure">
           <img className="logo-banner" src={window.logoURL} alt="checkoff_logo" />
         </figure>
-        {display}
+        {headernNav}
         <div>
         
 
