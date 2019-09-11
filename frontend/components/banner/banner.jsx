@@ -37,7 +37,7 @@ class Banner extends React.Component {
       <header className="banner">
         {/* <h1 className="logo">CHECKOFF</h1> */}
         <figure >
-          <img className="logo-banner" src={window.logoURL} alt="checkoff_logo" />
+          <img className="logo-banner" src={"/assets/checkoff_logo.png"} alt="checkoff_logo" />
         </figure>
         <div>
           {display}
