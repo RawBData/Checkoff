@@ -18,35 +18,57 @@ $kolor_navy: #29354B;
 
 $main-color: #ada0ee;
 $font-sans: "Proxima Nova", "Helvetica Neue", Helvetica, Arial, sans-serif;
+$font-museo: "MuseoSansRounded", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    
+
 
 .banner {
     background-color: $kolor_navy;
     font-family: $main-color;
     display: flex;
     justify-content: space-between;
+    align-content: center;
 
+
+    .figure{
+        padding-right: 2vw;
+    }
     .button {
         // background-color: rgb(230, 165, 46);
         // padding: 10px;
         // box-shadow: 3px 3px 3px brown;
-        // text-decoration: none;
-        // margin-bottom: 2%;
-        font-size: 50px;
+        align-items: center;
+        text-decoration: none;
+        // background-color: red;
+        margin-right: 1%;
+        // font-size: 5%;
         color: white;
+        // font-size: 1.9em;
+        // border: 1px solid black;
+        // overflow: hidden;
+        white-space: nowrap;
+        font-size: 2.5vw;
+        display: flex;
+        padding-right: 33px;
+        font-weight: 700;
       }
   
     .button:hover {
-        background-color: rgb(109, 109, 24);
-        box-shadow: 1px 1px 1px brown;
-        color: beige
+        // background-color: rgb(109, 109, 24);
+        // box-shadow: 1px 1px 1px brown;
+        color:$kolor_yellow;
     }
 
     .logo-banner {
-        width: 20%;
+        background-color: white;
+        float: left;
+        width: 119px;
+        position:relative;  
     }
 
     .banner-nav{
-        display: flex,
+        display: flex;
+        flex: auto;
     }
 }
 
