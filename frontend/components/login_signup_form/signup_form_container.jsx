@@ -7,7 +7,7 @@ const MSP = (state, ownProps) => {
     return (
         {
             errors : state.errors.session,
-            formType: 'signUp'
+            formType: 'signup'
         }
 
     )

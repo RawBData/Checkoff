@@ -3,7 +3,7 @@ import React from "react";
 // import LoginFormContainer from './login_signup_form/login_form_container';
 // import SignupFormContainer from './login_signup_form/signup_form_container';
 // import { AuthRoute, ProtectedRoute } from '../util/route_util';
-// import BannerContainer from './banner/banner_container';
+import BannerContainer from '../banner/banner_container';
 
 
 
@@ -18,6 +18,7 @@ import React from "react";
       
           const display = (
               <div style={{backgroundColor: 'green'}}>
+                <BannerContainer />
                 <h1>welcome home</h1>
               </div>
           );

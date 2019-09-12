@@ -44,7 +44,7 @@ $font-museo: "MuseoSansRounded", "Helvetica Neue", Helvetica, Arial, sans-serif;
         // font-size: 5%;
         color: white;
         // font-size: 1.9em;
-        // border: 1px solid black;
+        
         // overflow: hidden;
         white-space: nowrap;
         font-size: 2.5vw;
@@ -59,6 +59,19 @@ $font-museo: "MuseoSansRounded", "Helvetica Neue", Helvetica, Arial, sans-serif;
         color:$kolor_yellow;
     }
 
+    .signup-button{
+        // background-color:red;
+        border: 2px solid white;
+        border-radius: 25px;
+        padding-left: 7px;
+        padding-right: 6px;
+    }
+
+    .signup-button:hover{
+        border: 2px solid $kolor_yellow;
+        
+    }
+
     .logo-banner {
         background-color: white;
         float: left;
@@ -70,6 +83,10 @@ $font-museo: "MuseoSansRounded", "Helvetica Neue", Helvetica, Arial, sans-serif;
         display: flex;
         flex: auto;
     }
+
+    .demo{
+        font-size: 1.5vw;
+     }
 }
 
 
@@ -85,8 +102,11 @@ $font-museo: "MuseoSansRounded", "Helvetica Neue", Helvetica, Arial, sans-serif;
  .sign-up-demo{
      display: grid;
     //  grid-template-columns: repeat(3,1fr)
-    grid-template-rows: 2fr 1fr;
+    grid-template-rows: auto auto;
+    align-content: center;
+    grid-gap: 11px;
  }
+
 
 
 // .logo {

@@ -1,7 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import AdvertisementContainer from './advertisement/advert_container';
-import CheckoffAppContainer from './checkoffapp/checkoff_app_container';
+import BannerContainer from '../banner/banner_container';
+//import CheckoffAppContainer from './checkoffapp/checkoff_app_container';
 
 class Main extends React.Component {
   constructor(props){
@@ -22,20 +23,12 @@ class Main extends React.Component {
     //   </div>
     // );
 
-    const main = currentUser ? (
-      <div>
-        <CheckoffAppContainer />
-      </div>
-    ) : (
-      <div>
-        <AdvertisementContainer />       
-      </div>
-    );
 
     return (
 
       <main>
-       {main}
+       <BannerContainer />
+       <h1>Splash</h1>
       </main>
     );
   }

@@ -30,8 +30,8 @@ class Banner extends React.Component {
         <Link className="button" to="/">Help</Link>
         <Link className="button" to="/login">Log in</Link>
         <div className="sign-up-demo">
-          <Link className="button" to="/signup">Sign up for free</Link>
-          <Link className="button" to="/signup">Demo</Link>
+          <Link className="button signup-button" to="/signup">Sign up for free</Link>
+          <Link className="button demo" to="/login">Demo</Link>
         </div>
         
       </div>

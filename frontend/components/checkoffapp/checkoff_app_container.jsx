@@ -1,6 +1,6 @@
 import React from 'react'
 import {connect} from 'react-redux';
-import Checkoffapp from '././checkoffapp';
+import Checkoffapp from './checkoffapp';
 
 const MSP = (state, ownProps) => {
     return (
