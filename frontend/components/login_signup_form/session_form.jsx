@@ -37,9 +37,18 @@ class SessionForm extends React.Component {
     let submitButton = formClass === 'login'? "Log In!" : "Sign Up!";
     let formTitle = formClass === 'login'? "Been here before? Welcome back!" : "Sign up for free.";
     
+    
+    
+    let errorsDisplay = this.props.errors.length>0? 
+      (<div>
+        <ul>
+          {this.props.errors.map(err=>(<h1>{err}</h1>))}
+        </ul>
+      </div>)
+    : 
+      (<div></div>);
 
     let signUpFormDisplay1 = [];
-    
     if (formClass==='signup') {
       //checks if SIGNUP page and creates sign up field containers for use
       signUpFormDisplay1 = [
@@ -72,8 +81,8 @@ class SessionForm extends React.Component {
     }
     
     signUpFormDisplay1.unshift(
-      <div key='form title'>
-        <h2 key='formtitle' className="form-title">{formTitle}</h2>
+      <div key="form title">
+        <h2 key="formtitle" className="form-title">{formTitle}</h2>
       </div>
     );
       //add username and password to display array no matter what
@@ -107,34 +116,29 @@ class SessionForm extends React.Component {
     
 
     let sessionToggle = formClass === 'signup'? 
-      (<Link className="other-session-button" to="/login">Log in</Link>) 
+      (<Link onClick={()=>this.props.clearErrors()} className="other-session-button" to="/login">Log in</Link>) 
       : 
-      (<Link className="other-session-button" to="/signup">Sign up for free</Link>);
+      (<Link onClick={()=>this.props.clearErrors()} className="other-session-button" to="/signup">Sign up for free</Link>);
 
 
     return (
       <main className="session-form">
         <span className="left-session-form">
-      
+          <h1>test</h1>
         </span>
 
         <span className="right-session-form">
+          <div>
+            {errorsDisplay}
+          </div>
           <div className="session-toggle-container">
             {sessionToggle}
           </div>
-          <div>
-          
-            <form>
-            
+          <div>      
+            <form className="form-container">           
               <ul className="form-setup">
                 {signUpFormDisplay1}
               </ul>
-                
-
-                
-
-                
-              
             </form>
           </div>
         </span>

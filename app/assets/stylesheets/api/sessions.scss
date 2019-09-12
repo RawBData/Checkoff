@@ -71,9 +71,16 @@ $font-museo: "MuseoSansRounded", "Helvetica Neue", Helvetica, Arial, sans-serif;
             // box-shadow: 1px 1px 1px brown;
             color:$kolor_lime;
         }
+
+        .form-container{
+            display: flex;
+        }
         
         .form-setup{
-
+            display: flex;
+            flex-direction: column;
+            flex-grow: 0.7;
+            padding: 0;
             // display: grid;
             // justify-content: center;
             // grid-template-columns: 66vh;
@@ -82,12 +89,12 @@ $font-museo: "MuseoSansRounded", "Helvetica Neue", Helvetica, Arial, sans-serif;
             // padding-left: 4%;
 
 
-            display: grid;
-            justify-content: center;
-            grid-template-columns: 91%;
-            grid-template-rows: repeat(8, 10% minmax(auto, 0.8fr));
-            padding-right: 4%;
-            padding-left: 4%;
+            // display: grid;
+            // justify-content: center;
+            // grid-template-columns: 91%;
+            // grid-template-rows: repeat(8, 1fr minmax(auto, 0.8fr));
+            // padding-right: 4%;
+            // padding-left: 4%;
 
              //top right bottom left
 
@@ -111,34 +118,38 @@ $font-museo: "MuseoSansRounded", "Helvetica Neue", Helvetica, Arial, sans-serif;
 
             input{
                 border-radius: 3px;
-                font-size: 3vh;
+                font-size: 1vh;
                 text-align: center;
                 padding: 3vh;
-                margin-bottom: 4vh;
+                margin-bottom: 1.1vh;
 
             }
             input::placeholder {
                 color: $kolor_grey;
                 text-align: center;
-                font-size: 5vh;
+                font-size: 3vh;
                 
               }
 
             button{
-                border-radius: 30px;
-                font-size: 6vh;
-                text-align: center;
-                width: 39vw;
+                border-radius: 2px;
+                font-size: 3vh;
+                width: 100%;
+                // border-radius: 30px;
+                // font-size: 6vh;
+                // text-align: center;
+                // justify-content: center;
+                // width: 39vw;
             }
         }
 
-        .form-title{
-            display: flex;
-            flex-direction: column;
-            justify-content: flex-end;
-            background-color: white;
-            font-size: 6vh;
-        }
+        // .form-title{
+        //     display: flex;
+        //     flex-direction: column;
+        //     justify-content: flex-end;
+        //     background-color: white;
+        //     font-size: 6vh;
+        // }
         // .signup-form-setup{
         //     display: grid;
         //     justify-content: center;

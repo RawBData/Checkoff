@@ -42,7 +42,7 @@ export const logout = () => (dispatch) => UTIL.logout()
 //signup(user)(thunk action creator)
 export const signUp = (user) => (dispatch) => UTIL.signUp(user)
   .then((user) => {dispatch(receiveCurrentUser(user));},
-  // err => dispatch(receiveErrors(err.responseJSON))
+  err => dispatch(receiveErrors(err.responseJSON))
   );
 
 //receiveErrors(errors)(regular action creator)
@@ -51,6 +51,11 @@ export const receiveErrors = errors => ({
   errors
 });
 
-export const clearErrors = () => ({
-  type:CLEAR_ERRORS
-});
+export const clearErrors = () => {
+  //debugger;
+  return(
+    {
+      type:CLEAR_ERRORS
+    }
+  )
+  };

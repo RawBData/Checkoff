@@ -1,4 +1,4 @@
-import { ERRORS, LOGIN_USER, CLEAR_ERRORS } from '../actions/session_actions';
+import { ERRORS, LOGIN_USER } from '../actions/session_actions';
 
 
 export const sessionErrorsReducer = (oldState = {}, action) => {
@@ -14,9 +14,6 @@ export const sessionErrorsReducer = (oldState = {}, action) => {
       nextState = [...action.errors];
       return nextState;
 
-    case CLEAR_ERRORS:
-      nextState = [];
-      return nextState;
     default:
       return oldState;
   }
