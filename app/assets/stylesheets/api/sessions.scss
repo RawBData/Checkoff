@@ -28,14 +28,64 @@ $font-sans: "Proxima Nova", "Helvetica Neue", Helvetica, Arial, sans-serif;
 $font-museo: "MuseoSansRounded", "Helvetica Neue", Helvetica, Arial, sans-serif;
 
 .session-form{
-
+    font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
     display: grid;
     grid-template-columns: 1fr 1fr;
-    grid-template-rows: 100%;
+    grid-template-rows: minmax(auto, auto);
     padding: 0 0 0 0;
+    height: 100vh;
 
     .left-session-form{
         background-color: $kolor_navy;
+        color: white;
+
+
+        display: grid;
+        grid-template-columns: 20% 80%;
+        grid-template-rows: 15% 20% 30% auto;
+
+
+        .figure{
+            margin-left: 0;
+            grid-column-start: 2;
+            grid-row-start: 1;
+            grid-row-end: 2;
+
+            img{
+                max-height: 110%;
+                min-height: 5%;
+                min-width: 27%;
+            }
+        }
+
+        .blurb{
+            grid-column-start: 2;
+            grid-row-start: 3;
+            grid-row-end: 4;
+        }
+
+        .blurbUl{
+            padding: 0;
+            list-style: none;
+
+            
+        }
+
+        p{
+            padding-left: 15px;
+            color: #d3afaf
+        }
+
+        .pLi{
+            color:rgb(255, 255, 255);
+            font-size: 3vh;
+        }
+
+        .curator{
+            grid-column-start: 2;
+            grid-row-start: 4;
+        }
+
     }
 
     .right-session-form{
@@ -65,11 +115,17 @@ $font-museo: "MuseoSansRounded", "Helvetica Neue", Helvetica, Arial, sans-serif;
             font-weight: 700;
             border-radius: 3px;
         }
+
+        .errorText{
+            font-size: 100%;
+            color: red;
+        }
         
         .other-session-button:hover {
             // background-color: rgb(109, 109, 24);
             // box-shadow: 1px 1px 1px brown;
             color:$kolor_lime;
+            cursor: pointer;
         }
 
         .form-container{
@@ -112,21 +168,22 @@ $font-museo: "MuseoSansRounded", "Helvetica Neue", Helvetica, Arial, sans-serif;
                 align-items: center;
                 justify-content: center;
                 border-radius: 30px;
-                
 
             }
 
             input{
+                color: $kolor_navy;
                 border-radius: 3px;
-                font-size: 1vh;
-                text-align: center;
-                padding: 3vh;
+                font-size: 2.5vh;
+                text-align: left;
+                padding: 3%;
                 margin-bottom: 1.1vh;
 
             }
             input::placeholder {
+                display: flex;
                 color: $kolor_grey;
-                text-align: center;
+                text-align: left;
                 font-size: 3vh;
                 
               }
@@ -135,11 +192,13 @@ $font-museo: "MuseoSansRounded", "Helvetica Neue", Helvetica, Arial, sans-serif;
                 border-radius: 2px;
                 font-size: 3vh;
                 width: 100%;
-                // border-radius: 30px;
-                // font-size: 6vh;
-                // text-align: center;
-                // justify-content: center;
-                // width: 39vw;
+                background-color: $kolor_navy;
+                color:white
+            }
+
+            button:hover{
+                background-color: rgb(90, 106, 134);
+                cursor: pointer;
             }
         }
 

@@ -14,7 +14,6 @@ import BannerContainer from '../banner/banner_container';
       
         render(){
           const currentUser = this.props.currentUser;
-          console.log("in advertisment")
       
           const display = (
               <div style={{backgroundColor: 'green'}}>

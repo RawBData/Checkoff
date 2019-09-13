@@ -11,24 +11,24 @@ class Main extends React.Component {
 
   render(){
     const currentUser = this.props.currentUser;
-    console.log(currentUser)
-
-    // const headernNav = currentUser ? (
-    //   <div>
-
-    //   </div>
-    // ) : (
-    //   <div className="banner-nav">
-
-    //   </div>
-    // );
 
 
     return (
 
-      <main>
-       <BannerContainer />
-       <h1>Splash</h1>
+      <main className="splash-page">
+        <div>
+          <BannerContainer />
+        </div>
+       <div className="splash-container">
+         <h1>The smart to-do app for busy people</h1>
+         <button onClick={()=>this.props.history.push('/signup')}>Sign Up Free</button>
+         <img className="logo-banner" src={window.graphic_01} alt="graphic" />
+       <div className="splash-footer">
+         Footer
+       </div>
+       </div>
+      
+       
       </main>
     );
   }

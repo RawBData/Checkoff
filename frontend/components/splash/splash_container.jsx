@@ -4,7 +4,6 @@ import Splash from './splash';
 import { login } from '../../actions/session_actions';
 
 const MSP = (state) => {
-    console.log(state);
     let currentUser = state.entities.users[state.session.id];
     return ({
       currentUser

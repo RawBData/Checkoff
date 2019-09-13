@@ -15,7 +15,6 @@ class Advert extends React.Component {
 
 
     const currentUser = this.props.currentUser;
-    console.log("in advertisment")
 
     const display = (
         <div className="advert_container">

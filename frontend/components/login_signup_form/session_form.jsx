@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { blurb } from './poems';
 
 class SessionForm extends React.Component {
   constructor(props) {
@@ -13,11 +14,6 @@ class SessionForm extends React.Component {
     };
 
     this.handleSubmit = this.handleSubmit.bind(this);
-
-        // /linecount/3
-    // http://poetrydb.org/title/Ozymandias/lines.json
-    // 
-    // http://poetrydb.org/linecount/3    title/Ozymandias/lines.json
   }
 
   handleInput(type) {
@@ -29,24 +25,50 @@ class SessionForm extends React.Component {
   handleSubmit(e) {
     e.preventDefault();
     this.props.processForm(this.state)
-      .then(() => this.props.history.push('/main'));
+    .then(() => this.props.history.push('/main'));
   }
 
+  // handleDemoLogin() {
+  //   const demoUser = { username:}
+  //   this.props.processForm(demoUser)
+  //   .then(() => this.props.history.push('/main'));
+  // }
+  
+  
   render() {
+    
+    
+    
     let formClass = this.props.formType;
     let submitButton = formClass === 'login'? "Log In!" : "Sign Up!";
-    let formTitle = formClass === 'login'? "Been here before? Welcome back!" : "Sign up for free.";
-    
-    
-    
-    let errorsDisplay = this.props.errors.length>0? 
+    let formTitle = formClass === 'login'? "Been here before? Welcome back!" : "Sign up for free.";     
+    let blb = formClass === 'login'? blurb[Math.floor(Math.random()*blurb.length)] : "ADVERT IMAGE HERE";
+
+    //LEFT SIDE
+      let blurbDisplay = formClass === 'login'? 
       (<div>
-        <ul>
-          {this.props.errors.map(err=>(<h1>{err}</h1>))}
+        <ul className="blurbUl">
+          {
+            blb.poem.map(line=>(<li className="pLi">{line}</li>))
+          }
         </ul>
-      </div>)
-    : 
-      (<div></div>);
+        <p>Author - {blb.author}</p>
+      </div>) 
+      : 
+      (<div>
+
+      </div>);
+    
+
+    //RIGHT SIDE
+    let errorsDisplay = this.props.errors.length>0? 
+        (<div>
+          <ul>
+            {this.props.errors.map(err=>(<h1 className="errorText">{err}</h1>))}
+          </ul>
+        </div>)
+      : 
+        (<div></div>);
 
     let signUpFormDisplay1 = [];
     if (formClass==='signup') {
@@ -81,39 +103,37 @@ class SessionForm extends React.Component {
     }
     
     signUpFormDisplay1.unshift(
-      <div key="form title">
-        <h2 key="formtitle" className="form-title">{formTitle}</h2>
+      <div>
+        <div key="form title">
+          <h2 key="formtitle" className="form-title">{formTitle}</h2>
+        </div>
+        <div className="errorContainer">
+            {errorsDisplay}
+        </div>
       </div>
     );
       //add username and password to display array no matter what
-      signUpFormDisplay1 = signUpFormDisplay1.concat([
-            (<input
-              type="text"
-              value={this.state.username}
-              onChange={this.handleInput('username')}
-              placeholder="Username"
-              key="Username"
-            />)
+    signUpFormDisplay1 = signUpFormDisplay1.concat([
+          (<input
+            type="text"
+            value={this.state.username}
+            onChange={this.handleInput('username')}
+            placeholder="Username"
+            key="Username"
+          />)
+        ,
+          (<input
+            type="password"
+            value={this.state.password}
+            onChange={this.handleInput('password')}
+            placeholder="Password (min 6 characters)"
+            key="Password"
+          />)
           ,
-            (<input
-              type="password"
-              value={this.state.password}
-              onChange={this.handleInput('password')}
-              placeholder="Password (minimum 6 characters)"
-              key="Password"
-            />)
-            ,
-            <div className="submit-button-container">
-              <button onClick={this.handleSubmit} key='submitButton'>{submitButton}</button>
-            </div>
-        ]);
-
-
-
-
-
-
-    
+          <div className="submit-button-container">
+            <button onClick={this.handleSubmit} key='submitButton'>{submitButton}</button>
+          </div>
+      ]);
 
     let sessionToggle = formClass === 'signup'? 
       (<Link onClick={()=>this.props.clearErrors()} className="other-session-button" to="/login">Log in</Link>) 
@@ -124,13 +144,23 @@ class SessionForm extends React.Component {
     return (
       <main className="session-form">
         <span className="left-session-form">
-          <h1>test</h1>
+          <figure className="figure">
+            <Link to='/'>
+            <img className="logo-sessions" src={window.logoURL} alt="checkoff_logo" />
+            </Link>
+          </figure>
+
+          <div className="blurb">
+            {blurbDisplay}
+          </div>
+
+          <div className="curator">
+            <h1>my image</h1>
+          </div>
+
         </span>
 
         <span className="right-session-form">
-          <div>
-            {errorsDisplay}
-          </div>
           <div className="session-toggle-container">
             {sessionToggle}
           </div>
