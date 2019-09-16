@@ -2,7 +2,7 @@ import { connect } from 'react-redux';
 
 import Banner from './banner';
 import {
-  logout
+  logout, login
 } from '../../actions/session_actions';
 
 let msp = (state) => {
@@ -15,6 +15,7 @@ let msp = (state) => {
   let mdp = (dispatch) => {
     return ({
         logout: () => dispatch(logout()),
+        demoLogin: (user) => dispatch(login(user)),
     })
   }
   

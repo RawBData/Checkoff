@@ -14,7 +14,7 @@ class Banner extends React.Component {
     //   : 
     //   {title:"All The Chirps!",to:"/chirps"} ;
 
-    const display = currentUser ? (
+    const headernNav = currentUser ? (
       <div>
         <div>
           {/* <Link className="btn" to={likedAllPageToggle.to}>{likedAllPageToggle.title}</Link> */}
@@ -28,10 +28,10 @@ class Banner extends React.Component {
         <Link className="button" to="/">What's New</Link>
         <Link className="button" to="/">Upgrade</Link>
         <Link className="button" to="/">Help</Link>
-        <Link className="button" to="/login">Log in</Link>
+        <Link className="button last-button" to="/login">Log in</Link>
         <div className="sign-up-demo">
-          <Link className="button" to="/signup">Sign up for free</Link>
-          <Link className="button" to="/signup">Demo</Link>
+          <Link className="button signup-button" to="/signup">Sign up for free</Link>
+          <Link onClick={()=>this.props.demoLogin({username:"Demo",password:"123456"})} className="button demo" to="/">Demo</Link>
         </div>
         
       </div>
@@ -41,9 +41,11 @@ class Banner extends React.Component {
       <header className="banner">
         {/* <h1 className="logo">CHECKOFF</h1> */}
         <figure className="figure">
-          <img className="logo-banner" src={window.logoURL} alt="checkoff_logo" />
+          <Link to='/'>
+            <img className="logo-banner" src={window.logoURL} alt="checkoff_logo" />
+          </Link>
         </figure>
-        {display}
+        {headernNav}
         <div>
         
 
