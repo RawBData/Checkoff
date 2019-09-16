@@ -27,9 +27,24 @@ $kolor_grey: rgb(205, 211, 222);
 $main-color: #ada0ee;
 // $font-sans: "Proxima Nova", "Helvetica Neue", Helvetica, Arial, sans-serif;
 $font-museo: "MuseoSansRounded", "Helvetica Neue", Helvetica, Arial, sans-serif;
+$company_color: #1760bf;
+
+$tablet-end: 1036px;
+$tablet-start: 769px;
+$mobile-end: 769px;
 
 
+@mixin tablet {
+    @media (min-width: #{$tablet-start}) and (max-width: #{$tablet-end}) {
+        @content;
+    }
+}
 
+@mixin mobile {
+    @media (max-width: #{$mobile-end}) {
+        @content;
+    }
+}
 
 .session-form{
     //font-family: $font-museo;
@@ -41,35 +56,39 @@ $font-museo: "MuseoSansRounded", "Helvetica Neue", Helvetica, Arial, sans-serif;
     padding: 0 0 0 0;
     height: 100vh;
 
+    @include mobile{
+        grid-template-columns: 1fr;
+    }
+
+
+   
+
     .left-session-form{
 
-        background-color: $kolor_navy;
+        background-color: $company_color;
         color: white;
         display: grid;
-        grid-template-columns: 20% 80%;
+        grid-template-columns: 25% auto;
         // grid-template-rows: 15% 20% 30% auto;
-        grid-template-rows: 5% 10% 21% auto;
+        grid-template-rows: 75px 10% 21% auto;
 
-        .figure{
-            background-color: none;
-            margin-left: 0;
-            grid-column-start: 2;
-            grid-row-start: 1;
-            grid-row-end: 2;
-
-            .logo-sessions{
-                max-height: 150%;
-                min-height: 5%;
-                min-width: 27%;
-                max-width: 37%;
-            }
+        @include tablet {
+            grid-template-columns: 10% auto;
         }
 
-        .blurb{
+        @include mobile{
+            display: none;
+        }
 
+
+        
+
+        .blurb{
             grid-column-start: 2;
             grid-row-start: 3;
             grid-row-end: 4;
+
+            
         }
 
         .blurb-ul{
@@ -81,16 +100,18 @@ $font-museo: "MuseoSansRounded", "Helvetica Neue", Helvetica, Arial, sans-serif;
 
         p{
             padding-left: 15px;
-            color: #f5f2f2
+            color: #f5f2f2;
+            
         }
 
         .p-li{
-            color:rgb(255, 255, 255);
+            color:#d7f3ff;
             font-size: 3vh;
+            line-height: 37px;
         }
 
         .curator{
-            margin-top: 60px;
+            margin-top: 100px;
             grid-column-start: 2;
             grid-row-start: 4;
         }
@@ -114,24 +135,77 @@ $font-museo: "MuseoSansRounded", "Helvetica Neue", Helvetica, Arial, sans-serif;
         
     }
 
+    figure{
+        background-color: none;
+        margin-left: 0;
+        grid-column-start: 2;
+        grid-row-start: 1;
+        grid-row-end: 2;
+
+
+        .logo-sessions{
+            // max-height: 150%;
+            // min-height: 5%;
+            // min-width: 27%;
+            // max-width: 37%;
+            height: 83px;
+            // widows: 179px;
+        }
+        
+        
+    }
+
     .right-session-form{
         display: grid;
         grid-template-rows: 1fr 1.1fr; 
 
+        .mobile-logo{
+            display: none;
+
+            @include mobile{
+                display: flex;
+                margin: 0;
+                justify-content: center;
+                align-items: center;
+
+                // visibility: visible;
+
+                img{
+                    height: 292px;
+                }
+            }
+
+
+
+        }
+
         .session-toggle-container{
             height: 215px;
+            @include mobile{
+                display: flex;
+                justify-content: space-between;
+                height: 154px;
+                // visibility: visible;
+            }
         }
 
         .other-session-button {
             text-decoration: none;
             background-color: $kolor_grey;
-            color:$kolor_navy;
+            color:$company_color;
             border-radius: 3px;
             float: right;
             margin: 43px -2px 0 0;
             font-size: 15px;
             padding: 5px 11px 4px;
             font-weight: 500;
+
+            @include mobile{
+                float: none;
+                display: table;
+                // visibility: visible;
+            }
+
         }
 
         
@@ -157,7 +231,10 @@ $font-museo: "MuseoSansRounded", "Helvetica Neue", Helvetica, Arial, sans-serif;
         }
 
         .form-container{
-                
+            @include mobile{
+                display: flex;
+                justify-content: center;
+            }
         }
 
         .form-setup{
@@ -165,6 +242,10 @@ $font-museo: "MuseoSansRounded", "Helvetica Neue", Helvetica, Arial, sans-serif;
             flex-direction: column;
             width: 420px;
             margin-left: 57px;
+
+            @include mobile{
+                margin-left: 0px;
+            }
             
 
             .submit-button-container{
@@ -198,7 +279,7 @@ $font-museo: "MuseoSansRounded", "Helvetica Neue", Helvetica, Arial, sans-serif;
                 border-radius: 5px;
                 font-size: 18px;
                 width: 100%;
-                background-color: #29354B;
+                background-color: #259dfe;
                 color: white;
                 margin-top: 2%;
                 height: 46px;
@@ -208,6 +289,7 @@ $font-museo: "MuseoSansRounded", "Helvetica Neue", Helvetica, Arial, sans-serif;
                 background-color: rgb(90, 106, 134);
                 cursor: pointer;
             }
+
 
             .login-demo-divider{
                 display: flex;
@@ -235,6 +317,27 @@ $font-museo: "MuseoSansRounded", "Helvetica Neue", Helvetica, Arial, sans-serif;
                     color: rgba(0, 0, 0, 0.3);
                 }
             }
+
+            .demo-button-container{
+                display: flex;
+                
+                align-items: center;
+                background-color: #3b589e;
+                border-radius: 5px;
+                
+                .demo-button{
+                    background-color: #3b589e;
+                    align-self: auto;
+
+                }
+                img{
+                    height: 44px;
+                    margin: 6px;
+                    position: absolute;
+                    padding-bottom: 11px;
+                }
+            }
+
 
         }
 
