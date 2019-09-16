@@ -183,6 +183,7 @@ $mobile-end: 769px;
             height: 215px;
             @include mobile{
                 display: flex;
+                justify-content: space-between;
                 height: 154px;
                 // visibility: visible;
             }
