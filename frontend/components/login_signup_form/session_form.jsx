@@ -13,7 +13,10 @@ class SessionForm extends React.Component {
       password: '',
     };
 
+    this.blb = this.props.formType === 'login'? blurb[Math.floor(Math.random()*blurb.length)] : "ADVERT IMAGE HERE";
+
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleDemoLogin = this.handleDemoLogin.bind(this);
   }
 
   handleInput(type) {
@@ -28,52 +31,72 @@ class SessionForm extends React.Component {
     .then(() => this.props.history.push('/main'));
   }
 
-  // handleDemoLogin() {
-  //   const demoUser = { username:}
-  //   this.props.processForm(demoUser)
-  //   .then(() => this.props.history.push('/main'));
-  // }
+  handleDemoLogin() {
+    const demoUser = { username:"Demo",password:"123456"}
+    if (this.props.formType=='login'){
+      this.props.processForm(demoUser)
+      .then(() => this.props.history.push('/main'));
+    }else{
+      this.props.login(demoUser)
+      .then(() => this.props.history.push('/main'));
+    }
+  }
+
+  componentDidMount(){
+    
+
+  }
   
   
   render() {
     
-    
-    
     let formClass = this.props.formType;
-    let submitButton = formClass === 'login'? "Log In!" : "Sign Up!";
+    let submitButton = formClass === 'login'? "Log in!" : "Sign up!";
     let formTitle = formClass === 'login'? "Been here before? Welcome back!" : "Sign up for free.";     
-    let blb = formClass === 'login'? blurb[Math.floor(Math.random()*blurb.length)] : "ADVERT IMAGE HERE";
 
-    //LEFT SIDE
+    //LEFT SIDE SETUP
       let blurbDisplay = formClass === 'login'? 
       (<div>
-        <ul className="blurbUl">
+        <ul className="blurb-ul">
           {
-            blb.poem.map(line=>(<li className="pLi">{line}</li>))
+            this.blb.poem.map(line=>(<li className="p-li">{line}</li>))
           }
         </ul>
-        <p>Author - {blb.author}</p>
+        <p>Author - {this.blb.author}</p>
       </div>) 
       : 
       (<div>
-
+        <figure className='customers-gif-container'>
+        
+          <img className="customers-gif-image" src={window.cusomers_gif} alt="checkoff_logo" />
+          <h1>Join tens of people getting more organized and productive!</h1>
+        </figure>
       </div>);
     
 
     //RIGHT SIDE
+
+    //Switch between login and sign up form
+    let sessionToggle = formClass === 'signup'? 
+    (<Link onClick={()=>this.props.clearErrors()} className="other-session-button" to="/login">Log in</Link>) 
+    : 
+    (<Link onClick={()=>this.props.clearErrors()} className="other-session-button" to="/signup">Sign up for free</Link>);
+
+
+
     let errorsDisplay = this.props.errors.length>0? 
         (<div>
           <ul>
-            {this.props.errors.map(err=>(<h1 className="errorText">{err}</h1>))}
+            {this.props.errors.map(err=>(<h1 key={err[0]} className="error-text">{err}</h1>))}
           </ul>
         </div>)
       : 
         (<div></div>);
 
-    let signUpFormDisplay1 = [];
+    let formDisplay = [];
     if (formClass==='signup') {
       //checks if SIGNUP page and creates sign up field containers for use
-      signUpFormDisplay1 = [
+      formDisplay = [
         
         (<input
           type="text"
@@ -102,18 +125,23 @@ class SessionForm extends React.Component {
       ];
     }
     
-    signUpFormDisplay1.unshift(
-      <div>
+    formDisplay.unshift(
+      <div className="session-toggle-container">
+        {sessionToggle}
+      </div>
+      ,
+      <div key="formtitle-error-container">
         <div key="form title">
           <h2 key="formtitle" className="form-title">{formTitle}</h2>
         </div>
-        <div className="errorContainer">
+        <div className="error-container">
             {errorsDisplay}
         </div>
       </div>
-    );
+      );
       //add username and password to display array no matter what
-    signUpFormDisplay1 = signUpFormDisplay1.concat([
+    
+      formDisplay = formDisplay.concat([
           (<input
             type="text"
             value={this.state.username}
@@ -133,12 +161,22 @@ class SessionForm extends React.Component {
           <div className="submit-button-container">
             <button onClick={this.handleSubmit} key='submitButton'>{submitButton}</button>
           </div>
+          ,
+          <div className="login-demo-divider">
+            <hr/>
+            <span>OR</span>
+            <hr/>
+          </div>
+          ,
+          <div className="demo-button-container">
+            <button onClick={this.handleDemoLogin} key='demoButton'>Demo</button>
+          </div>
       ]);
 
-    let sessionToggle = formClass === 'signup'? 
-      (<Link onClick={()=>this.props.clearErrors()} className="other-session-button" to="/login">Log in</Link>) 
-      : 
-      (<Link onClick={()=>this.props.clearErrors()} className="other-session-button" to="/signup">Sign up for free</Link>);
+    
+
+    
+
 
 
     return (
@@ -160,17 +198,12 @@ class SessionForm extends React.Component {
 
         </span>
 
-        <span className="right-session-form">
-          <div className="session-toggle-container">
-            {sessionToggle}
-          </div>
-          <div>      
+        <span className="right-session-form">    
             <form className="form-container">           
               <ul className="form-setup">
-                {signUpFormDisplay1}
+                {formDisplay}
               </ul>
             </form>
-          </div>
         </span>
       </main>
     );

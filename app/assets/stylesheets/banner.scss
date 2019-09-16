@@ -19,18 +19,37 @@ $kolor_navy: #29354B;
 $main-color: #ada0ee;
 $font-sans: "Proxima Nova", "Helvetica Neue", Helvetica, Arial, sans-serif;
 $font-museo: "MuseoSansRounded", "Helvetica Neue", Helvetica, Arial, sans-serif;
-    
+  
+
+@import 'fonts';
 
 
 .banner {
+
+    font-family: MuseoSansRounded, "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-weight: 700;
+    // position: fixed;
+    position: -webkit-sticky;
+    width: 100%;
+    // z-index: 99;
+    top: 0;
+    // margin-bottom: -114px;
+
+
     background-color: $kolor_navy;
-    font-family: $main-color;
+
+    
+    
+    font-family: MuseoSansRounded, "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-weight: 700;
+
     display: flex;
     justify-content: space-between;
     align-content: center;
 
 
     .figure{
+        background-color: none;
         padding-right: 2vw;
 
         img{
@@ -53,10 +72,10 @@ $font-museo: "MuseoSansRounded", "Helvetica Neue", Helvetica, Arial, sans-serif;
         
         // overflow: hidden;
         white-space: nowrap;
-        font-size: 1.2vw;
+        font-size: 15px;
         display: flex;
         padding-right: 33px;
-        font-weight: 700;
+        font-weight: 500;
       }
   
     .button:hover {
@@ -69,8 +88,7 @@ $font-museo: "MuseoSansRounded", "Helvetica Neue", Helvetica, Arial, sans-serif;
         // background-color:red;
         border: 2px solid white;
         border-radius: 4px;
-        padding-left: 7px;
-        padding-right: 6px;
+        padding: 7px 12px;
     }
 
     .signup-button:hover{
@@ -79,9 +97,8 @@ $font-museo: "MuseoSansRounded", "Helvetica Neue", Helvetica, Arial, sans-serif;
     }
 
     .logo-banner {
-        background-color: white;
         float: left;
-        width: 119px;
+        width: 210px;
         position:relative;  
     }
 

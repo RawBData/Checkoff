@@ -20,7 +20,7 @@ class Main extends React.Component {
           <BannerContainer />
         </div>
        <div className="splash-container">
-         <h1>The smart to-do app for busy people</h1>
+         <h1 className="splash-tagline">The smart to-do app for busy people.</h1>
          <button onClick={()=>this.props.history.push('/signup')}>Sign Up Free</button>
          <img className="logo-banner" src={window.graphic_01} alt="graphic" />
        <div className="splash-footer">
