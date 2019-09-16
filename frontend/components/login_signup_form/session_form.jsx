@@ -51,8 +51,20 @@ class SessionForm extends React.Component {
   render() {
     
     let formClass = this.props.formType;
-    let submitButton = formClass === 'login'? "Log in!" : "Sign up!";
-    let formTitle = formClass === 'login'? "Been here before? Welcome back!" : "Sign up for free.";     
+
+    let submitButton; // = formClass === 'login'? "Log in!" : "Sign up!";
+    let formTitle; // = formClass === 'login'? "Been here before? Welcome back!" : "Sign up for free.";  
+    let demoButton;
+    
+    if(formClass === 'login'){
+      submitButton = "Log in!";
+      formTitle = "Been here before? Welcome back!";
+      demoButton = "Demo Login" 
+    }else{
+      submitButton = "Sign up!";
+      formTitle = "Sign up for free.";
+      demoButton = "Demo Sign Up" 
+    }
 
     //LEFT SIDE SETUP
       let blurbDisplay = formClass === 'login'? 
@@ -76,29 +88,24 @@ class SessionForm extends React.Component {
 
     //RIGHT SIDE
 
-    //Switch between login and sign up form
-    let sessionToggle = formClass === 'signup'? 
-    (<Link onClick={()=>this.props.clearErrors()} className="other-session-button" to="/login">Log in</Link>) 
-    : 
-    (<Link onClick={()=>this.props.clearErrors()} className="other-session-button" to="/signup">Sign up for free</Link>);
-
-
-
+    
+    
+    
     let errorsDisplay = this.props.errors.length>0? 
-        (<div>
+    (<div>
           <ul>
             {this.props.errors.map(err=>(<h1 key={err[0]} className="error-text">{err}</h1>))}
           </ul>
         </div>)
       : 
-        (<div></div>);
-
-    let formDisplay = [];
-    if (formClass==='signup') {
-      //checks if SIGNUP page and creates sign up field containers for use
-      formDisplay = [
-        
-        (<input
+      (<div></div>);
+      
+      let formDisplay = [];
+      if (formClass==='signup') {
+        //checks if SIGNUP page and creates sign up field containers for use
+        formDisplay = [
+          
+          (<input
           type="text"
           value={this.state.firstName}
           onChange={this.handleInput('firstName')}
@@ -122,11 +129,22 @@ class SessionForm extends React.Component {
           key="Email"
         />)
      
-      ];
-    }
-    
-    formDisplay.unshift(
-      <div className="session-toggle-container">
+    ];
+  }
+  
+  //Switch between login and sign up form
+  let sessionToggle = formClass === 'signup'? 
+  (<Link onClick={()=>this.props.clearErrors()} className="other-session-button" to="/login">Log in</Link>) 
+  : 
+  (<Link onClick={()=>this.props.clearErrors()} className="other-session-button" to="/signup">Sign up for free</Link>);
+  
+  formDisplay.unshift(
+    <div className="session-toggle-container">
+        <figure className="mobile-logo">
+          <Link to='/'>
+            <img className="logo-sessions" src={window.logoURL_black} alt="checkoff_logo" />
+          </Link>
+        </figure>
         {sessionToggle}
       </div>
       ,
@@ -169,7 +187,8 @@ class SessionForm extends React.Component {
           </div>
           ,
           <div className="demo-button-container">
-            <button onClick={this.handleDemoLogin} key='demoButton'>Demo</button>
+            <img src={window.demo_logo} alt=""/>
+            <button className="demo-button" onClick={this.handleDemoLogin} key='demoButton'>{demoButton}</button>
           </div>
       ]);
 
