@@ -21,6 +21,22 @@ $kolor_green_sea: #2e8b57;
 $font-museo: "MuseoSansRounded", "Helvetica Neue", Helvetica, Arial, sans-serif;
 
 
+$mobile-end: 770px;
+$tablet-start: 770px;
+$tablet-end: 1000px;
+
+@mixin tablet {
+    @media (min-width: #{$tablet-start}) and (max-width: #{$tablet-end}) {
+        @content;
+    }
+}
+
+@mixin mobile {
+    @media (max-width: #{$mobile-end}) {
+        @content;
+    }
+}
+
 .splash-page{
 
     background-color:$kolor_green_sea;
@@ -36,6 +52,10 @@ $font-museo: "MuseoSansRounded", "Helvetica Neue", Helvetica, Arial, sans-serif;
         height: 90vh;
         align-items: end;
         justify-items: center;
+
+        @include mobile{
+            padding: 0px 54px;
+        }
     }
 
 

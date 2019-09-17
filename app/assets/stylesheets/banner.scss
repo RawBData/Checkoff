@@ -25,6 +25,22 @@ $font-museo: "MuseoSansRounded", "Helvetica Neue", Helvetica, Arial, sans-serif;
 @import 'fonts';
 
 
+$mobile-end: 770px;
+$tablet-start: 770px;
+$tablet-end: 1000px;
+
+@mixin tablet {
+    @media (min-width: #{$tablet-start}) and (max-width: #{$tablet-end}) {
+        @content;
+    }
+}
+
+@mixin mobile {
+    @media (max-width: #{$mobile-end}) {
+        @content;
+    }
+}
+
 .banner {
 
     font-family: MuseoSansRounded, "Helvetica Neue", Helvetica, Arial, sans-serif;
@@ -51,12 +67,12 @@ $font-museo: "MuseoSansRounded", "Helvetica Neue", Helvetica, Arial, sans-serif;
 
     .figure{
         background-color: none;
-        padding-right: 2vw;
+        // padding-right: 2vw;
 
         img{
-            max-height: 110%;
-            min-height: 5%;
-            min-width: 27%;
+            // max-height: 110%;
+            // min-height: 5%;
+            // min-width: 27%;
         }
     }
     .button {
@@ -85,6 +101,18 @@ $font-museo: "MuseoSansRounded", "Helvetica Neue", Helvetica, Arial, sans-serif;
         color:$kolor_yellow;
     }
 
+    .mobile-hide{
+        @include mobile{
+            display: none;
+        }
+    }
+
+    .tablet-change-nav-button{
+        @include tablet{
+            padding-right: 14px;
+        }
+    }
+
     .signup-button{
         // background-color:red;
         border: 2px solid white;
@@ -101,6 +129,14 @@ $font-museo: "MuseoSansRounded", "Helvetica Neue", Helvetica, Arial, sans-serif;
         float: left;
         width: 210px;
         position:relative;  
+
+        @include tablet{
+            width: 112px;
+        }
+
+        @include mobile{
+            width: 195px;  
+        }
     }
 
     .banner-nav{
@@ -109,6 +145,10 @@ $font-museo: "MuseoSansRounded", "Helvetica Neue", Helvetica, Arial, sans-serif;
 
     .demo{
         font-size: 1.5vw;
+
+        @include mobile{
+            font-size: 19px;
+        }
      }
 }
 
