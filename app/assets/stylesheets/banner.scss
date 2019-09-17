@@ -53,16 +53,16 @@ $tablet-end: 1000px;
     // margin-bottom: -114px;
     // color: white;
     // border: 0px solid white;
-    // animation: 10000ms ease-in-out infinite color-change;
+    animation: color-change 10000ms ease-in-out infinite;
 
-    //     @keyframes color-change {
-    //         0% {
-    //           background-color: $company_color;
-    //         }
-    //         50% {
-    //           background-color: gold;
-    //         }
-    //     }
+        @keyframes color-change {
+            0% {
+              background-color: $company_color;
+            }
+            50% {
+              background-color: gold;
+            }
+        }
 
     background-color: $company_color;
 

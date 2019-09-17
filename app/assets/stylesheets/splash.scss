@@ -60,33 +60,32 @@ body {
         height: 90vh;
         align-items: end;
         justify-items: center;
-        //animation: color-change 10000ms ease-in-out infinite 1s;
-
-        //animation: 10000ms ease-in-out infinite color-change 1 infinite ;
-        // animation-timing-function: cubic-bezier(0.1, -0.6, 0.2, 0);
+        background-color: $company_color;
+        animation: color-change 10000ms ease-in-out infinite .5s;
+        //animation-timing-function: cubic-bezier(0.1, -0.6, 0.2, 0);
         
 
-        // @keyframes color-change {
-        //     0% {
-        //       background-color: #1760bf;
+        @keyframes color-change {
+            0% {
+              background-color: $company_color;
               
-        //     }
-        //     50% {
-        //       background-color: gold;
-        //     }
-        //     // 40% {
-        //     //   background-color: indianred;
-        //     // }
-        //     // 60% {
-        //     //   background-color: violet;
-        //     // }
-        //     // 100% {
-        //     //   background-color: green;
-        //     // }
-        //     // 100% {
-        //     //   background-color: teal;
-        //     // }
-        //   }
+            }
+            50% {
+              background-color: gold;
+            }
+            // 40% {
+            //   background-color: indianred;
+            // }
+            // 60% {
+            //   background-color: violet;
+            // }
+            // 100% {
+            //   background-color: green;
+            // }
+            // 100% {
+            //   background-color: teal;
+            // }
+          }
 
 
         @include mobile{
@@ -140,6 +139,48 @@ animation:
         // animation-timing-function: cubic-bezier(0.1, -0.6, 0.2, 0);
         
 
+               animation: color-change 10000ms ease-in-out infinite 1s;
+
+        //animation: 10000ms ease-in-out infinite color-change 1 infinite ;
+        // animation-timing-function: cubic-bezier(0.1, -0.6, 0.2, 0);
+        
+
+        @keyframes color-change {
+            0% {
+              background-color: #1760bf;
+              
+            }
+            50% {
+              background-color: gold;
+            }
+            // 40% {
+            //   background-color: indianred;
+            // }
+            // 60% {
+            //   background-color: violet;
+            // }
+            // 100% {
+            //   background-color: green;
+            // }
+            // 100% {
+            //   background-color: teal;
+            // }
+          }
+
+
+          border: 0px solid white;
+          animation: 10000ms ease-in-out infinite color-change;
+      
+              @keyframes color-change {
+                  0% {
+                    background-color: $company_color;
+                  }
+                  50% {
+                    background-color: gold;
+                  }
+              }
+
+          
 
 
         .awesome {
