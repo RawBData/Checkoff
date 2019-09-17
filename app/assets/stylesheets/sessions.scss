@@ -4,7 +4,7 @@
 
 @import 'fonts.scss';
 
-$kolor_grey: #636367;
+$kolor_grey_1: #636367;
 $kolor_yellow: #faff38;
 $kolor_orange: #fa6d40;
 $kolor_orange_dark: #c43923;
@@ -192,7 +192,7 @@ $tablet-end: 1036px;
         .other-session-button {
             text-decoration: none;
             background-color: $kolor_grey;
-            color:$company_color;
+            color:$kolor_grey_1;
             border-radius: 3px;
             float: right;
             margin: 43px -2px 0 0;
