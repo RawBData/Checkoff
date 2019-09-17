@@ -51,9 +51,20 @@ $tablet-end: 1000px;
     // z-index: 99;
     top: 0;
     // margin-bottom: -114px;
+    color: white;
+    border: 0px solid white;
+    animation: 10000ms ease-in-out infinite color-change;
 
+        @keyframes color-change {
+            0% {
+              background-color: $company_color;
+            }
+            50% {
+              background-color: gold;
+            }
+        }
 
-    background-color: $company_color;
+    //background-color: $company_color;
 
     
     
@@ -115,7 +126,7 @@ $tablet-end: 1000px;
 
     .signup-button{
         // background-color:red;
-        border: 2px solid white;
+        border: 2px solid inherit;
         border-radius: 4px;
         padding: 7px 12px;
     }
@@ -141,6 +152,7 @@ $tablet-end: 1000px;
 
     .banner-nav{
         display: flex;
+        border: 0px solid inherit;
     }
 
     .demo{
@@ -168,6 +180,7 @@ $tablet-end: 1000px;
     grid-template-rows: auto auto;
     align-content: center;
     grid-gap: 11px;
+    border: 0px solid inherit;
  }
 
 

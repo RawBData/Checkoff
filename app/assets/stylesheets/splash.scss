@@ -15,6 +15,7 @@ $kolor_blue: #49517e;
 $kolor_red: #CF1103;
 $kolor_navy: #29354B;
 $kolor_green_sea: #2e8b57;
+$company_color: #1760bf;
 
 @import 'fonts';
 
@@ -46,29 +47,10 @@ $tablet-end: 1000px;
 
 
 body {
-    animation: 10000ms ease-in-out infinite color-change;
+    
   }
   
-  @keyframes color-change {
-    0% {
-      background-color: teal;
-    }
-    20% {
-      background-color: gold;
-    }
-    40% {
-      background-color: indianred;
-    }
-    60% {
-      background-color: violet;
-    }
-    80% {
-      background-color: green;
-    }
-    100% {
-      background-color: teal;
-    }
-  }
+  
 
     .splash-container{
         display: grid;
@@ -78,6 +60,34 @@ body {
         height: 90vh;
         align-items: end;
         justify-items: center;
+        animation: color-change 10000ms ease-in-out infinite 1s;
+
+        //animation: 10000ms ease-in-out infinite color-change 1 infinite ;
+        // animation-timing-function: cubic-bezier(0.1, -0.6, 0.2, 0);
+        
+
+        @keyframes color-change {
+            0% {
+              background-color: #1760bf;
+              
+            }
+            50% {
+              background-color: gold;
+            }
+            // 40% {
+            //   background-color: indianred;
+            // }
+            // 60% {
+            //   background-color: violet;
+            // }
+            // 100% {
+            //   background-color: green;
+            // }
+            // 100% {
+            //   background-color: teal;
+            // }
+          }
+
 
         @include mobile{
             padding: 0px 54px;
@@ -120,3 +130,90 @@ body {
     }
 
 }
+
+
+/*
+
+animation: 
+    NAME DURATION TIMING_FUNCTION DELAY 
+    ITERATION_COUNT DIRECTION FILL_MODE PLAY_STATE;
+        // animation-timing-function: cubic-bezier(0.1, -0.6, 0.2, 0);
+        
+
+
+
+        .awesome {
+
+  font-family: futura;
+  font-style: italic;
+
+  width:100%;
+
+  margin: 0 auto;
+  text-align: center;
+
+  color:#313131;
+  font-size:45px;
+  font-weight: bold;
+  position: absolute;
+  -webkit-animation:colorchange 20s infinite alternate;
+
+
+}
+
+@-webkit-keyframes colorchange {
+  0% {
+
+    color: blue;
+  }
+
+  10% {
+
+    color: #8e44ad;
+  }
+
+  20% {
+
+    color: #1abc9c;
+  }
+
+  30% {
+
+    color: #d35400;
+  }
+
+  40% {
+
+    color: blue;
+  }
+
+  50% {
+
+    color: #34495e;
+  }
+
+  60% {
+
+    color: blue;
+  }
+
+  70% {
+
+    color: #2980b9;
+  }
+  80% {
+
+    color: #f1c40f;
+  }
+
+  90% {
+
+    color: #2980b9;
+  }
+
+  100% {
+
+    color: pink;
+  }
+}
+*/
