@@ -239,6 +239,7 @@ $xl-desktop: 1260px;
     .bars {
         font-size:25px;
         //display: inline-block;
+        padding: 9px;
         transform: scale(.9, .7);
         -webkit-transform: scale(.9, .7); /* Safari and Chrome */
         -moz-transform: scale(.9, .7); /* Firefox */
@@ -248,12 +249,13 @@ $xl-desktop: 1260px;
 
     .bars:hover{
         background-color: $banner-hover;
+        color:white;
     }
 
     .hamburger{
-        width:160px;
+        width:171px;
         display: flex;
-        margin-left:20px;
+        margin-left:9px;
         //margin-bottom: 8px;
         justify-content: flex-start;
         align-items: center;
@@ -286,7 +288,7 @@ $xl-desktop: 1260px;
 
     .search:hover{
         background-color: white;
-        
+        color:white;
     }
 
     .search-icon{
@@ -321,6 +323,7 @@ $xl-desktop: 1260px;
 
     .setting-icons{
         font-size: 22px;
+        padding: 6px;
         //padding-bottom: 12px;
         //display: inline-block;
         // transform: scale(.9, .7);
@@ -334,15 +337,17 @@ $xl-desktop: 1260px;
     .setting-cog{
         display: flex;
         margin-right: 1px;
-
+        border-radius: 5px;
+        padding-right: 2px;
         .cog{
-            margin-right: 2px;
+            // margin-right: 2px;
             font-size: 24px;
         }
 
         .cog-carrot{
           font-size: 12px;
-          padding: 7px; 
+        //   padding: 7px; 
+          padding-top: 13px;
         }
     }
 
@@ -350,12 +355,15 @@ $xl-desktop: 1260px;
         background-color: $banner-hover;
     }
 
-    .setting-cog > *{
-        margin: 0px -4px;
+
+    .setting-cog:hover > *{
+        // margin: 0px -8px;
+        color:white;
     }
 
     .setting-icons:hover{
         background-color: $banner-hover;
+        color:white;
     }
 
 }
