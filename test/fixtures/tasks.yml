@@ -1,0 +1,23 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  title: MyString
+  notes: MyText
+  start_date: 2019-09-17
+  due_date: 2019-09-17
+  author_id: 1
+  performer_id: 1
+  list_id: 1
+  parent_id: 1
+  complete: false
+
+two:
+  title: MyString
+  notes: MyText
+  start_date: 2019-09-17
+  due_date: 2019-09-17
+  author_id: 1
+  performer_id: 1
+  list_id: 1
+  parent_id: 1
+  complete: false

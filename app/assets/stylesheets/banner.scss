@@ -41,7 +41,7 @@ $tablet-end: 1000px;
     }
 }
 
-.banner {
+.banner-splash {
 
     font-family: MuseoSansRounded, "Helvetica Neue", Helvetica, Arial, sans-serif;
     font-weight: 700;
@@ -172,7 +172,7 @@ $tablet-end: 1000px;
     padding: 20px;
     background: lightblue;
     align-items: center;
- }
+}
 
  .sign-up-demo{
      display: grid;
@@ -181,27 +181,13 @@ $tablet-end: 1000px;
     align-content: center;
     grid-gap: 11px;
     border: 0px solid inherit;
- }
+}
 
 
+.banner-main{
+    background-color: $company_color;
+    width:100%;
+    height: 38px;
 
-// .logo {
-//     background-image: url(/assets/logo.png);
-//     display: flex;
-//     height: 93px;
-//     margin-bottom: 7px;
+}
 
-// }
-
-// .logo-letters {
-//     font-variant-caps: small-caps;
-//     font-size: 316%;
-//     color: green;
-//     margin-bottom: 0%;
-//     margin-top: 0%;
-// }
-
-// .map-container {
-//     width: 500px;
-//     height: 500px;
-// }

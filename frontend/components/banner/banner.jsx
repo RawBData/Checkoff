@@ -9,48 +9,40 @@ class Banner extends React.Component {
   render(){
     const currentUser = this.props.currentUser;
     const logout = this.props.logout;
-    // const likedAllPageToggle = this.props.location.pathname === '/chirps'? 
-    //   {title:"Your Liked Chirps!",to:"/likedchirps"} 
-    //   : 
-    //   {title:"All The Chirps!",to:"/chirps"} ;
 
     const headernNav = currentUser ? (
-      <div>
+      <header className="banner-main">
+
         <div>
-          {/* <Link className="btn" to={likedAllPageToggle.to}>{likedAllPageToggle.title}</Link> */}
-          <h3>Welcome {currentUser.username}!</h3>
+          <button onClick={logout}>Logout</button>
         </div>
-        <button onClick={logout}>Logout</button>
-      </div>
+
+      </header>
     ) : (
-      <div className="banner-nav">
-        <Link className="button mobile-hide" to="/">Tour</Link>
-        <Link className="button mobile-hide" to="/">What's New</Link>
-        <Link className="button mobile-hide" to="/">Upgrade</Link>
-        <Link className="button mobile-hide" to="/">Help</Link>
-        <Link className="button last-button" to="/login">Log in</Link>
-        <div className="sign-up-demo">
-          <Link className="button signup-button" to="/signup">Sign up for free</Link>
-          <Link onClick={()=>this.props.demoLogin({username:"Demo",password:"123456"})} className="button demo" to="/">Demo</Link>
-        </div>
-        
-      </div>
+          <header className="banner-splash">
+            <figure className="figure">
+              <Link to='/'>
+                <img className="logo-banner" src={window.logoURL} alt="checkoff_logo" />
+              </Link>
+            </figure>
+            <div className="banner-nav">
+              <Link className="button mobile-hide" to="/">Tour</Link>
+              <Link className="button mobile-hide" to="/">What's New</Link>
+              <Link className="button mobile-hide" to="/">Upgrade</Link>
+              <Link className="button mobile-hide" to="/">Help</Link>
+              <Link className="button last-button" to="/login">Log in</Link>
+              <div className="sign-up-demo">
+                <Link className="button signup-button" to="/signup">Sign up for free</Link>
+                <Link onClick={()=>this.props.demoLogin({username:"a",password:"123456"})} className="button demo" to="/">Demo</Link>
+              </div>
+            </div>
+      </header>  
     );
 
     return (
-      <header className="banner">
-        {/* <h1 className="logo">CHECKOFF</h1> */}
-        <figure className="figure">
-          <Link to='/'>
-            <img className="logo-banner" src={window.logoURL} alt="checkoff_logo" />
-          </Link>
-        </figure>
-        {headernNav}
         <div>
-        
-
+          {headernNav}
         </div>
-      </header>
     );
   }
 }

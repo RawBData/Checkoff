@@ -1,7 +1,7 @@
 import { ERRORS, LOGIN_USER, CLEAR_ERRORS } from '../actions/session_actions';
 
 
-export const sessionErrorsReducer = (oldState = {}, action) => {
+export const sessionErrorsReducer = (oldState = [], action) => {
   Object.freeze(oldState);
   let nextState = {};
   switch (action.type) {

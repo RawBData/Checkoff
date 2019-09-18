@@ -1,0 +1,108 @@
+@import 'fonts.scss';
+
+$company_color_main_background: #d7e7f4;
+$company_color_list_background: #e4eef8;
+$company_color_highlighted_task: #feffd7;
+
+// $mobile-end: 850px;
+// $tablet-start: 850px;
+$tablet-end: 1021px;
+
+// @mixin tablet {
+//     @media (min-width: #{$tablet-start}) and (max-width: #{$tablet-end}) {
+//         @content;
+//     }
+// }
+
+@mixin tablet {
+    @media (max-width: #{$tablet-end}) {
+        @content;
+    }
+}
+
+// @mixin mobile {
+//     @media (max-width: #{$mobile-end}) {
+//         @content;
+//     }
+// }
+
+.main-app{
+
+    font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+
+    display: flex;
+    flex-direction: column;
+    
+
+    .main-banner{
+        //height: 30px;
+    }
+
+    .main-body{
+        display: grid;
+        grid-template-columns: 180px minmax(419px,1fr) 1fr;
+        padding: 0 0 0 0;
+        height: 100vh;
+        background-color: $company_color_main_background;
+
+        @include tablet{
+            grid-template-columns: 180px 1fr;
+        }
+
+        .main-left-content-bar{
+            background-color: pink;
+            grid-column-start: 1;
+            grid-column-end: 2;
+            grid-row-start: 1;
+            grid-row-end: 2;
+            height:100%;
+            
+        }
+        
+        .main-left-content-bar-hide{
+            display: none;
+            
+        }
+
+        .main-tasks-index{
+            // display:flex;
+            background-color: purple;
+            grid-column-start: 2;
+            grid-column-end: 3;
+            grid-row-start: 1;
+            grid-row-end: 2;
+            // height:100%;
+        }
+
+        .main-list-details{
+            background-color: red;
+            grid-column-start: 3;
+            grid-column-end: 4;
+            grid-row-start: 1;
+            grid-row-end: 2;
+
+            @include tablet{
+                display: none;
+            }
+        }
+
+        .main-list-details-hide{
+            display: none;
+        }
+
+        .main-task-show{
+            display:none;
+            background-color: yellow;
+            grid-column-start: 3;
+            grid-column-end: 4;
+            grid-row-start: 1;
+            grid-row-end: 2;
+            height:100%;
+        }
+
+        .main-task-hide{
+            display: none;
+        }
+    }
+
+}
