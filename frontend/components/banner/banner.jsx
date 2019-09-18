@@ -12,10 +12,27 @@ class Banner extends React.Component {
 
     const headernNav = currentUser ? (
       <header className="banner-main">
+          {/* <button onClick={logout}>Logout</button> */}
 
-        <div>
-          <button onClick={logout}>Logout</button>
+        <div className="left-banner">
+          <div className="hamburger">
+            <i className="fa fa-bars banner-icon bars"></i>
+          </div>
+          <div className="search" id="test" tabindex="0">
+            <i className="fa fa-search search-icon"></i>
+            <input type="text" className="search-input"/>
+            <i className="fa fa-caret-down search-icon"></i>
+          </div>
         </div>
+        <div className="settings">
+          <i className="fa fa-cloud banner-icon setting-icons"></i>
+          <i className="fa fa-bell banner-icon setting-icons"></i>
+          <div className="setting-cog">
+            <i className="fa fa-cog banner-icon setting-icons cog"></i>
+            <i className="fa fa-caret-down banner-icon cog-carrot"></i>
+          </div>
+        </div>
+        
 
       </header>
     ) : (

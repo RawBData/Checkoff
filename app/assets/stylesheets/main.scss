@@ -7,6 +7,7 @@ $company_color_highlighted_task: #feffd7;
 // $mobile-end: 850px;
 // $tablet-start: 850px;
 $tablet-end: 1021px;
+$xl-desktop: 1260px;
 
 // @mixin tablet {
 //     @media (min-width: #{$tablet-start}) and (max-width: #{$tablet-end}) {
@@ -19,6 +20,14 @@ $tablet-end: 1021px;
         @content;
     }
 }
+
+@mixin xlDesktop {
+    @media (min-width: #{$xl-desktop}) {
+        @content;
+    }
+}
+
+
 
 // @mixin mobile {
 //     @media (max-width: #{$mobile-end}) {
@@ -47,6 +56,10 @@ $tablet-end: 1021px;
 
         @include tablet{
             grid-template-columns: 180px 1fr;
+        }
+
+        @include xlDesktop{
+            grid-template-columns: 210px 1fr 1fr;
         }
 
         .main-left-content-bar{
