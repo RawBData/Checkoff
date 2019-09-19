@@ -4,6 +4,7 @@ import React from "react";
 // import SignupFormContainer from './login_signup_form/signup_form_container';
 // import { AuthRoute, ProtectedRoute } from '../util/route_util';
 import BannerContainer from '../banner/banner_container';
+import Menu from './menu/menu';
 import TasksIndex from './tasks/tasks_index';
 
 
@@ -25,7 +26,13 @@ import TasksIndex from './tasks/tasks_index';
                 <BannerContainer className="main-banner"/>
                 <div className="main-body">
                   <div className="main-left-content-bar">
-                      <h1>place for content-navigator</h1>
+                      <figure>
+                        <img src={window.logoURL_short} alt="logo-dark" className="app-logo"/>
+                      </figure>
+                      <Menu />
+                      <div className="hire-me">
+                        <h1>Ready to hire me?</h1>
+                      </div>
                   </div>
 
                   <div className="main-tasks-index">

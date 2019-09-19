@@ -18,7 +18,7 @@ class Banner extends React.Component {
           <div className="hamburger">
             <i className="fa fa-bars banner-icon bars"></i>
           </div>
-          <div className="search" id="test" tabindex="0">
+          <div className="search" id="test">
             <i className="fa fa-search search-icon"></i>
             <input type="text" className="search-input"/>
             <i className="fa fa-caret-down search-icon"></i>
@@ -27,15 +27,15 @@ class Banner extends React.Component {
         <div className="settings">
           <i className="fa fa-cloud banner-icon setting-icons"></i>
           <i className="fa fa-bell banner-icon setting-icons"></i>
-          <div className="setting-cog">
+          <div className="setting-cog" onClick={logout}>
             <i className="fa fa-cog banner-icon setting-icons cog"></i>
             <i className="fa fa-caret-down banner-icon cog-carrot"></i>
           </div>
         </div>
-        
-
       </header>
-    ) : (
+    ) 
+    : //this is the middle of the ternary
+    (
           <header className="banner-splash">
             <figure className="figure">
               <Link to='/'>

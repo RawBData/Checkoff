@@ -1,0 +1,60 @@
+
+.menu-main{
+    margin-left: 8px;
+    margin-top: 5px;
+}
+
+.menu-display{
+    
+    div:hover{
+        background-color: white;
+    }
+    
+    
+    
+}
+
+.menu-item-display{
+
+    .menu-item-container{
+
+        
+        .heading{
+            display: flex;
+            
+            
+            .menu-carrot{
+                margin-right: 7px;
+                font-size: 11px;
+                padding-top: 3.25px;
+            }
+            
+            .menu-carrot:hover{
+                background-color: purple;
+            }
+        } 
+        
+        .heading-list{
+            display:flex;
+            flex-direction: column;
+        }
+        
+        .hide-heading-list{
+            display:none;
+        }
+        
+        .all-tasks{
+            
+        }
+        
+        .all-tasks-carrot{
+            
+        }
+        
+        .heading-title{
+            font-size: 13px;
+        }
+        
+    }
+}
+    
