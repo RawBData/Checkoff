@@ -271,9 +271,12 @@ $xl-desktop: 1260px;
         margin-top: 5px;
         margin-bottom: 4px;
         border-radius: 3px;
+        margin-left: 0px;
+        transition: margin-left 1.5s;  
         
         @include xlDesktop{
-            margin-left: 30px;  
+            margin-left: 30px;
+            transition: margin-left 1.5s;  
         }
 
         input:focus{

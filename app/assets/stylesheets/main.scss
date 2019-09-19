@@ -47,22 +47,228 @@ $xl-desktop: 1260px;
         //height: 30px;
     }
 
-    .main-body{
+    .body-with-menu{
+        display: grid;
+        padding: 0 0 0 0;
+        height: 100vh;
+        // transition: grid-template-columns 5s;
+        grid-template-columns: 0px minmax(419px,1fr) 1fr;
+        animation: columns-change 1s ease .1s 1 forwards;
+        
+
+        @keyframes columns-change {
+            0% {
+                grid-template-columns: 0px minmax(419px,1fr) 1fr;
+            }
+            5% {
+                grid-template-columns: 10px minmax(419px,1fr) 1fr;
+            }
+            10% {
+                grid-template-columns: 20px minmax(419px,1fr) 1fr;
+            }
+            15%{
+                grid-template-columns: 40px minmax(419px,1fr) 1fr;
+            }
+            20%{
+                grid-template-columns: 70px minmax(419px,1fr) 1fr;
+            }
+            30% {
+                grid-template-columns: 100px minmax(419px,1fr) 1fr;
+            }
+            40% {
+                grid-template-columns: 120px minmax(419px,1fr) 1fr;
+            }
+            50% {
+                grid-template-columns: 130px minmax(419px,1fr) 1fr;
+            }
+            60%{
+                grid-template-columns: 150px minmax(419px,1fr) 1fr;
+            }
+            80%{
+                grid-template-columns: 170px minmax(419px,1fr) 1fr;
+            }
+            100%{
+                grid-template-columns: 180px minmax(419px,1fr) 1fr;
+            }
+        }
+
+
+        //grid-template-columns: 180px minmax(419px,1fr) 1fr;
+
+        @include tablet{
+            grid-template-columns: 0px 1fr;
+            animation: tablet-columns-change 1s ease .1s 1 forwards;
+            
+    
+            @keyframes tablet-columns-change {
+                0% {
+                    grid-template-columns: 90px 1fr;
+                }
+                15% {
+                    grid-template-columns: 110px 1fr;
+                }
+                30% {
+                    grid-template-columns: 140px 1fr;
+                }
+                45% {
+                    grid-template-columns: 160px 1fr;
+                }
+                60% {
+                    grid-template-columns: 170px 1fr;
+                }
+                75% {
+                    grid-template-columns: 180px 1fr;
+                }
+                90% {
+                    grid-template-columns: 190px 1fr;
+                }
+                100% {
+                    grid-template-columns: 180px 1fr;
+                }
+            }
+        }
+
+        @include xlDesktop{
+            grid-template-columns: 0px 1fr 1fr;
+            animation: xlDesktop-columns-change 1s ease .1s 1 forwards;
+            
+    
+            @keyframes xlDesktop-columns-change {
+                0% {
+                    grid-template-columns: 90px 1fr 1fr;
+                }
+                15% {
+                    grid-template-columns: 110px 1fr 1fr;
+                }
+                30% {
+                    grid-template-columns: 140px 1fr 1fr;
+                }
+                45% {
+                    grid-template-columns: 170px 1fr 1fr;
+                }
+                60% {
+                    grid-template-columns: 180px 1fr 1fr;
+                }
+                75% {
+                    grid-template-columns: 190px 1fr 1fr;
+                }
+                90% {
+                    grid-template-columns: 200px 1fr 1fr;
+                }
+                100% {
+                    grid-template-columns: 210px 1fr 1fr;
+                }
+            }
+        }
+    }
+
+    .body-without-menu{
         display: grid;
         grid-template-columns: 180px minmax(419px,1fr) 1fr;
         padding: 0 0 0 0;
         height: 100vh;
-        background-color: $company_color_main_background;
+        transition: grid-template-columns 5s;
+
+        animation: columns-shrink 1s ease .1s 1 forwards;
+        
+
+        @keyframes columns-shrink {
+            0% {
+                grid-template-columns: 180px minmax(419px,1fr) 1fr;
+            }
+            5% {
+                grid-template-columns: 170px minmax(419px,1fr) 1fr;
+            }
+            10% {
+                grid-template-columns: 150px minmax(419px,1fr) 1fr;
+            }
+            15%{
+                grid-template-columns: 130px minmax(419px,1fr) 1fr;
+            }
+            20%{
+                grid-template-columns: 110px minmax(419px,1fr) 1fr;
+            }
+            30% {
+                grid-template-columns: 100px minmax(419px,1fr) 1fr;
+            }
+            40% {
+                grid-template-columns: 80px minmax(419px,1fr) 1fr;
+            }
+            50% {
+                grid-template-columns: 60px minmax(419px,1fr) 1fr;
+            }
+            60%{
+                grid-template-columns: 40px minmax(419px,1fr) 1fr;
+            }
+            80%{
+                grid-template-columns: 30px minmax(419px,1fr) 1fr;
+            }
+            100%{
+                grid-template-columns: 2px minmax(419px,1fr) 1fr;
+            }
+        }
 
         @include tablet{
             grid-template-columns: 180px 1fr;
+            animation: columns-shrink 1s ease .1s 1 forwards;
+
+            @keyframes columns-shrink {
+                0% {
+                    grid-template-columns: 180px 1fr;
+                }
+                5% {
+                    grid-template-columns: 170px 1fr;
+                }
+                10% {
+                    grid-template-columns: 150px 1fr;
+                }
+                15%{
+                    grid-template-columns: 130px 1fr;
+                }
+                20%{
+                    grid-template-columns: 110px 1fr;
+                }
+                30% {
+                    grid-template-columns: 100px 1fr;
+                }
+                40% {
+                    grid-template-columns: 80px 1fr;
+                }
+                50% {
+                    grid-template-columns: 60px 1fr;
+                }
+                60%{
+                    grid-template-columns: 40px 1fr;
+                }
+                80%{
+                    grid-template-columns: 30px 1fr;
+                }
+                100%{
+                    grid-template-columns: 2px 1fr;
+                }
+            }
         }
 
         @include xlDesktop{
-            grid-template-columns: 210px 1fr 1fr;
+            grid-template-columns: 210px minmax(419px,1fr) 1fr;
+            animation: columns-shrink 1s ease .1s 1 forwards;
         }
+    }
+
+    .main-body{
+        
+        background-color: $company_color_main_background;
+
+        // @include tablet{
+        //     grid-template-columns: 180px 1fr;
+        // }
+
+        // @include xlDesktop{
+        //     grid-template-columns: 210px 1fr 1fr;
+        // }
 
         .main-left-content-bar{
+            z-index: 1;
             // background-color: pink;
             grid-column-start: 1;
             grid-column-end: 2;
@@ -71,7 +277,7 @@ $xl-desktop: 1260px;
             height:100%;
 
             display:grid;
-            grid-template-rows: 82px minmax(338px, 1fr) 135px;
+            grid-template-rows: 82px minmax(338px, 1fr) 102px;
 
             figure{
                 background-color: $company_color_main_background;
@@ -86,18 +292,21 @@ $xl-desktop: 1260px;
 
             .hire-me{
                 background-color: pink;
+                border-top: 30px;
+                border-top-color: red;
             }
             
         }
         
-        .main-left-content-bar-hide{
-            display: none;
-            
+        .hide-main-left-content-bar{
+            width: 0px;
+            transition: width 3s;     
         }
 
         .main-tasks-index{
+            z-index: 2;
             // display:flex;
-            background-color: purple;
+            background-color: transparent;
             grid-column-start: 2;
             grid-column-end: 3;
             grid-row-start: 1;

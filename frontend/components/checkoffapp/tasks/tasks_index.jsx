@@ -26,6 +26,8 @@ class TasksIndex extends React.Component {
     
         const display = (
             <div className="tasks_index">
+                {/* <hr/> */}
+
                 <ul>
                     {this.props.tasks.map(task => (<li key={task.id}><TasksIndexItem task={task}/></li>))}
                 </ul>
@@ -35,7 +37,7 @@ class TasksIndex extends React.Component {
     
         return (
     
-        <main>
+        <main className="task-index-container">
             {display}
         </main>
         );

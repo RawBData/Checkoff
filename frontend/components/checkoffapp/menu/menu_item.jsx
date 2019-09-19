@@ -20,7 +20,6 @@ class MenuItem extends React.Component {
     }
 
     openMenuDetailToggle(headingSwitch){
-        console.log(this.state.menuSelected)
         
         this.setState({
             [headingSwitch]:!this.state[headingSwitch]
@@ -39,10 +38,14 @@ class MenuItem extends React.Component {
             headingListShowToggleClass = "hide-heading-list";
         }
         
-            
+        
+        let listItemArray = this.props.listItems.length > 0?
+        (this.props.listItems.map(listItem => (<li key={listItem}><h1 className="heading-title">{listItem}</h1></li>)))
+        :
+        (<li></li>);
 
-    
-        const display = (
+        const display = this.props.headingTitle === "All Tasks"?
+        (
             <div className="menu-item-display">
 
                     <div className="menu-item-container" onClick={()=>this.openMenuDetailToggle("menuSelected")}>
@@ -51,18 +54,32 @@ class MenuItem extends React.Component {
                             <h1 className="heading-title">{this.props.headingTitle}</h1>
                         </div>
                         <div className={headingListShowToggleClass}>
-                            <h1 className="heading-title">Inbox</h1>
-                            <h1 className="heading-title">All Tasks</h1>
-                            <h1 className="heading-title">Today</h1>
-                            <h1 className="heading-title">Tomorrow</h1>
-                            <h1 className="heading-title">This Week</h1>
-                            <h1 className="heading-title">Given to Others</h1>
-                            <h1 className="heading-title">Trash</h1>
+                            <ul className="menu-item-list-ul">
+                                {listItemArray}
+                            </ul>
                         </div>
                     </div>
                 
             </div>
-        );
+        )
+        :
+        (
+            <div className="menu-item-display">
+
+                    <div className="menu-item-container" onClick={()=>this.openMenuDetailToggle("menuSelected")}>
+                        <div className="heading all-tasks">
+                            <i className={carrotClass}></i>
+                            <h1 className="heading-title">{this.props.headingTitle}</h1>
+                        </div>
+                        <div className={headingListShowToggleClass}>
+                            <ul className="menu-item-list-ul">
+                                {listItemArray}
+                            </ul>
+                        </div>
+                    </div>
+            </div>
+        )
+        
     
         return (
     
@@ -74,3 +91,4 @@ class MenuItem extends React.Component {
     }
     
     export default MenuItem;
+

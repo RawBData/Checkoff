@@ -83,7 +83,7 @@ $tablet-end: 1000px;
             // 100% {
             //   background-color: teal;
             // }
-          }
+        }
 
 
         @include mobile{
@@ -110,7 +110,6 @@ $tablet-end: 1000px;
 
     button:hover{
         background-color: $kolor_orange_3;
-        //border: 2px solid $kolor_yellow;
         cursor: pointer;
     }
 
@@ -141,6 +140,7 @@ animation:
 
         //animation: 10000ms ease-in-out infinite color-change 1 infinite ;
         // animation-timing-function: cubic-bezier(0.1, -0.6, 0.2, 0);
+        //animation-timing-function: cubic-bezier(0.1, -0.6, 0.2, 0);
         
 
         @keyframes color-change {

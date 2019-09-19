@@ -10,7 +10,14 @@
         background-color: white;
     }
     
-    
+    hr{
+        width: 147px;
+        display: block; 
+        height: 1px;
+        border: 0; 
+        border-top: 1px solid #ccc; 
+        padding: 0;
+    }
     
 }
 
@@ -37,10 +44,13 @@
         .heading-list{
             display:flex;
             flex-direction: column;
+            transition: display 5s; 
         }
         
         .hide-heading-list{
+            transition: display 5s; 
             display:none;
+            
         }
         
         .all-tasks{
@@ -53,6 +63,14 @@
         
         .heading-title{
             font-size: 13px;
+        }
+
+        .menu-item-list-ul{
+            margin-left: 13px;
+
+            li{
+                padding-top: 4px;
+            }
         }
         
     }

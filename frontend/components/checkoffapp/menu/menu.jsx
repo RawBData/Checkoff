@@ -23,7 +23,18 @@ class Menu extends React.Component {
         const display = (
             <div className="menu-display">
 
-                <MenuItem headingTitle="All Tasks"/>
+                <MenuItem headingTitle="All Tasks" listItems={["Inbox","Today","Tomorrow","This","Given","Trash"]}/>
+                <hr/>
+                <MenuItem headingTitle="Lists" listItems={[]}/>
+                <hr/>
+                <MenuItem headingTitle="Smart Lists" listItems={[]}/>
+                <hr/>
+                <MenuItem headingTitle="Contacts" listItems={[]}/>
+                <hr/>
+                <MenuItem headingTitle="Tags" listItems={[]}/>
+                <hr/>
+                <MenuItem headingTitle="Locations" listItems={[]}/>
+                <hr/>
                 
             </div>
         );

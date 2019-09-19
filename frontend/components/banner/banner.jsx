@@ -15,7 +15,7 @@ class Banner extends React.Component {
           {/* <button onClick={logout}>Logout</button> */}
 
         <div className="left-banner">
-          <div className="hamburger">
+          <div className="hamburger" onClick={()=>this.props.toggleMenu()}>
             <i className="fa fa-bars banner-icon bars"></i>
           </div>
           <div className="search" id="test">

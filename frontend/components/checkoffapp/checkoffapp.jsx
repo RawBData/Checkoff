@@ -12,25 +12,45 @@ import TasksIndex from './tasks/tasks_index';
     class CheckoffApp extends React.Component {
         constructor(props){
           super(props)
+          this.state = {
+            showMenu: true,
+          }
+
+          this.toggleMenu = this.toggleMenu.bind(this);
         }
 
         componentDidMount(){
           this.props.fetchTasks();
         }
+
+        toggleMenu(){
+          this.setState({
+            showMenu: !this.state.showMenu
+          })
+        }
       
         render(){
           const currentUser = this.props.currentUser;
+
+          const ShowMenuToggleClass = this.state.showMenu === true? 
+                                    ("main-body body-with-menu") 
+                                    : 
+                                    ("main-body body-without-menu");
       
           const display = (
               <div className="main-app">
-                <BannerContainer className="main-banner"/>
-                <div className="main-body">
-                  <div className="main-left-content-bar">
+                
+                <BannerContainer className="main-banner" toggleMenu={this.toggleMenu}/>
+                
+                <div className={ShowMenuToggleClass}>
+
+                  <div className={"main-left-content-bar"}>
                       <figure>
                         <img src={window.logoURL_short} alt="logo-dark" className="app-logo"/>
                       </figure>
                       <Menu />
                       <div className="hire-me">
+                        <hr/>
                         <h1>Ready to hire me?</h1>
                       </div>
                   </div>
@@ -51,6 +71,7 @@ import TasksIndex from './tasks/tasks_index';
                   <div className="main-task-show">
                       <h1>place for task show</h1>
                   </div>
+
                 </div>
               </div>
           );
