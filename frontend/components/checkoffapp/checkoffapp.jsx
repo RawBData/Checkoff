@@ -1,8 +1,4 @@
 import React from "react";
-// import { Route } from 'react-router-dom';
-// import LoginFormContainer from './login_signup_form/login_form_container';
-// import SignupFormContainer from './login_signup_form/signup_form_container';
-// import { AuthRoute, ProtectedRoute } from '../util/route_util';
 import BannerContainer from '../banner/banner_container';
 import Menu from './menu/menu';
 import TasksIndex from './tasks/tasks_index';

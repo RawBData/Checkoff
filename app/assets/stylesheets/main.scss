@@ -277,7 +277,7 @@ $xl-desktop: 1260px;
             height:100%;
 
             display:grid;
-            grid-template-rows: 82px minmax(338px, 1fr) 102px;
+            grid-template-rows: 82px minmax(338px, 1fr) 162px;
 
             figure{
                 background-color: $company_color_main_background;
@@ -291,9 +291,18 @@ $xl-desktop: 1260px;
             }
 
             .hire-me{
-                background-color: pink;
+                // background-color: pink;
                 border-top: 30px;
                 border-top-color: red;
+
+                hr{
+                    width: 100%;
+                    display: block; 
+                    height: 1px;
+                    border: 0; 
+                    border-top: 1px solid #ccc; 
+                    padding: 0;
+                }
             }
             
         }
