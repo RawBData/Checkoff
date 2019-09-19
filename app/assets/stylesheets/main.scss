@@ -256,7 +256,8 @@ $xl-desktop: 1260px;
     }
 
     .main-body{
-        
+        margin-top: 38px;
+        padding-right: 8px;
         background-color: $company_color_main_background;
 
         // @include tablet{

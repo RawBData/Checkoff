@@ -217,13 +217,14 @@ $xl-desktop: 1260px;
 
 
 .banner-main{
+    z-index: 4;
     display: flex;
     justify-content: space-between;
     background-color: $company_color;
     width:100%;
     height: 38px;
 
-    // position: fixed;
+    position: fixed;
     // top: 0;
 
     .left-banner{
