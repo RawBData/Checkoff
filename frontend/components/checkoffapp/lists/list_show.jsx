@@ -40,13 +40,13 @@ class ListShow extends React.Component {
                 </div>
 
                 <div className="list-completion-container">
-                    <div >
+                    <div className="num-tasks-container completion-container">
                         <h1>{numTasks}</h1>
-                        <p>Tasks</p>
+                        <p>tasks</p>
                     </div>
-                    <div>
+                    <div className="num-completed-container completion-container">
                         <h1>{numCompletedTasks}</h1>
-                        <p>Completed</p>
+                        <p>completed</p>
                     </div>
                 </div>
 
