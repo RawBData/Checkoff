@@ -14,6 +14,7 @@ $kolor_blue: #49517e;
 $kolor_red: #CF1103;
 $kolor_navy: #29354B;
 $company_color: #1760bf;
+$company_color_light: #7893b6;
 
 
 $banner-icon-color:#b5d0ed;
@@ -74,7 +75,7 @@ $xl-desktop: 1260px;
 
 
 .banner-splash {
-
+    
     font-family: MuseoSansRounded, "Helvetica Neue", Helvetica, Arial, sans-serif;
     font-weight: 700;
     // position: fixed;
@@ -85,14 +86,20 @@ $xl-desktop: 1260px;
     // margin-bottom: -114px;
     color: white;
     // border: 0px solid white;
-    animation: color-change 10000ms ease-in-out infinite;
+    animation: color-change 10s ease-in-out infinite;
 
         @keyframes color-change {
             0% {
-              background-color: $company_color;
+                background-color: $company_color;
+            }
+            40% {
+                background-color: $company_color;
             }
             50% {
-              background-color: gold;
+                background-color: $company_color_light;
+              }
+            90% {
+                background-color: $company_color_light;
             }
         }
 
@@ -185,6 +192,7 @@ $xl-desktop: 1260px;
     .banner-nav{
         display: flex;
         border: 0px solid inherit;
+        margin-right: 37px;
     }
 
     .demo{

@@ -57,33 +57,40 @@ $tablet-end: 1000px;
         justify-items: center;
         color:white;
         background-color: $company_color;
-        animation: color-change 10000ms ease-in-out infinite .5s;
+        //animation: color-change 30s ease-in-out infinite .5s;
         //animation-timing-function: cubic-bezier(0.1, -0.6, 0.2, 0);
         
 
-        @keyframes color-change {
-            0% {
-              background-color: $company_color;
-              color: white;
+        // @keyframes color-change {
+        //     0% {
+        //       background-color: $company_color;
+        //       color: white;
               
-            }
-            50% {
-              background-color: gold;
-              color: $company_color;
-            }
-            // 40% {
-            //   background-color: indianred;
-            // }
-            // 60% {
-            //   background-color: violet;
-            // }
-            // 100% {
-            //   background-color: green;
-            // }
-            // 100% {
-            //   background-color: teal;
-            // }
-        }
+        //     }
+        //     35% {
+        //       color: white;
+        //     }
+        //     50% {
+        //       background-color: gold;
+        //       color: $company_color;
+        //     }
+
+        //     88%{
+        //       color: $company_color;
+        //     }
+        //     // 40% {
+        //     //   background-color: indianred;
+        //     // }
+        //     // 60% {
+        //     //   background-color: violet;
+        //     // }
+        //     // 100% {
+        //     //   background-color: green;
+        //     // }
+        //     // 100% {
+        //     //   background-color: teal;
+        //     // }
+        // }
 
 
         @include mobile{
