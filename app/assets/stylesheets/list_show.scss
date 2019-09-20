@@ -1,0 +1,39 @@
+$grey: rgb(156, 151, 151);
+
+@import 'fonts.scss';
+
+.list-details-container{
+    padding: 34px 0px 0px 27px;
+
+    .list-details{
+        display: flex;
+        justify-content: flex-start;
+        font-family: MuseoSansRounded;
+        font-weight: 400;
+
+        .list-icons{
+            color: $grey;
+            margin-left: 10px;
+            font-size: 14px;
+            padding-top: 8px;
+            
+        }
+
+        .cal-icon{
+            padding-top: 6px;
+            font-size: 13px;
+            margin-left: 8px;
+        }
+
+        h1{
+            font-size: 18px;
+        }
+
+    }
+
+
+    .list-completion-container{
+        display: flex;
+        justify-content: flex-start;
+    }
+}

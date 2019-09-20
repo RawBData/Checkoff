@@ -257,7 +257,7 @@ $xl-desktop: 1260px;
 
     .main-body{
         margin-top: 38px;
-        padding-right: 8px;
+        padding-right: 12px;
         background-color: $company_color_main_background;
 
         // @include tablet{
@@ -325,11 +325,14 @@ $xl-desktop: 1260px;
         }
 
         .main-list-details{
-            background-color: red;
             grid-column-start: 3;
             grid-column-end: 4;
             grid-row-start: 1;
             grid-row-end: 2;
+
+            background-color: $company_color_list_background;
+            margin-top: 12px;
+            border-radius: 3px;
 
             @include tablet{
                 display: none;

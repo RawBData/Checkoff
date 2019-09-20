@@ -36,12 +36,12 @@ class TasksIndex extends React.Component {
             <div className="tasks_index">
                 <div className="tasks-index-actions">
                     <div className="actions-row-1">
-                        <div className="action-cog-container" onClick={logout}>
+                        <div className="action-cog-container" onClick={()=>{return "things"}}>
                             <i className="fa fa-cog tasks-cog"></i>
                             <i className="fa fa-caret-down tasks-cog-carrot"></i>
                         </div>
-                        <h5 className="action-link-complete">complete</h5>
-                        <h5 className="action-link-complete">incomplete</h5>
+                        <h5 className="action-link">complete</h5>
+                        <h5 className="action-link">incomplete</h5>
                         <i className="fa fa-print print-icon"></i>
                     </div>
                     <div className="actions-row-2">
@@ -50,7 +50,7 @@ class TasksIndex extends React.Component {
                 </div>
 
                 <div className="tasks-index-new-task-form-container">
-                    <NewTaskForm />
+                    <NewTaskForm createTask={this.props.createTask}/>
                 </div>
 
                 <div className="task-index-tasks">

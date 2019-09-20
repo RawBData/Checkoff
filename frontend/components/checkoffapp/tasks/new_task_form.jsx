@@ -13,40 +13,73 @@ class NewTaskForm extends React.Component {
     constructor(props){
         super(props)
         this.state = {
-            newTask: "",
+            newTask: {
+                title: ""
+            },
+            newTaskFocus: false
         }
+
+        this.handleSubmit = this.handleSubmit.bind(this);
+        this.newTaskFocusToggle = this.newTaskFocusToggle.bind(this);
     }
 
     componentDidMount(){
         
     }
 
-    handleSubmit(){
-
+    newTaskFocusToggle(){
+        setTimeout(()=>{this.setState({
+            newTaskFocus: !this.state.newTaskFocus,
+        })},500)
+        
     }
+
+    handleSubmit(){
+        console.log("in submit")
+        this.props.createTask(this.state.newTask)
+        this.setState({
+            newTask: {
+                title: ""
+            },
+        })
+    }
+
+    upd(field){
+        return e => {
+          this.setState({
+              newTask:{
+                  [field]:e.target.value
+              }
+
+          })
+        }
+      }
     
     render(){
+
+        let optionalTagsClass = this.state.newTaskFocus? "add-task-actions" : "hide-add-task-actions";
+        let disableButton= this.state.newTask.title.length < 1? true : false;
     
         const display = (
             <div className="tasks">
-                <div className="task-input-container">
-                    <input className="task-input" type="text" placeholder="Add a task..." value={this.state.newTask} onChange={this.fieldChange}/>
+                <div onFocus={this.newTaskFocusToggle} onBlur={this.newTaskFocusToggle} className="task-input-container">
+                    <input  className="task-input" type="text" placeholder="Add a task..." value={this.state.title} onChange={this.upd('title')}/>
                 </div>
 
-                <div className="add-task-actions">
+                <div className={optionalTagsClass}>
                     <div className="add-task-optional-tags-container">
-                        <i className="fa fa-calendar-check-o"></i>
-                        <i className="fa fa-calendar-plus-o"></i>
-                        <i className="fa fa-exclamation"></i>
-                        <i className="fa fa-list-alt"></i>
-                        <i className="fa fa-refresh"></i>
-                        <i className="fa fa-map-marker"></i>
-                        <i className="fa fa-clock-o"></i>
-                        <i className="fa fa-user"></i> 
+                        <i className="fa fa-calendar-check-o tags-icons"></i>
+                        <i className="fa fa-calendar-plus-o tags-icons"></i>
+                        <i className="fa fa-exclamation tags-icons"></i>
+                        <i className="fa fa-list-alt tags-icons"></i>
+                        <i className="fa fa-refresh tags-icons"></i>
+                        <i className="fa fa-map-marker tags-icons"></i>
+                        <i className="fa fa-clock-o tags-icons"></i>
+                        <i className="fa fa-user tags-icons"></i> 
                     </div>
 
                     <div className="add-task-button-container">
-                        <button onClick={()=>this.handleSubmit}>Add Task</button>
+                        <button onClick={()=>this.handleSubmit()} disabled={disableButton} >Add Task</button>
                     </div>
                 </div>
             </div>
