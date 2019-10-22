@@ -25,8 +25,13 @@ class ListShow extends React.Component {
     
     render(){
 
-        let numTasks = this.props.tasks.length;
-        let numCompletedTasks = this.props.tasks.length;
+        let allTasks = this.props.tasks.filter(tsk => {return tsk.parent_id === null})
+        let incompleteTasks = allTasks.filter(tsk => {return !tsk.complete});
+        let completedTasks = this.props.tasks.filter(tsk => {return tsk.complete});
+        
+        console.log("alltasks",allTasks,"incomplete",incompleteTasks,"complete",completedTasks)
+        let numTasks = allTasks.length;
+        let numCompletedTasks = completedTasks.length;
     
         const display = (
 

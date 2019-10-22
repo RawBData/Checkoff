@@ -29,26 +29,11 @@ class TaskShow extends React.Component {
 
     updateTask(newAttributeObject){
         
-        let updatedTask = this.props.task;
         
-        switch (newAttributeObject.type) {
-            case "notes":
-                this.setState({
-                    notes: this.props.task.notes.push(newAttributeObject.note)
-                })
-                    
-                updatedTask.newNote = newAttributeObject.note;
-
-                console.group(updatedTask);
-                this.props.updateTask(updatedTask);
-
-            break;
-        
-            default:
-            break;
-        }
-        
-        
+        this.props.updateTask(newAttributeObject,this.props.task);
+        this.setState({
+            notes: this.props.task.notes.push(newAttributeObject.note)
+        })
         
     }
     

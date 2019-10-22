@@ -93,7 +93,7 @@ class Notes extends React.Component {
         const display = 
         (
             <div className="notes-container">
-                //New Note Input
+                {/* New Note Input */}
                 <div onFocus={this.newNoteFocusToggle} onBlur={this.newNoteFocusToggle} className="note-input-container">
                     <input  className="note-input" onKeyPress={this.keyPressed} type="text" placeholder="Add a note" value={this.state.newNote} onChange={this.upd('newNote')}/>
                     <div className="note-form-buttons-container">
@@ -105,7 +105,8 @@ class Notes extends React.Component {
                         </div>
                     </div>
                 </div>
-                //notes display
+                
+                {/* notes display */}
                 <div className="notes-display">
                     { this.props.notes? this.props.notes.map(note => (<NoteIndexItem note={note} key={note+Math.random()}/> )) : (<div></div>) }
                 </div>

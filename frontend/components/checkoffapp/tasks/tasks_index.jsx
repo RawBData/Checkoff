@@ -18,12 +18,15 @@ class TasksIndex extends React.Component {
             tasksSelected: false,
             tasks: [],
             tasksSelected: [],
+            completedView:false
         }
 
         ///ONE_ONE
         this.tasksForDisplay = this.tasksForDisplay.bind(this);
         this.deleteSelectedTasksArray = this.deleteSelectedTasksArray.bind(this);
         this.displayTaskToggle = this.displayTaskToggle.bind(this);
+        this.completeTask = this.completeTask.bind(this);
+        this.toggleCompleteView = this.toggleCompleteView.bind(this);
     }
 
     componentDidMount(){
@@ -41,6 +44,12 @@ class TasksIndex extends React.Component {
         setTimeout(this.tasksForDisplay,500);
     }
 
+    toggleCompleteView(booly){
+        this.setState({
+            completedView: booly
+        })
+    }
+
     componentDidUpdate(){
         if(this.props.tasks.length !== this.state.tasks.length)
         {
@@ -55,6 +64,15 @@ class TasksIndex extends React.Component {
         this.setState({
             tasks: htmlTasksArray
          })
+    }
+
+    completeTask(){
+        if (this.props.selectedTasks.length>0){
+            this.props.selectedTasks.forEach(tsk=>{
+              this.props.completeTask(tsk.id);
+            })
+            // this.props.displayTaskToggle({on:"delete"});
+        }
     }
 
   onDragging(e, index){
@@ -98,6 +116,10 @@ class TasksIndex extends React.Component {
 
       }
   }
+
+  toggleCompleteDisplay(){
+
+  }
     
     render(){
         // console.log(this.state)
@@ -105,6 +127,7 @@ class TasksIndex extends React.Component {
         //add modularity by setting task or subtask forking
         const subtask = this.props.subtask? true : false;
         const parentID = this.props.subtask? this.props.parentID : null;
+        const arrayForDisplay = this.state.tasks.filter(tsk=>{return tsk.complete === this.state.completedView});
         
         
         //console.log(this.state.tasks)
@@ -124,12 +147,13 @@ class TasksIndex extends React.Component {
                             <i className="fa fa-cog tasks-cog"></i>
                             <i className="fa fa-caret-down tasks-cog-carrot"></i>
                         </div>
-                        <h5 className="action-link">complete</h5>
-                        <h5 className="action-link">incomplete</h5>
+                        <h5 className="action-link" onClick={()=>this.toggleCompleteView(true)}>complete</h5>
+                        <h5 className="action-link" onClick={()=>this.toggleCompleteView(false)}>incomplete</h5>
                         <i className="fa fa-print print-icon"></i>
                     </div>
                     <div className="actions-row-2">
-                    <i onClick={()=>this.deleteSelectedTasksArray()} className="fa fa-print print-icon"></i>
+                    <i onClick={()=>this.deleteSelectedTasksArray()} className="fa fa-trash print-icon"></i>
+                    <i onClick={()=>this.completeTask()} className="fa fa-check print-icon"></i>
                     </div>
                 </div>
 
@@ -144,7 +168,7 @@ class TasksIndex extends React.Component {
 
                 <div className="task-index-tasks">
                     <ul>
-                        {this.state.tasks.map((task, idx )=> (<li draggable 
+                        {arrayForDisplay.map((task, idx )=> (<li draggable 
                                                                     key={task.id}
                                                                     onDragOver={() => this.onDraggedOver(idx)}
                                                                 >

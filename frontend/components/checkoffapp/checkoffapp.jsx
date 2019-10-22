@@ -23,6 +23,8 @@ class CheckoffApp extends React.Component {
       this.toggleMenu = this.toggleMenu.bind(this);
       this.toggleTaskShowPanel = this.toggleTaskShowPanel.bind(this);
       this.displayTaskToggle = this.displayTaskToggle.bind(this);
+      this.completeTask = this.completeTask.bind(this);
+      this.updateTask = this.updateTask.bind(this);
     }
 
     componentDidMount(){
@@ -91,13 +93,57 @@ class CheckoffApp extends React.Component {
          break;
       }
 
-
       console.log(task)
-      
-
-
-      // this.toggleTaskShowPanel();
     }
+
+    // completeTask(tsk.id)
+    completeTask(taskID){
+      let task = this.props.tasks.filter(tsk=>{return tsk.id === taskID})[0];
+      task.complete = true;
+      console.log(task);
+      this.props.updateTask(task);
+      
+    }
+
+    updateTask(newAttributeObject,task){
+        
+      let updatedTask = task;
+      console.log("in checkoff update notes",newAttributeObject);
+      console.log("notes",task);
+      
+      switch (newAttributeObject.type) {
+          case "notes":
+              this.setState({
+                displayTask: task,
+                selectedTasks: [task]
+              })
+                  
+              updatedTask.newNote = newAttributeObject.note;
+
+              console.group(updatedTask);
+              this.props.updateTask(updatedTask);
+
+          break;
+
+          case "complete":
+              this.setState({
+                  // notes: this.props.task.notes.push(newAttributeObject.note)
+              })
+                  
+              updatedTask.newNote = newAttributeObject.note;
+
+              console.group(updatedTask);
+              this.props.updateTask(updatedTask);
+
+          break;
+      
+          default:
+          break;
+      }
+      
+      
+      
+  }
 
 
   
@@ -133,8 +179,10 @@ class CheckoffApp extends React.Component {
                         fetchTask={this.props.fetchTask} 
                         deleteTask={this.props.deleteTask} 
                         createTask={this.props.createTask}
-                        updateTask={this.props.updateTask}
+                        updateTask={this.updateTask}
+                        completeTask={this.completeTask}
                         displayTaskToggle={this.displayTaskToggle}
+
                 />
               </div>
 
@@ -143,7 +191,7 @@ class CheckoffApp extends React.Component {
               </div>
 
               <div className={this.state.showingTask?"main-task-show main-task-show-display":"main-task-show"}>
-                  <TaskShow selectedTasksLength={this.state.selectedTasks.length} task={this.state.displayTask} updateTask={this.props.updateTask}/>
+                  <TaskShow selectedTasksLength={this.state.selectedTasks.length} task={this.state.displayTask} updateTask={this.updateTask}/>
               </div>
 
             </div>
