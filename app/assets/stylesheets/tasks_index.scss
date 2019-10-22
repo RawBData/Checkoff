@@ -121,9 +121,17 @@ $xl-desktop: 1260px;
     }
     
     .task-index-tasks{
+        height: 78vh;
+        overflow: scroll;
         background-color: white;
         z-index: 1;
+
     }
+
+    // .task-index-tasks::after{
+    //     content: "";
+    //     height: 1px;
+    // }
 }
 
 .task-form-component-container{

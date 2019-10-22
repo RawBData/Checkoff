@@ -72,6 +72,7 @@ err => dispatch(receiveTasksErrors(err.responseJSON))
 
 export const updateTask = (task) => dispatch => UTILTasks.updateTask(task)
 .then(response => {
+    console.log("thunk",response)
     dispatch(receiveTask(response));
     dispatch(clearTasksErrors());
 },

@@ -19,7 +19,7 @@ class Api::TasksController < ApplicationController
 
         @task = current_user.tasks.find(params[:id])
 
-
+        p task_params
         if @task && @task.update(task_params)
           render json: @task
         elsif !@task
@@ -27,6 +27,8 @@ class Api::TasksController < ApplicationController
         else
           render json: @task.errors.full_messages, status: 401
         end
+
+
     end
       
     def show
@@ -56,7 +58,7 @@ class Api::TasksController < ApplicationController
       end
       
       def task_params
-        params.require(:task).permit(:title, :start_date, :due_date, :priority, :estimate)
+        params.require(:task).permit(:title, :notes, :start_date, :due_date, :priority, :estimate, :parent_id)
       end
 
 end
