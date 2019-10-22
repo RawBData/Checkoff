@@ -25,6 +25,8 @@ class Notes extends React.Component {
         }
 
         this.newNoteFocusToggle = this.newNoteFocusToggle.bind(this);
+        this.handleSubmit = this.handleSubmit.bind(this);
+        this.keyPressed = this.keyPressed.bind(this);   
     }
 
     componentDidMount(){
@@ -48,7 +50,8 @@ class Notes extends React.Component {
 
         this.setState({
             newNote: "",
-            newNoteFocus: false
+            newNoteFocus: false,
+            notes: this.props.notes
         })
     }
 
@@ -60,6 +63,14 @@ class Notes extends React.Component {
         }
     }
 
+
+    keyPressed(event) {
+        console.log(event.key)
+        if (event.key === "Enter") {
+            console.log(event)
+          this.handleSubmit()
+        }
+      }
     
     render(){
                 // console.log(this.props)
@@ -78,12 +89,13 @@ class Notes extends React.Component {
             
         // console.log(this.props)
 
-
+        console.log(this.props)
         const display = 
         (
             <div className="notes-container">
+                //New Note Input
                 <div onFocus={this.newNoteFocusToggle} onBlur={this.newNoteFocusToggle} className="note-input-container">
-                    <input  className="note-input" type="text" placeholder="Add a note" value={this.state.newNote} onChange={this.upd('newNote')}/>
+                    <input  className="note-input" onKeyPress={this.keyPressed} type="text" placeholder="Add a note" value={this.state.newNote} onChange={this.upd('newNote')}/>
                     <div className="note-form-buttons-container">
                         <div className="note-button-container note-save">
                             <button onClick={()=>this.handleSubmit()} disabled={disableButton} >Save</button>
@@ -93,8 +105,9 @@ class Notes extends React.Component {
                         </div>
                     </div>
                 </div>
+                //notes display
                 <div className="notes-display">
-                    { this.props.notes? this.props.notes.map(note => (<NoteIndexItem note={note} key={note}/> )) : (<div></div>) }
+                    { this.props.notes? this.props.notes.map(note => (<NoteIndexItem note={note} key={note+Math.random()}/> )) : (<div></div>) }
                 </div>
             </div>
         )

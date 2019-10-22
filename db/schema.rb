@@ -10,14 +10,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_09_17_172519) do
+ActiveRecord::Schema.define(version: 2019_10_22_020801) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "tasks", force: :cascade do |t|
     t.string "title", null: false
-    t.text "notes"
     t.date "start_date"
     t.date "due_date"
     t.integer "author_id", null: false
@@ -28,6 +27,7 @@ ActiveRecord::Schema.define(version: 2019_09_17_172519) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "priority"
+    t.text "notes"
     t.index ["author_id"], name: "index_tasks_on_author_id"
     t.index ["list_id"], name: "index_tasks_on_list_id"
     t.index ["parent_id"], name: "index_tasks_on_parent_id"

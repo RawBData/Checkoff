@@ -28,17 +28,20 @@ class TaskShow extends React.Component {
     }
 
     updateTask(newAttributeObject){
+        
         let updatedTask = this.props.task;
-        console.log(newAttributeObject)
+        
         switch (newAttributeObject.type) {
             case "notes":
-                if (this.props.task.notes){
-                    updatedTask.notes.push(newAttributeObject.note)  
-                }else{
-                    updatedTask.notes = [newAttributeObject.note];
-                }
+                this.setState({
+                    notes: this.props.task.notes.push(newAttributeObject.note)
+                })
+                    
+                updatedTask.newNote = newAttributeObject.note;
+
                 console.group(updatedTask);
                 this.props.updateTask(updatedTask);
+
             break;
         
             default:
@@ -113,7 +116,7 @@ class TaskShow extends React.Component {
                 <div className="task-notes">
                     <Notes 
                         updateTask={this.updateTask}
-                        notes={this.props.task.notes}
+                        notes={this.state.task? this.state.task.notes : this.props.task.notes}
                     />
                 </div>
                 <div className="subtasks">

@@ -19,8 +19,20 @@ class Api::TasksController < ApplicationController
 
         @task = current_user.tasks.find(params[:id])
 
-        p task_params
-        if @task && @task.update(task_params)
+        #updating notes array with new note
+        
+        newParams = task_params
+
+        if @task
+          addNote = newParams["newNote"]
+          newNotesArray = @task.notes.push(addNote)
+          newParams["notes"] = newNotesArray
+          newParams.delete(:newNote)
+        end
+
+        p newParams
+
+        if @task && @task.update(newParams)
           render json: @task
         elsif !@task
           render json: ['Could not locate task'], status: 400
@@ -58,7 +70,9 @@ class Api::TasksController < ApplicationController
       end
       
       def task_params
-        params.require(:task).permit(:title, :notes, :start_date, :due_date, :priority, :estimate, :parent_id)
+        params.require(:task).permit(:title, :newNote, :complete, :notes, :start_date, :due_date, :priority, :estimate, :parent_id)
       end
 
 end
+
+# add_column :table_name, :column_name, :string, array: true, default: []
