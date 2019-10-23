@@ -8,12 +8,12 @@
         grid-row-start: 1;
         grid-row-end: 2;
         flex-direction: column;
-        background-color: pink;
+        // background-color: pink;
     }
 
     .task-notes{
         display: flex;
-        background-color: red;
+        // background-color: red;
     }
 
     .subtasks{
@@ -28,6 +28,12 @@
         display: flex;
         justify-content: flex-end;
         padding: 13px;
+        color: white;
+        cursor: pointer;
+    }
+
+    .close-task-button:hover{
+        background-color: rgb(178, 180, 181);
     }
 
     .close-task-button{
