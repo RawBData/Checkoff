@@ -73,23 +73,8 @@ class Notes extends React.Component {
       }
     
     render(){
-                // console.log(this.props)
-                // let placeHolderText;
-                // let buttonText;
-                // if (this.props.subtask){
-                //     placeHolderText = "Add a sub-task...";
-                //     buttonText = "Add Sub Task"
-                // }else{
-                //     placeHolderText = "Add a task...";
-                //     buttonText = "Add Task"
-                // }
-        
-                // let optionalTagsClass = this.state.newNoteFocus? "add-task-actions" : "hide-add-task-actions";
-                let disableButton= this.state.newNote.length < 1? true : false;
-            
-        // console.log(this.props)
+        let disableButton= this.state.newNote.length < 1? true : false;
 
-        console.log(this.props)
         const display = 
         (
             <div className="notes-container">
@@ -105,7 +90,7 @@ class Notes extends React.Component {
                         </div>
                     </div>
                 </div>
-                
+
                 {/* notes display */}
                 <div className="notes-display">
                     { this.props.notes? this.props.notes.map(note => (<NoteIndexItem note={note} key={note+Math.random()}/> )) : (<div></div>) }

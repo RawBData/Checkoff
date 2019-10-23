@@ -32,7 +32,6 @@ const MDP = (dispatch) => {
             fetchTasks: ()=> dispatch(fetchTasks()), 
             fetchTask: (id)=>dispatch(fetchTask(id)), 
             createTask: (task)=> dispatch(createTask(task)), 
-            updateTask: (task)=> dispatch(updateTask(task)), 
             deleteTask: (id)=> dispatch(deleteTask(id))
 
         }

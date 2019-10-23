@@ -21,6 +21,7 @@ class TaskShow extends React.Component {
 
         this.displayTaskToggle = this.displayTaskToggle.bind(this);
         this.updateTask = this.updateTask.bind(this);
+        this.hideTaskShow = this.hideTaskShow.bind(this);
     }
 
     componentDidMount(){
@@ -36,7 +37,7 @@ class TaskShow extends React.Component {
         })
         
     }
-    
+
 
     displayTaskToggle(task){
 
@@ -53,12 +54,21 @@ class TaskShow extends React.Component {
                 });
               }
           break;
+
           case "delete":
               let newSelectedArray = this.state.selectedSubTasks.concat([task])
               this.setState({
                 selectedSubTasks: []
               });
           break;
+
+          case "dismiss":
+              console.log("in display toggle dismiss")
+              this.setState({
+                selectedSubTasks: []
+              });
+          break;
+
           default:
               // this is the off statement that will remove from the list
               if (this.state.selectedSubTasks.length > 1){
@@ -75,28 +85,56 @@ class TaskShow extends React.Component {
                   selectedSubTasks: []
                 });
               }
-  
            break;
+
+
         }
   
   
-        console.log(task)
+        
         
   
   
-      }
+    }
+
+    upd(field){
+      console.log(field);
+    }
+
+    hideTaskShow(){
+      this.props.displayTaskToggle({on:"dismiss"})
+      //use react hooks to ensure that children are unchecked
+    }
     
     render(){
             
         console.log(this.props)
 
+        // list of all categories complete, due_date, list_id, parent_id, priority, start_date and need to add tags in DB
 
         const display = this.props.selectedTasksLength === 1?
         (
             <div className="task-show">
                 <div className="task-details">
-                <h1>{this.props.task.title}</h1>
+                  <div className={"close-button-container"}>
+                    <div className="close-task-button" onClick={this.hideTaskShow}>
+                        <h5>close x</h5>
+                    </div>
+                  </div>
+                  <div>
+                    <input  className="task-show-input" onKeyPress={this.keyPressed} type="text" value={this.state.selectedSubTasks[0]? this.state.selectedSubTasks[0].title : this.props.task.title} onChange={this.upd('title')}/>
+                  </div>
+                  <div>
+                    <div>
+                      {/* Need to set this up to auto populate other then due and list */}
+                      <h3>due</h3>
+                      <input type="text"/>
+                    </div>
+                    list : Drop Down Menu
+                  </div>
+                  <div>
 
+                  </div>
                 </div>
                 <div className="task-notes">
                     <Notes 
@@ -125,7 +163,7 @@ class TaskShow extends React.Component {
             
             <div className="task_show">
                 
-                <h1>more than one</h1>
+                <h1>Delete Tasks</h1>
             </div>
         );
     

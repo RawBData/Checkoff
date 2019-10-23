@@ -1,0 +1,49 @@
+.task-show{
+    display: grid;
+    grid-template-rows: 20% auto 1fr;
+    grid-template-columns: 100%;
+
+
+    .task-details{
+        grid-row-start: 1;
+        grid-row-end: 2;
+        flex-direction: column;
+        background-color: pink;
+    }
+
+    .task-notes{
+        display: flex;
+        background-color: red;
+    }
+
+    .subtasks{
+        display: flex;
+    }
+
+    .tasks{
+        
+    }
+
+    .close-button-container{
+        display: flex;
+        justify-content: flex-end;
+        padding: 13px;
+    }
+
+    .close-task-button{
+        background-color: lightslategray;
+        border-radius: 6px;
+        padding: 0 6px 0 6px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 32px;
+    }
+
+    .task-show-input{
+
+    }
+
+
+
+}

@@ -59,6 +59,12 @@ class TasksIndexItem extends React.Component {
     })
   }
 
+  unCheck(){
+    this.setState({
+      checked: false,
+    })
+  }
+
   render(){
     return(
 

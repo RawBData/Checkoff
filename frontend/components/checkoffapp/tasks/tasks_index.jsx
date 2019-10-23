@@ -31,16 +31,7 @@ class TasksIndex extends React.Component {
 
     componentDidMount(){
         this.props.fetchTasks();
-        
 
-        // if (this.props.tasks && this.state.tasks.length<1){
-        //     console.log(this.props)
-        //     let newTasks = this.props.tasks;
-        //     this.setState({
-        //         tasks: newTasks
-        //     })
-        // }
-        //this.tasksForDisplay();
         setTimeout(this.tasksForDisplay,500);
     }
 
@@ -68,10 +59,8 @@ class TasksIndex extends React.Component {
 
     completeTask(){
         if (this.props.selectedTasks.length>0){
-            this.props.selectedTasks.forEach(tsk=>{
-              this.props.completeTask(tsk.id);
-            })
-            // this.props.displayTaskToggle({on:"delete"});
+            console.log("in tasks index")
+            this.props.updateTask({type:"complete"},this.state.tasksSelected[0]);
         }
     }
 
@@ -179,7 +168,11 @@ class TasksIndex extends React.Component {
                                                                     onDragStart={e => this.onDragging(e, idx)}
                                                                     onDragEnd={()=>this.finishDragging()}
                                                                 >
-                                                                    <TasksIndexItem displayTaskToggle={this.props.displayTaskToggle} task={task}/>
+                                                                    <TasksIndexItem 
+                                                                        displayTaskToggle={this.props.displayTaskToggle} 
+                                                                        task={task}
+                                                                        ref={this.props.ref}
+                                                                    />
                                                                 </div>
                                                                 </li>))}
                     </ul>

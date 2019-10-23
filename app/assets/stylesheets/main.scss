@@ -297,6 +297,8 @@ $xl-desktop: 1260px;
                 // background-color: pink;
                 border-top: 30px;
                 border-top-color: red;
+                position: absolute;
+                bottom: 0px;
 
                 hr{
                     width: 100%;
@@ -377,33 +379,9 @@ $xl-desktop: 1260px;
         .task-show-container{
             width:100%;
         }
-        .task-show{
-            display: grid;
-            grid-template-rows: 20% auto 1fr;
-            grid-template-columns: 100%;
 
+        //Task Container styling continued in task_show.scss
 
-            .task-details{
-                grid-row-start: 1;
-                grid-row-end: 2;
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                background-color: pink;
-            }
-
-            .task-notes{
-                display: flex;
-                background-color: red;
-            }
-
-            .subtasks{
-                display: flex;
-
-            }
-
-        
-        }
 
 
 

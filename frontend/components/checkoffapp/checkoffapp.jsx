@@ -1,4 +1,4 @@
-import React from "react";
+import React, {createRef, forwardRef, useRef, useImperativeHandle} from 'react';
 import BannerContainer from '../banner/banner_container';
 import Menu from './menu/menu';
 import TasksIndex from './tasks/tasks_index';
@@ -20,11 +20,15 @@ class CheckoffApp extends React.Component {
         showingTask: false,
       }
 
+      // this.clock = React.createRef();
+
       this.toggleMenu = this.toggleMenu.bind(this);
       this.toggleTaskShowPanel = this.toggleTaskShowPanel.bind(this);
       this.displayTaskToggle = this.displayTaskToggle.bind(this);
       this.completeTask = this.completeTask.bind(this);
       this.updateTask = this.updateTask.bind(this);
+
+
     }
 
     componentDidMount(){
@@ -43,7 +47,19 @@ class CheckoffApp extends React.Component {
       })
     }
 
-    
+        // resetClock(newClock){
+    //   let newSecs = newClock || 15;
+    //   this.setState({
+    //       mins:0,
+    //       secs: newSecs,
+    //       time: this.props.seconds
+    //   })
+    // }
+
+    // this.clock = React.createRef();
+    //        this.clock.current.resetClock();
+
+    //<h1>Clock:&nbsp;&nbsp;</h1><h1 className="clock"><Clock seconds={10} ref={this.clock}/></h1>
 
     displayTaskToggle(task){
 
@@ -62,6 +78,16 @@ class CheckoffApp extends React.Component {
               });
             }
         break;
+        
+        case "dismiss":
+            // this.taskChecked.current.unCheck();
+            this.setState({
+              showingTask: !this.state.showingTask,
+              displayTask: {},
+              selectedTasks: []
+            });
+        break;
+
         case "delete":
             this.toggleTaskShowPanel();
             let newSelectedArray = this.state.selectedTasks.concat([task])
@@ -70,6 +96,8 @@ class CheckoffApp extends React.Component {
               selectedTasks: []
             });
         break;
+
+
         default:
             // this is the off statement that will remove from the list
             if (this.state.selectedTasks.length > 1){
@@ -89,7 +117,6 @@ class CheckoffApp extends React.Component {
                 selectedTasks: []
               });
             }
-
          break;
       }
 
@@ -122,19 +149,21 @@ class CheckoffApp extends React.Component {
 
               console.group(updatedTask);
               this.props.updateTask(updatedTask);
-
           break;
 
           case "complete":
-              this.setState({
-                  // notes: this.props.task.notes.push(newAttributeObject.note)
+              console.log(this.state.selectedTasks);
+              this.state.selectedTasks.forEach(tsk=>{
+                console.log(tsk)
+                tsk.complete = true;
+                this.props.updateTask(tsk);
               })
-                  
-              updatedTask.newNote = newAttributeObject.note;
 
-              console.group(updatedTask);
-              this.props.updateTask(updatedTask);
-
+              this.setState({
+                displayTask: {},
+                selectedTasks: [],
+                showingTask: false,
+              })
           break;
       
           default:
@@ -174,6 +203,7 @@ class CheckoffApp extends React.Component {
 
               <div className="main-tasks-index">
                 <TasksIndexContainer 
+                        ref={this.taskChecked}
                         tasks={this.props.tasks}
                         selectedTasks={this.state.selectedTasks}
                         fetchTask={this.props.fetchTask} 
@@ -191,7 +221,11 @@ class CheckoffApp extends React.Component {
               </div>
 
               <div className={this.state.showingTask?"main-task-show main-task-show-display":"main-task-show"}>
-                  <TaskShow selectedTasksLength={this.state.selectedTasks.length} task={this.state.displayTask} updateTask={this.updateTask}/>
+                  <TaskShow selectedTasksLength={this.state.selectedTasks.length} 
+                            task={this.state.displayTask} 
+                            updateTask={this.updateTask}
+                            displayTaskToggle={this.displayTaskToggle}
+                  />
               </div>
 
             </div>

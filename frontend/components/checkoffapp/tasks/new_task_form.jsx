@@ -21,7 +21,8 @@ class NewTaskForm extends React.Component {
         }
 
         this.handleSubmit = this.handleSubmit.bind(this);
-        this.newTaskFocusToggle = this.newTaskFocusToggle.bind(this);
+        this.newTaskFocusToggle = this.newTaskFocusToggle.bind(this); 
+        this.keyPressed = this.keyPressed.bind(this);
     }
 
     componentDidMount(){
@@ -65,6 +66,14 @@ class NewTaskForm extends React.Component {
           })
         }
     }
+
+    keyPressed(event) {
+        console.log(event.key)
+        if (event.key === "Enter") {
+            console.log(event)
+          this.handleSubmit()
+        }
+    }
     
     render(){
         // console.log(this.props)
@@ -84,7 +93,7 @@ class NewTaskForm extends React.Component {
         const display = (
             <div className="tasks">
                 <div onFocus={this.newTaskFocusToggle} onBlur={this.newTaskFocusToggle} className="task-input-container">
-                    <input  className="task-input" type="text" placeholder={placeHolderText} value={this.state.newTask.title} onChange={this.upd('title')}/>
+                    <input  className="task-input" onKeyPress={this.keyPressed} type="text" placeholder={placeHolderText} value={this.state.newTask.title} onChange={this.upd('title')}/>
                 </div>
 
                 <div className={optionalTagsClass}>

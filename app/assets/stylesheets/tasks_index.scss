@@ -33,7 +33,7 @@ $xl-desktop: 1260px;
     border-top-left-radius: $task-index-border-radius;
     transition: margin-top 1s;
     @include tablet{
-        margin-top: 57px;
+        margin-top: 10px;
         transition: margin-top 1s;
     }
 
