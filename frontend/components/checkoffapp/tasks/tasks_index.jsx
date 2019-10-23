@@ -65,6 +65,7 @@ class TasksIndex extends React.Component {
     }
 
   onDragging(e, index){
+    
     this.draggedTask = this.state.tasks[index];
     e.dataTransfer.effectAllowed = "all";
     e.dataTransfer.setData("text/html", e.target.parentNode);
@@ -72,6 +73,7 @@ class TasksIndex extends React.Component {
   };
 
   onDraggedOver(index){
+    console.log(index)
     const draggedOverTask = this.state.tasks[index];
     //do nothing if task is trying to replace itself
     if (this.draggedTask === draggedOverTask) {
@@ -171,7 +173,6 @@ class TasksIndex extends React.Component {
                                                                     <TasksIndexItem 
                                                                         displayTaskToggle={this.props.displayTaskToggle} 
                                                                         task={task}
-                                                                        ref={this.props.ref}
                                                                     />
                                                                 </div>
                                                                 </li>))}

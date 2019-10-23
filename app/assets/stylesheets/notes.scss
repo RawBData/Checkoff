@@ -9,23 +9,57 @@
     flex-direction: column;
 }
 .note-input-container{
-    background-color: lightblue;
+    // background-color: lightblue;
 
 }
 .note-input{
 
 }
 .note-form-buttons-container{
-
+    display: flex;
+    justify-content: space-around;
 }
 .note-button-container {
-
+    display: flex;
+    margin-top: 3px;
 }
 .note-save{
+    
+    color: white;          
+    font-family: MuseoSansRounded;
+    font-weight: 800;
+    font-size: 14px;
+    margin-bottom: 8px;
+    margin-right: 14px;
 
+    button{
+        background-color: #2E8CEB;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 3px;
+        padding: 2px 15px 2px 14px;
+    }
+
+    button:disabled{
+        background-color: rgb(169, 203, 236);
+    }
 }
 .note-cancel{
+    font-family: MuseoSansRounded;
+    font-weight: 800;
+    font-size: 14px;
+    margin-bottom: 8px;
+    margin-right: 14px;
 
+    button{
+        background-color: rgb(255, 211, 211);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 3px;
+        padding: 2px 15px 2px 14px;
+    }
 }
 .notes-display{
     display: flex;

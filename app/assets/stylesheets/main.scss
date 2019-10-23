@@ -370,6 +370,7 @@ $xl-desktop: 1260px;
 
         .main-task-show-display{
             display: flex;
+            margin-left: 5px;
         }
 
         .main-task-hide{
@@ -377,7 +378,8 @@ $xl-desktop: 1260px;
         }
 
         .task-show-container{
-            width:100%;
+            width:99%;
+            padding-left: 22px;
         }
 
         //Task Container styling continued in task_show.scss
