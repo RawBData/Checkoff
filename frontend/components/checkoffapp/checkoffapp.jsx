@@ -27,7 +27,7 @@ class CheckoffApp extends React.Component {
       this.displayTaskToggle = this.displayTaskToggle.bind(this);
       this.completeTask = this.completeTask.bind(this);
       this.updateTask = this.updateTask.bind(this);
-
+      this.deleteTasks = this.deleteTasks.bind(this);
 
     }
 
@@ -81,6 +81,9 @@ class CheckoffApp extends React.Component {
         
         case "dismiss":
             // this.taskChecked.current.unCheck();
+            this.state.selectedTasks.forEach(tsk=>{
+              tsk.checked=false;
+            })
             this.setState({
               showingTask: !this.state.showingTask,
               displayTask: {},
@@ -130,6 +133,12 @@ class CheckoffApp extends React.Component {
       console.log(task);
       this.props.updateTask(task);
       
+    }
+
+    deleteTasks(){
+      this.state.selectedTasks.forEach(tsk=>{
+        this.props.deleteTask(tsk.id);
+      })
     }
 
     updateTask(newAttributeObject,task){
@@ -207,7 +216,7 @@ class CheckoffApp extends React.Component {
                         tasks={this.props.tasks}
                         selectedTasks={this.state.selectedTasks}
                         fetchTask={this.props.fetchTask} 
-                        deleteTask={this.props.deleteTask} 
+                        deleteTasks={this.props.deleteTask} 
                         createTask={this.props.createTask}
                         updateTask={this.updateTask}
                         completeTask={this.completeTask}
@@ -225,6 +234,7 @@ class CheckoffApp extends React.Component {
                             task={this.state.displayTask} 
                             updateTask={this.updateTask}
                             displayTaskToggle={this.displayTaskToggle}
+                            deleteTasks={this.deleteTasks}
                   />
               </div>
 

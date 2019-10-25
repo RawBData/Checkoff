@@ -22,6 +22,7 @@ class TaskShow extends React.Component {
         this.displayTaskToggle = this.displayTaskToggle.bind(this);
         this.updateTask = this.updateTask.bind(this);
         this.hideTaskShow = this.hideTaskShow.bind(this);
+        this.deleteTasks = this.deleteTasks.bind(this);
     }
 
     componentDidMount(){
@@ -103,8 +104,13 @@ class TaskShow extends React.Component {
 
     hideTaskShow(){
       this.props.displayTaskToggle({on:"dismiss"})
-      //use react hooks to ensure that children are unchecked
     }
+
+    deleteTasks(){
+      this.props.deleteTasks();
+      this.hideTaskShow();
+    }
+
     
     render(){
             
@@ -162,8 +168,16 @@ class TaskShow extends React.Component {
         (
             
             <div className="task_show">
-                
-                <h1>Delete Tasks</h1>
+                <div className={"close-button-container"}>
+                  <div className="close-task-button" onClick={this.hideTaskShow}>
+                      <h5>close x</h5>
+                  </div>
+                </div>
+                <div className={"close-button-container"}>
+                  <div className="close-task-button" onClick={this.deleteTasks}>
+                      <h5>Delete Tasks</h5>
+                  </div>
+                </div>
             </div>
         );
     

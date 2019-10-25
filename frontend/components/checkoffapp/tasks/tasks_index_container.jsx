@@ -13,6 +13,9 @@ const MSP = (state, ownProps) => {
     tasks = Object.values(state.entities.tasks).filter(task => task.parent_id === ownProps.parentID)
     :
     tasks = Object.values(state.entities.tasks).filter(task => task.parent_id === null);
+
+    let completedTasks = tasks.filter(tsk=>(tsk.complete));
+    let incompletedTasks = tasks.filter(tsk=>(!tsk.complete));
         
 
     // let tasks = this.state.selectedTasks.filter(tsk => task.id !== tsk.id);
@@ -20,6 +23,8 @@ const MSP = (state, ownProps) => {
     return (
         {
             tasks,
+            completedTasks,
+            incompletedTasks,
             tasksErrors: state.errors.tasks
         }
 

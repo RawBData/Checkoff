@@ -42,7 +42,7 @@ class TasksIndex extends React.Component {
     }
 
     componentDidUpdate(){
-        if(this.props.tasks.length !== this.state.tasks.length)
+        if((this.completedView && this.props.completedTasks.length !== this.state.tasks.length) || (this.props.incompletedTasks.length !== this.state.tasks.length))
         {
             this.tasksForDisplay();
         }
@@ -50,10 +50,11 @@ class TasksIndex extends React.Component {
 
     tasksForDisplay(){
         // console.log(this.state.tasks)
-        let htmlTasksArray = this.props.tasks//.map((task, idx )=> (<li draggable key={task.id}><TasksIndexItem task={task}/></li>));
+        // let htmlTasksArray = this.props.tasks//.map((task, idx )=> (<li draggable key={task.id}><TasksIndexItem task={task}/></li>));
+        let displayTasksArray = this.state.completedView? this.props.completedTasks : this.props.incompletedTasks;
         //console.log(htmlTasksArray)
         this.setState({
-            tasks: htmlTasksArray
+            tasks: displayTasksArray
          })
     }
 
@@ -118,7 +119,7 @@ class TasksIndex extends React.Component {
         //add modularity by setting task or subtask forking
         const subtask = this.props.subtask? true : false;
         const parentID = this.props.subtask? this.props.parentID : null;
-        const arrayForDisplay = this.state.tasks.filter(tsk=>{return tsk.complete === this.state.completedView});
+        const arrayForDisplay = this.state.tasks//.filter(tsk=>{return tsk.complete === this.state.completedView});
         
         
         //console.log(this.state.tasks)

@@ -6,7 +6,10 @@ const tasksReducer = (oldState = {}, action) => {
   let nextState = Object.assign( {}, oldState );
   switch (action.type) {
     case RECEIVE_TASKS:
-        action.tasks.forEach(task => nextState[task.id]=task );
+        action.tasks.forEach(task => {
+          task.checked = false;
+          nextState[task.id]=task
+        });
         return nextState;
 
     case RECEIVE_TASK:

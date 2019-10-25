@@ -2,30 +2,6 @@ import React from "react";
 import { Route, Switch, Redirect } from 'react-router-dom';
 
 
-// const TasksIndexItem = (props) => {
-  
-  
-//   return(
-
-//   <div className="task-index-item-container">
-//     <div className="t_i_i_left-side">
-//       <div className="priority-color"></div>
-//       <div className="checkbox-container">
-//         <input type="checkbox" name="vehicle1" value="task" className="task-checkbox checkmark"></input>
-//       </div>
-//       <h1>{props.task.title}</h1>
-//     </div>
-
-//     <div className="t_i_i_right-side">
-
-//     </div>
-    
-
-//   </div>
-  
-//   )
-// };
-
 class TasksIndexItem extends React.Component {
 
   constructor(props){
@@ -42,15 +18,40 @@ class TasksIndexItem extends React.Component {
 
   }
 
+  componentDidUpdate(){
+    // if(this.props.task.checked !== this.state.checked) this.setState({checked:this.props.checked});
+    // this.setState({checked:this.props.tasks.checked});
+  }
+
+
+  // onChecked(e){
+  //   console.log(e.target);
+  //   let displayTask = this.props.task;
+  //   if(this.state.checked){
+  //     displayTask.on = false;
+  //     displayTask.checked=false;
+  //     this.props.displayTaskToggle(displayTask);
+  //   }else{
+  //     displayTask.on = true;
+  //     displayTask.checked=true;
+  //     this.props.displayTaskToggle(displayTask);
+  //   }
+    
+  //   this.setState({
+  //     checked: !this.state.checked,
+  //   })
+  // }
 
   onChecked(e){
     console.log(e.target);
     let displayTask = this.props.task;
-    if(this.state.checked){
+    if(displayTask.checked){
       displayTask.on = false;
+      displayTask.checked=false;
       this.props.displayTaskToggle(displayTask);
     }else{
-      displayTask.on = true;
+      displayTask.on=true;
+      displayTask.checked=true;
       this.props.displayTaskToggle(displayTask);
     }
     
@@ -65,17 +66,21 @@ class TasksIndexItem extends React.Component {
     })
   }
 
+  taskClicked(e){
+
+  }
+
   render(){
     return(
 
-      <div className="task-index-item-container">
+      <div className="task-index-item-container" onClick={this.taskClicked}>
         <div className="t_i_i_left-side">
           <div className="priority-color"></div>
           <div className="checkbox-container">
             <input type="checkbox" 
               name="testing" 
               onChange={(e)=>{this.onChecked(e)}}
-              checked={this.state.checked}
+              checked={this.props.task.checked}
               value="task" 
               className="task-checkbox checkmark"
             ></input>
