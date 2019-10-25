@@ -12,6 +12,7 @@ class TasksIndexItem extends React.Component {
       checked: false,
     }
     this.onChecked = this.onChecked.bind(this);
+    this.taskClicked = this.taskClicked.bind(this);
   }
 
   componentDidMount(){
