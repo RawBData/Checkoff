@@ -15,7 +15,7 @@ class TasksIndex extends React.Component {
         super(props)
         this.tasksArray = this.props.tasks
         this.state={
-            tasksSelected: false,
+            tasksSelectedToggled: false,
             tasks: [],
             tasksSelected: [],
             completedView:false
@@ -36,14 +36,17 @@ class TasksIndex extends React.Component {
     }
 
     toggleCompleteView(booly){
+        let arrayForDisplay = booly? this.props.completedTasks : this.props.incompletedTasks;
         this.setState({
-            completedView: booly
+            completedView: booly,
+            tasks: arrayForDisplay
         })
     }
 
     componentDidUpdate(){
-        if((this.completedView && this.props.completedTasks.length !== this.state.tasks.length) || (this.props.incompletedTasks.length !== this.state.tasks.length))
+        if((!this.state.completedView && (this.props.incompletedTasks.length !== this.state.tasks.length)) || (this.state.completedView && (this.props.completedTasks.length !== this.state.tasks.length)))
         {
+            console.log("still in update")
             this.tasksForDisplay();
         }
     }
@@ -59,59 +62,66 @@ class TasksIndex extends React.Component {
     }
 
     completeTask(){
+        console.log(this.props.selectedTasks)
         if (this.props.selectedTasks.length>0){
-            console.log("in tasks index")
-            this.props.updateTask({type:"complete"},this.state.tasksSelected[0]);
+            if(this.props.subtask){
+                this.props.completeSubtasks();
+                // this.state.tasksSelected.forEach(tsk => {
+                //     console.log(tsk)
+                //     tsk.complete=true;
+                //     this.props.completeSubtasks(tsk);
+                // })
+            }else{
+                console.log("in tasks index")
+                this.props.updateTask({type:"complete"},this.state.tasksSelected[0]);
+            }
         }
     }
 
-  onDragging(e, index){
-    
-    this.draggedTask = this.state.tasks[index];
-    e.dataTransfer.effectAllowed = "all";
-    e.dataTransfer.setData("text/html", e.target.parentNode);
-    e.dataTransfer.setDragImage(e.target.parentNode, 20, 20);
-  };
+    onDragging(e, index){   
+        this.draggedTask = this.state.tasks[index];
+        e.dataTransfer.effectAllowed = "all";
+        e.dataTransfer.setData("text/html", e.target.parentNode);
+        e.dataTransfer.setDragImage(e.target.parentNode, 20, 20);
+    };
 
-  onDraggedOver(index){
-    console.log(index)
-    const draggedOverTask = this.state.tasks[index];
-    //do nothing if task is trying to replace itself
-    if (this.draggedTask === draggedOverTask) {
-      return;
+    onDraggedOver(index){
+        console.log(index)
+        const draggedOverTask = this.state.tasks[index];
+        //do nothing if task is trying to replace itself
+        if (this.draggedTask === draggedOverTask) {
+        return;
+        }
+
+        //get rest of tasks
+        let tasks = this.state.tasks.filter(task => task !== this.draggedTask);
+        //insert current task into array and set state
+        tasks.splice(index, 0, this.draggedTask);
+        this.setState({ tasks });
+    };
+
+    finishDragging(){
+        this.draggedIdx = null;
+    };
+
+    deleteSelectedTasksArray(){
+        if (this.props.selectedTasks.length>0){
+            this.props.selectedTasks.forEach(tsk=>{
+                this.props.deleteTask(tsk.id);
+            })
+            this.props.displayTaskToggle({on:"delete"});
+        }
     }
 
-    //get rest of tasks
-    let tasks = this.state.tasks.filter(task => task !== this.draggedTask);
-    //insert current task into array and set state
-    tasks.splice(index, 0, this.draggedTask);
-    this.setState({ tasks });
-  };
+    displayTaskToggle(task){
+        if (!this.props.subtask){
+            this.props.displayTaskToggle(task);
+        }else{
 
-  finishDragging(){
-    this.draggedIdx = null;
-  };
+        }
+    }
 
-  deleteSelectedTasksArray(){
-      if (this.props.selectedTasks.length>0){
-          this.props.selectedTasks.forEach(tsk=>{
-            this.props.deleteTask(tsk.id);
-          })
-          this.props.displayTaskToggle({on:"delete"});
-      }
-  }
 
-  displayTaskToggle(task){
-      if (!this.props.subtask){
-          this.props.displayTaskToggle(task);
-      }else{
-
-      }
-  }
-
-  toggleCompleteDisplay(){
-
-  }
     
     render(){
         // console.log(this.state)
@@ -123,7 +133,7 @@ class TasksIndex extends React.Component {
         
         
         //console.log(this.state.tasks)
-        const actionsRow2Display = this.state.tasksSelected?
+        const actionsRow2Display = this.state.tasksSelectedToggled?
         ("task-specific-actions")
         :
         ("hide-task-specific-actions");

@@ -23,6 +23,7 @@ class TaskShow extends React.Component {
         this.updateTask = this.updateTask.bind(this);
         this.hideTaskShow = this.hideTaskShow.bind(this);
         this.deleteTasks = this.deleteTasks.bind(this);
+        this.completeSubtasks = this.completeSubtasks.bind(this);
     }
 
     componentDidMount(){
@@ -70,6 +71,33 @@ class TaskShow extends React.Component {
               });
           break;
 
+          case "clicked":
+              if(this.state.selectedSubTasks.length === 1 && this.state.selectedSubTasks[0].id === task.id){
+                task.on = "dimiss";
+                task.checked = false;
+                this.displayTaskToggle(task);
+              }else if(this.state.selectedSubTasks.length > 0){
+                if(this.state.selectedSubTasks.some(tsk=>(tsk.id === task.id))){
+                  task.checked = false;
+                  this.setState({
+                    selectedSubTasks: this.state.selectedSubTasks.filter(tsk=>(tsk.id !== task.id))
+                  })              
+                }else{
+                  task.checked=true;
+                  this.setState({
+                    selectedSubTasks: this.state.selectedSubTasks.concat(task),
+                });
+                }
+              }else{
+                task.checked=true;
+                this.setState({
+                  selectedSubTasks: [task],
+                });
+              }
+  
+          break;
+          
+
           default:
               // this is the off statement that will remove from the list
               if (this.state.selectedSubTasks.length > 1){
@@ -111,6 +139,14 @@ class TaskShow extends React.Component {
       this.hideTaskShow();
     }
 
+    completeSubtasks(){
+      this.state.selectedSubTasks.forEach(tsk=>{
+        tsk.complete = true;
+        this.props.completeSubtasks(tsk);
+      })
+      
+    }
+
     
     render(){
             
@@ -128,7 +164,7 @@ class TaskShow extends React.Component {
                     </div>
                   </div>
                   <div>
-                    <input  className="task-show-input" onKeyPress={this.keyPressed} type="text" value={this.state.selectedSubTasks[0]? this.state.selectedSubTasks[0].title : this.props.task.title} onChange={this.upd('title')}/>
+                    <input  className="task-show-input" onKeyPress={this.keyPressed} type="text" value={this.props.task.title} onChange={this.upd('title')}/>
                   </div>
                   <div>
                     <div>
@@ -159,6 +195,7 @@ class TaskShow extends React.Component {
                             createTask={this.props.createTask}
                             updateTask={this.props.updateTask}
                             displayTaskToggle={this.displayTaskToggle}
+                            completeSubtasks={this.completeSubtasks}
                     />
                 </div>
                 

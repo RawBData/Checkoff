@@ -80,6 +80,7 @@ class CheckoffApp extends React.Component {
         break;
         
         case "dismiss":
+          // console.log(this.state.selectedTasks)
             // this.taskChecked.current.unCheck();
             this.state.selectedTasks.forEach(tsk=>{
               tsk.checked=false;
@@ -93,11 +94,30 @@ class CheckoffApp extends React.Component {
 
         case "delete":
             this.toggleTaskShowPanel();
-            let newSelectedArray = this.state.selectedTasks.concat([task])
+            // let newSelectedArray = this.state.selectedTasks.concat([task])
             this.setState({
               displayTask: {},
               selectedTasks: []
             });
+        break;
+
+        case "clicked":
+            if(this.state.selectedTasks.length === 1 && this.state.selectedTasks[0].id === task.id){
+              task.on = "dimiss";
+              task.checked = false;
+              this.displayTaskToggle(task);
+            }else{
+              this.state.selectedTasks.forEach(tsk=>{
+                tsk.checked=false;
+              })
+              task.checked=true;
+              this.setState({
+                displayTask: task,
+                selectedTasks: [task],
+                showingTask:true,
+              });
+            }
+
         break;
 
 
@@ -235,6 +255,7 @@ class CheckoffApp extends React.Component {
                             updateTask={this.updateTask}
                             displayTaskToggle={this.displayTaskToggle}
                             deleteTasks={this.deleteTasks}
+                            completeSubtasks={this.props.updateTask}
                   />
               </div>
 

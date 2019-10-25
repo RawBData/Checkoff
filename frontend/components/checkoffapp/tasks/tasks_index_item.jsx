@@ -20,8 +20,7 @@ class TasksIndexItem extends React.Component {
   }
 
   componentDidUpdate(){
-    // if(this.props.task.checked !== this.state.checked) this.setState({checked:this.props.checked});
-    // this.setState({checked:this.props.tasks.checked});
+ 
   }
 
 
@@ -68,13 +67,17 @@ class TasksIndexItem extends React.Component {
   }
 
   taskClicked(e){
-
+    console.log('clicked');
+    let displayTask = this.props.task;
+    displayTask.on="clicked";
+    displayTask.checked=true;
+    this.props.displayTaskToggle(displayTask);
   }
 
   render(){
     return(
 
-      <div className="task-index-item-container" onClick={this.taskClicked}>
+      <div className="task-index-item-container">
         <div className="t_i_i_left-side">
           <div className="priority-color"></div>
           <div className="checkbox-container">
@@ -86,11 +89,16 @@ class TasksIndexItem extends React.Component {
               className="task-checkbox checkmark"
             ></input>
           </div>
-          <h1>{this.props.task.title}</h1>
         </div>
-    
-        <div className="t_i_i_right-side">
-    
+
+        <div  className="t_i_i_task" onClick={this.taskClicked}>
+          <div>
+            <h1>{this.props.task.title}</h1>
+          </div>
+      
+          <div className="t_i_i_right-side">
+      
+          </div>
         </div>
         
     
