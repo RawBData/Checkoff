@@ -14,7 +14,8 @@ class NewTaskForm extends React.Component {
         super(props)
         this.state = {
             newTask: {
-                title: ""
+                title: "",
+                tag_names:[]
             },
             inputText:'',
             newTaskFocus: false
@@ -68,9 +69,9 @@ class NewTaskForm extends React.Component {
     }
 
     keyPressed(event) {
-        console.log(event.key)
+        // console.log(event.key)
         if (event.key === "Enter") {
-            console.log(event)
+            // console.log(event)
           this.handleSubmit()
         }
     }

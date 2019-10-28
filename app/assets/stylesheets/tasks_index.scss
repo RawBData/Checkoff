@@ -107,9 +107,107 @@ $xl-desktop: 1260px;
             align-items: flex-end;
             border-bottom: 1px dotted silver;
             height: 50px;
+            padding: 0px 10px 0 0; 
+
         }
 
+        .actions-row-2-icon{
+            margin: 0 0px 0px 15px;
+            font-size: 25px;
+        }
+
+        .actions-row-2-icon:hover{
+        //    background-color: pink;
+           color: $grey-icon;
+        }
+
+
+        .tag-selector-hide{
+            display: none;
+        }
+
+        .tag-selector-show{
+            display: flex;
+            flex-direction: column;
+            position: absolute;
+            background-color: pink;
+        }
+
+        .selector-tag{
+            background-color: red;
+        }
+
+
+
+
+
+
+
+       
+        .dropbtn {
+            background-color: #4CAF50;
+            color: white;
+            padding: 16px;
+            font-size: 16px;
+            border: none;
+            cursor: pointer;
+          }
+          
+          .dropdown {
+            position: relative;
+            display: inline-block;
+          }
+          
+          .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #f9f9f9;
+            min-width: 160px;
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+            z-index: 1;
+          }
+          
+          .dropdown-content a {
+            color: black;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+          }
+          
+          .dropdown-content a:hover {background-color: #f1f1f1}
+          
+          .dropdown:hover .dropdown-content {
+            display: block;
+          }
+          
+          .dropdown:hover .dropbtn {
+            background-color: #3e8e41;
+          }
+
+
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     }
+
+    .tags-form-container{
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        justify-content: space-between;
+      }
 
     .tasks-index-new-task-form-container{
         display: flex;
@@ -248,12 +346,24 @@ $xl-desktop: 1260px;
     }
 
     .t_i_i_right-side{
-
+        display: flex;
+        justify-content: center;
+        align-items: center;
     }
 
     .t_i_i_task{
         // background-color: plum;
         width: 100%;
+        display: flex;
+    }
+
+    .task-description{
+        white-space: nowrap;
+    }
+
+    .t_i_i_tag-container{
+        margin: 0 0 0 9px;
+        background-color: gold;
     }
 
 }
@@ -285,4 +395,89 @@ $xl-desktop: 1260px;
         background-color: white;
       }
     
+}
+
+
+.tags{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    justify-content: space-between;
+
+    .add-tag-actions{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+
+        .add-tag-optional-tags-container{
+            margin-left: 13px;
+            padding-bottom: 13px;
+            .tags-icons{
+                color: $grey-icon;
+                margin-right: 17px;
+            }
+
+            .tags-icons:hover{
+                color: darken($grey-icon, 40%);
+            }
+        }
+    }
+
+    .hide-add-tag-actions{
+        height: 0px;
+        z-index: -1;
+        transition: height 1s;
+    }
+    
+    .tag-input-container{
+        display: flex;
+        justify-content: center;
+        height: 33px;
+        padding-top: 10px;
+        margin-bottom: 9px;
+
+        input::placeholder{
+            padding-left: 6px;
+            font-size: 14px;
+            color: $tasks_grey;
+        }
+    }
+
+    .tag-input{
+        width: 100%;
+        margin-right: 13px;
+        margin-left: 13px;
+        border-radius: 3px;
+        border-color: #cccac3;
+        border: 1px solid $tasks_grey;
+        padding-left: 6px;
+        font-size: 14px;
+        
+    }
+
+
+    .add-tag-button-container{
+        
+        color: white;
+        
+        font-family: MuseoSansRounded;
+        font-weight: 800;
+        font-size: 14px;
+        margin-bottom: 8px;
+        margin-right: 14px;
+
+        button{
+            background-color: #2E8CEB;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 3px;
+            padding: 6px 15px 6px 14px;
+        }
+
+        button:disabled{
+            background-color: rgb(169, 203, 236);
+        }
+    }
 }

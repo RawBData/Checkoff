@@ -4,7 +4,8 @@ class Api::TasksController < ApplicationController
         @task = Task.new(task_params)
         @task.author_id = current_user.id
         if @task.save
-          render json: @task
+          # render json: @task
+          render json: @task, include: :tags
         else
           render json: @task.errors.full_messages, status: 422
         end
@@ -33,7 +34,8 @@ class Api::TasksController < ApplicationController
         p newParams
 
         if @task && @task.update(newParams)
-          render json: @task
+          # render json: @task
+          render json: @task, include: :tags
         elsif !@task
           render json: ['Could not locate task'], status: 400
         else
@@ -50,14 +52,17 @@ class Api::TasksController < ApplicationController
       
     def index
         @tasks = current_user.tasks
-        render json: @tasks
+        
+        render json: @tasks, include: :tags
+
     end
       
     def destroy
         @task = current_user.tasks.find(params[:id])
         if @task
           @task.destroy
-          render json: @task
+          # render json: @task
+          render json: @task, include: :tags
         else
           render ['Could not find task']
         end
@@ -70,7 +75,7 @@ class Api::TasksController < ApplicationController
       end
       
       def task_params
-        params.require(:task).permit(:title, :newNote, :complete, :notes, :start_date, :due_date, :priority, :estimate, :parent_id)
+        params.require(:task).permit(:title, :newNote, :complete, :notes, :start_date, :due_date, :priority, :estimate, :parent_id,  tag_names: [])
       end
 
 end

@@ -7,6 +7,7 @@ import React from "react";
 // import Tasks from './tasks/tasks';
 import TasksIndexItem from './tasks_index_item';
 import NewTaskForm from './new_task_form';
+import NewTagForm from './new_tag_form';
 
 
 
@@ -15,6 +16,7 @@ class TasksIndex extends React.Component {
         super(props)
         this.tasksArray = this.props.tasks
         this.state={
+            tagDisplay:false,
             tasksSelectedToggled: false,
             tasks: [],
             tasksSelected: [],
@@ -27,6 +29,11 @@ class TasksIndex extends React.Component {
         this.displayTaskToggle = this.displayTaskToggle.bind(this);
         this.completeTask = this.completeTask.bind(this);
         this.toggleCompleteView = this.toggleCompleteView.bind(this);
+        //tags
+        this.addTag = this.addTag.bind(this);
+        this.selectTag = this.selectTag.bind(this);
+        this.createNewTag = this.createNewTag.bind(this);
+        
     }
 
     componentDidMount(){
@@ -46,7 +53,6 @@ class TasksIndex extends React.Component {
     componentDidUpdate(){
         if((!this.state.completedView && (this.props.incompletedTasks.length !== this.state.tasks.length)) || (this.state.completedView && (this.props.completedTasks.length !== this.state.tasks.length)))
         {
-            console.log("still in update")
             this.tasksForDisplay();
         }
     }
@@ -62,7 +68,6 @@ class TasksIndex extends React.Component {
     }
 
     completeTask(){
-        console.log(this.props.selectedTasks)
         if (this.props.selectedTasks.length>0){
             if(this.props.subtask){
                 this.props.completeSubtasks();
@@ -121,6 +126,23 @@ class TasksIndex extends React.Component {
         }
     }
 
+    addTag(){
+        if(this.props.selectedTasks.length>0){
+            this.setState({tagDisplay:!this.state.tagDisplay})
+
+            console.log("adding tag");
+        }
+    }
+
+    createNewTag(type,tag){
+        console.log("creating new tag")
+        this.props.updateTask(type,tag)
+    }
+
+    selectTag(){
+        console.log("tag selected")
+    }
+
 
     
     render(){
@@ -137,6 +159,7 @@ class TasksIndex extends React.Component {
         ("task-specific-actions")
         :
         ("hide-task-specific-actions");
+        const tagSelectorDisplayClass = this.state.tagDisplay? "tag-selector-show" : "tag-selector-hide"
 
             
     
@@ -153,9 +176,26 @@ class TasksIndex extends React.Component {
                         <h5 className="action-link" onClick={()=>this.toggleCompleteView(false)}>incomplete</h5>
                         <i className="fa fa-print print-icon"></i>
                     </div>
+
+
+
+                    
                     <div className="actions-row-2">
-                    <i onClick={()=>this.deleteSelectedTasksArray()} className="fa fa-trash print-icon"></i>
-                    <i onClick={()=>this.completeTask()} className="fa fa-check print-icon"></i>
+                        <i onClick={()=>this.deleteSelectedTasksArray()} className="fa fa-trash print-icon actions-row-2-icon"></i>
+                        <i onClick={()=>this.completeTask()} className="fa fa-check print-icon actions-row-2-icon"></i>
+                        <div>
+                            <div onClick={()=>this.addTag()} className="fa fa-tag print-icon actions-row-2-icon">
+                            </div>
+                            <div className={tagSelectorDisplayClass}>
+                                <div>
+                                    <NewTagForm 
+                                        updateTask={this.createNewTag}
+                                    />
+                                </div>
+                                
+                            </div>
+
+                        </div>
                     </div>
                 </div>
 

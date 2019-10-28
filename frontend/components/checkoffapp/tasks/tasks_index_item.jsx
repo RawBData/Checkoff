@@ -1,5 +1,6 @@
 import React from "react";
 import { Route, Switch, Redirect } from 'react-router-dom';
+import Tag from './tags/tag';
 
 
 class TasksIndexItem extends React.Component {
@@ -75,6 +76,11 @@ class TasksIndexItem extends React.Component {
   }
 
   render(){
+    
+
+    // let taskTags = this.props.task.tags.concat(this.props.task.tag_names);
+    // console.log(taskTags)
+
     return(
 
       <div className="task-index-item-container">
@@ -92,12 +98,14 @@ class TasksIndexItem extends React.Component {
         </div>
 
         <div  className="t_i_i_task" onClick={this.taskClicked}>
-          <div>
+          <div className="task-description">
             <h1>{this.props.task.title}</h1>
           </div>
       
           <div className="t_i_i_right-side">
-      
+            {this.props.task.tags.map(tag=>(
+              <Tag tag={tag} key={tag.title}/>
+            ))}
           </div>
         </div>
         

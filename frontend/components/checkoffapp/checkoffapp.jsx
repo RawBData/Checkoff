@@ -165,7 +165,7 @@ class CheckoffApp extends React.Component {
         
       let updatedTask = task;
       console.log("in checkoff update notes",newAttributeObject);
-      console.log("notes",task);
+      console.log("task",task);
       
       switch (newAttributeObject.type) {
           case "notes":
@@ -193,6 +193,22 @@ class CheckoffApp extends React.Component {
                 selectedTasks: [],
                 showingTask: false,
               })
+          break;
+
+          case "tags":
+            
+            //in this case we are passing the tags in "task" variable of the function
+            let newTags = updatedTask;
+            console.log("in tags",newTags);
+            this.state.selectedTasks.forEach(tsk=>{
+              console.log(tsk)
+              let currentTags=[];
+              if(tsk.tags.length>0){
+                tsk.tags.forEach(t=>currentTags.push(t.title))
+              }
+              tsk.tag_names=[...currentTags, ...tsk.tag_names ,...newTags];
+              this.props.updateTask(tsk);
+            })
           break;
       
           default:
