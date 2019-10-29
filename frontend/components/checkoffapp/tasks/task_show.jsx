@@ -17,13 +17,17 @@ class TaskShow extends React.Component {
         super(props)
         this.state={
             selectedSubTasks:[],
+            title:'',
+            editingTaskTitle:false,
         }
 
         this.displayTaskToggle = this.displayTaskToggle.bind(this);
         this.updateTask = this.updateTask.bind(this);
+        this.keyPressed = this.keyPressed.bind(this);
         this.hideTaskShow = this.hideTaskShow.bind(this);
         this.deleteTasks = this.deleteTasks.bind(this);
         this.completeSubtasks = this.completeSubtasks.bind(this);
+
     }
 
     componentDidMount(){
@@ -32,12 +36,32 @@ class TaskShow extends React.Component {
 
     updateTask(newAttributeObject){
         
-        
-        this.props.updateTask(newAttributeObject,this.props.task);
+      console.log(newAttributeObject)
+      let task = this.props.task;
+
+      if(newAttributeObject.type === "title"){
+        console.log("test");
+        if(this.state.title.length>0 && this.state.title !== this.props.task.title){
+          task.title=this.state.title;
+        }else{
+          this.setState({
+            title: this.props.task.title,
+          })
+        }
+      }
+
+      if(newAttributeObject.type === "notes"){
         this.setState({
-            notes: this.props.task.notes.push(newAttributeObject.note)
+          notes: this.props.task.notes.push(newAttributeObject.note)
         })
+      }
+
+      if(newAttributeObject.type === "due_date"){
+        task.due_date = this.state.dueDate;
+      }
+      
         
+      this.props.updateTask(newAttributeObject,task);
     }
 
 
@@ -118,17 +142,22 @@ class TaskShow extends React.Component {
 
 
         }
-  
-  
-        
-        
-  
-  
     }
 
     upd(field){
-      console.log(field);
+      return e => {
+        this.setState({
+                [field]:e.target.value,
+                editingTaskTitle:field === 'title'
+        })
+      }
     }
+
+    keyPressed(event) {
+      if (event.key === "Enter") {
+        this.updateTask({type:"title"})
+      }
+  }
 
     hideTaskShow(){
       this.props.displayTaskToggle({on:"dismiss"})
@@ -153,30 +182,56 @@ class TaskShow extends React.Component {
         //console.log(this.props)
 
         // list of all categories complete, due_date, list_id, parent_id, priority, start_date and need to add tags in DB
+        let taskTitleDisplay = (this.state.editingTaskTitle === false)? this.props.task.title : this.state.title;
+        let dueDateDisplay = this.state.dueDate? this.state.dueDate : this.props.task.due_date? this.props.task.due_date : '';
+
 
         const display = this.props.selectedTasksLength === 1?
         (
             <div className="task-show">
                 <div className="task-details">
+
                   <div className={"close-button-container"}>
                     <div className="close-task-button" onClick={this.hideTaskShow}>
                         <h5>close x</h5>
                     </div>
                   </div>
-                  <div>
-                    <input  className="task-show-input" onKeyPress={this.keyPressed} type="text" value={this.props.task.title} onChange={this.upd('title')}/>
-                  </div>
-                  <div>
-                    <div>
-                      {/* Need to set this up to auto populate other then due and list */}
-                      <h3>due</h3>
-                      <input type="text"/>
-                    </div>
-                    list : Drop Down Menu
-                  </div>
-                  <div>
 
+
+                  <div>
+                    <input  
+                      className="task-show-input" 
+                      onKeyPress={this.keyPressed} 
+                      type="text" 
+                      value={ taskTitleDisplay} 
+                      onChange={this.upd('title')}
+                      onBlur={()=>this.updateTask({type:"title"})}
+                      /> 
                   </div>
+
+                  <div className="task-show-due-container">
+                      <h3>List</h3>
+                  </div>
+
+                  <div className="task-show-due-container">
+                      <h3>Due</h3>
+                      <input 
+                        type="date"
+                        onChange={this.upd('dueDate')}
+                        value={dueDateDisplay} 
+                        onBlur={()=>this.updateTask({type:"due_date"})}
+                      />
+                  </div>
+                  
+                  
+                  <div className="task-show-tags-container">
+                      <h3>Tags</h3>
+                      {this.props.task.tags.map(tg=>(
+                        <div key={tg.id}>{tg.title}</div>
+                      ))}
+                  </div>
+
+
                 </div>
                 <div className="task-notes">
                     <Notes 

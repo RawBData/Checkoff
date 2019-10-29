@@ -70,7 +70,7 @@ class TasksIndex extends React.Component {
     }
 
     completeTask(){
-        console.log(this.props.selectedTasks)
+        // console.log(this.props.selectedTasks)
         if (this.props.selectedTasks.length>0){
             if(this.props.subtask){
                 this.props.completeSubtasks();
@@ -80,7 +80,7 @@ class TasksIndex extends React.Component {
                 //     this.props.completeSubtasks(tsk);
                 // })
             }else{
-                console.log("in tasks index")
+                // console.log("in tasks index")
                 this.props.updateTask({type:"complete"},this.state.tasksSelected[0]);
             }
         }
@@ -94,7 +94,7 @@ class TasksIndex extends React.Component {
     };
 
     onDraggedOver(index){
-        console.log(index)
+        // console.log(index)
         const draggedOverTask = this.state.tasks[index];
         //do nothing if task is trying to replace itself
         if (this.draggedTask === draggedOverTask) {
@@ -133,12 +133,12 @@ class TasksIndex extends React.Component {
         if(this.props.selectedTasks.length>0){
             this.setState({tagDisplay:!this.state.tagDisplay})
 
-            console.log("adding tag");
+            // console.log("adding tag");
         }
     }
 
     createNewTag(type,tag){
-        console.log("creating new tag")
+        // console.log("creating new tag")
         this.props.updateTask(type,tag)
         this.setState({
             tagDisplay:false,
@@ -146,7 +146,7 @@ class TasksIndex extends React.Component {
     }
 
     selectTag(){
-        console.log("tag selected")
+        // console.log("tag selected")
     }
 
     refreshTasks(){

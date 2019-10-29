@@ -1,6 +1,6 @@
 .task-show{
     display: grid;
-    grid-template-rows: 20% auto 1fr;
+    grid-template-rows: auto auto 1fr;
     grid-template-columns: 100%;
 
 
@@ -47,9 +47,19 @@
     }
 
     .task-show-input{
-
+        font-size: 25px;
     }
 
+    .task-show-tags-container{
+        border-bottom: 1px solid lightgrey;
+        border-top: 1px solid lightgrey;
+        padding-bottom: 5px;
+        margin-bottom: 15px;
+    }
 
+    .task-show-due-container{
+        padding-bottom: 5px;
+        margin-bottom: 15px;
+    }
 
 }

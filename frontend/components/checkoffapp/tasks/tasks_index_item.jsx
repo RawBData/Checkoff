@@ -44,7 +44,7 @@ class TasksIndexItem extends React.Component {
   // }
 
   onChecked(e){
-    console.log(e.target);
+    // console.log(e.target);
     let displayTask = this.props.task;
     if(displayTask.checked){
       displayTask.on = false;
@@ -68,7 +68,7 @@ class TasksIndexItem extends React.Component {
   }
 
   taskClicked(e){
-    console.log('clicked');
+    // console.log('clicked');
     let displayTask = this.props.task;
     displayTask.on="clicked";
     displayTask.checked=true;
@@ -80,7 +80,7 @@ class TasksIndexItem extends React.Component {
 
     let taskTags = this.props.task.tag_names.length>0? this.props.task.tag_names : this.props.task.tags.map(tsk=>(tsk.title))
     // this.props.task.tags.concat(this.props.task.tag_names);
-    console.log(taskTags)
+    // console.log(taskTags)
 
     return(
 

@@ -359,6 +359,10 @@ $xl-desktop: 1260px;
 
     .task-description{
         white-space: nowrap;
+        white-space: nowrap;
+        align-items: center;
+        display: flex;
+        margin-left: 5px;
     }
 
     .t_i_i_tag-container{
