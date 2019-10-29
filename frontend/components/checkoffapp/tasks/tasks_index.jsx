@@ -27,6 +27,7 @@ class TasksIndex extends React.Component {
         this.tasksForDisplay = this.tasksForDisplay.bind(this);
         this.deleteSelectedTasksArray = this.deleteSelectedTasksArray.bind(this);
         this.displayTaskToggle = this.displayTaskToggle.bind(this);
+        this.refreshTasks = this.refreshTasks.bind(this);
         this.completeTask = this.completeTask.bind(this);
         this.toggleCompleteView = this.toggleCompleteView.bind(this);
         //tags
@@ -53,6 +54,7 @@ class TasksIndex extends React.Component {
     componentDidUpdate(){
         if((!this.state.completedView && (this.props.incompletedTasks.length !== this.state.tasks.length)) || (this.state.completedView && (this.props.completedTasks.length !== this.state.tasks.length)))
         {
+            // console.log("still in update")s
             this.tasksForDisplay();
         }
     }
@@ -68,6 +70,7 @@ class TasksIndex extends React.Component {
     }
 
     completeTask(){
+        console.log(this.props.selectedTasks)
         if (this.props.selectedTasks.length>0){
             if(this.props.subtask){
                 this.props.completeSubtasks();
@@ -137,12 +140,22 @@ class TasksIndex extends React.Component {
     createNewTag(type,tag){
         console.log("creating new tag")
         this.props.updateTask(type,tag)
+        this.setState({
+            tagDisplay:false,
+        });
     }
 
     selectTag(){
         console.log("tag selected")
     }
 
+    refreshTasks(){
+
+        setTimeout(this.props.fetchTasks, 1000)
+        // this.props.fetchTasks();
+        this.tasksForDisplay();
+        console.log(this.state.tasks)
+    }
 
     
     render(){
@@ -190,8 +203,11 @@ class TasksIndex extends React.Component {
                                 <div>
                                     <NewTagForm 
                                         updateTask={this.createNewTag}
+                                        refreshTasks={this.refreshTasks}
                                     />
                                 </div>
+                                
+
                                 
                             </div>
 

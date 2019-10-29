@@ -29,7 +29,7 @@ class ListShow extends React.Component {
         let incompleteTasks = allTasks.filter(tsk => {return !tsk.complete});
         let completedTasks = this.props.tasks.filter(tsk => {return tsk.complete});
         
-        console.log("alltasks",allTasks,"incomplete",incompleteTasks,"complete",completedTasks)
+        //console.log("alltasks",allTasks,"incomplete",incompleteTasks,"complete",completedTasks)
         let numTasks = allTasks.length;
         let numCompletedTasks = completedTasks.length;
     

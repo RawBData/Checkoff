@@ -201,14 +201,24 @@ class CheckoffApp extends React.Component {
             let newTags = updatedTask;
             console.log("in tags",newTags);
             this.state.selectedTasks.forEach(tsk=>{
+              // console.log(tsk)
+              // let currentTags=[];
+              // if(tsk.tags.length>0){
+              //   tsk.tags.forEach(t=>currentTags.push(t.title))
+              // }
+              // tsk.tag_names=[...currentTags, ...tsk.tag_names, ...newTags];
+              // this.props.updateTask(tsk);
               console.log(tsk)
               let currentTags=[];
               if(tsk.tags.length>0){
                 tsk.tags.forEach(t=>currentTags.push(t.title))
               }
-              tsk.tag_names=[...currentTags, ...tsk.tag_names ,...newTags];
+              tsk.tag_names=[...currentTags, ...newTags];
               this.props.updateTask(tsk);
+              tsk.tags = tsk.tags.concat(newTags.map(tg=>({title:tg})));
             })
+
+
           break;
       
           default:
@@ -249,7 +259,6 @@ class CheckoffApp extends React.Component {
               <div className="main-tasks-index">
                 <TasksIndexContainer 
                         ref={this.taskChecked}
-                        tasks={this.props.tasks}
                         selectedTasks={this.state.selectedTasks}
                         fetchTask={this.props.fetchTask} 
                         deleteTasks={this.props.deleteTask} 

@@ -150,7 +150,7 @@ class TaskShow extends React.Component {
     
     render(){
             
-        console.log(this.props)
+        //console.log(this.props)
 
         // list of all categories complete, due_date, list_id, parent_id, priority, start_date and need to add tags in DB
 

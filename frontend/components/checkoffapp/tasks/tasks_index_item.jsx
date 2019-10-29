@@ -78,8 +78,9 @@ class TasksIndexItem extends React.Component {
   render(){
     
 
-    // let taskTags = this.props.task.tags.concat(this.props.task.tag_names);
-    // console.log(taskTags)
+    let taskTags = this.props.task.tag_names.length>0? this.props.task.tag_names : this.props.task.tags.map(tsk=>(tsk.title))
+    // this.props.task.tags.concat(this.props.task.tag_names);
+    console.log(taskTags)
 
     return(
 
@@ -103,7 +104,7 @@ class TasksIndexItem extends React.Component {
           </div>
       
           <div className="t_i_i_right-side">
-            {this.props.task.tags.map(tag=>(
+            {taskTags.map(tag=>(
               <Tag tag={tag} key={tag.title}/>
             ))}
           </div>
