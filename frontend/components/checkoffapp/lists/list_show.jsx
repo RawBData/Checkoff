@@ -39,7 +39,7 @@ class ListShow extends React.Component {
 
             <div className="list-details-container">
                 <div className="list-details">
-                    <h1>{this.props.listName}</h1>
+                    <h1>{this.props.listName || "All Tasks"}</h1>
                     <i className="fa fa-rss list-icons"></i>
                     <i className="fa fa-calendar list-icons cal-icon"></i>
                 </div>

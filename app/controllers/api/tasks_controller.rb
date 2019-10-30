@@ -75,7 +75,7 @@ class Api::TasksController < ApplicationController
       end
       
       def task_params
-        params.require(:task).permit(:title, :newNote, :complete, :notes, :start_date, :due_date, :priority, :estimate, :parent_id,  tag_names: [])
+        params.require(:task).permit(:title, :newNote, :complete, :notes, :start_date, :due_date, :priority, :list_id, :estimate, :parent_id,  tag_names: [])
       end
 
 end

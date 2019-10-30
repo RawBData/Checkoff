@@ -23,17 +23,14 @@ class Menu extends React.Component {
         const display = (
             <div className="menu-display">
 
-                <MenuItem headingTitle="All Tasks" listItems={["Inbox","Today","Tomorrow","This","Given","Trash"]}/>
+                <MenuItem headingTitle="All Tasks" changeListDisplay={this.props.changeListDisplay} listItems={[]}/>
                 <hr/>
-                <MenuItem headingTitle="Lists" listItems={[]}/>
-                <hr/>
-                <MenuItem headingTitle="Smart Lists" listItems={[]}/>
-                <hr/>
-                <MenuItem headingTitle="Contacts" listItems={[]}/>
-                <hr/>
-                <MenuItem headingTitle="Tags" listItems={[]}/>
-                <hr/>
-                <MenuItem headingTitle="Locations" listItems={[]}/>
+                <MenuItem headingTitle="Lists" 
+                    changeListDisplay={this.props.changeListDisplay} 
+                    listItems={this.props.lists}
+                    createList={this.props.createList}
+                    deleteList={this.props.deleteList}
+                />
                 <hr/>
                 
             </div>

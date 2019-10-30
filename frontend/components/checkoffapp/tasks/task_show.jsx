@@ -18,7 +18,8 @@ class TaskShow extends React.Component {
         this.state={
             selectedSubTasks:[],
             title:'',
-            editingTaskTitle:false,
+            editingTaskTitle: false,
+            newListID: null,
         }
 
         this.displayTaskToggle = this.displayTaskToggle.bind(this);
@@ -27,6 +28,7 @@ class TaskShow extends React.Component {
         this.hideTaskShow = this.hideTaskShow.bind(this);
         this.deleteTasks = this.deleteTasks.bind(this);
         this.completeSubtasks = this.completeSubtasks.bind(this);
+        this.changeList = this.changeList.bind(this);
 
     }
 
@@ -60,6 +62,9 @@ class TaskShow extends React.Component {
         task.due_date = this.state.dueDate;
       }
       
+      if(newAttributeObject.type === "list"){
+        task.list_id = this.state.newListID;
+      }
         
       this.props.updateTask(newAttributeObject,task);
     }
@@ -176,6 +181,16 @@ class TaskShow extends React.Component {
       
     }
 
+    changeList(){
+      return e => {
+        this.setState({
+          newListID: e.target.value
+        })
+        setTimeout(()=>this.updateTask({type:"list"}),200)
+  
+      
+      }
+    }
     
     render(){
             
@@ -211,6 +226,12 @@ class TaskShow extends React.Component {
 
                   <div className="task-show-due-container">
                       <h3>List</h3>
+                      <select onChange={this.changeList(this)}>
+                        <option value={"None"}>None</option>
+                        {this.props.lists.map(lst=>(
+                          <option selected={this.props.task.list_id === lst.id} value={lst.id}>{lst.name}</option>
+                        ))}
+                      </select>
                   </div>
 
                   <div className="task-show-due-container">

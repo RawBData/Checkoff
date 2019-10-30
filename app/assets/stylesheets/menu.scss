@@ -39,6 +39,8 @@
             .menu-carrot:hover{
                 background-color: purple;
             }
+
+
         } 
         
         .heading-list{
@@ -53,8 +55,10 @@
             
         }
         
+
+
         .all-tasks{
-            
+            margin-left: 12px;
         }
         
         .all-tasks-carrot{
@@ -72,7 +76,32 @@
                 padding-top: 4px;
             }
         }
+
+        .new-list-input-container{
+            background-color:red;
+            display: flex;
+
+            .new-list-button-container{
+                background-color: lightblue;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                width: 20%;
+                padding-top: 4px;
+            }
+            input{
+                width: 80%;
+            }
+
+            input:focus {
+                outline:none;
+            }
+
+
+        }
         
     }
 }
+
+
     

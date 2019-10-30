@@ -8,11 +8,20 @@ import { fetchTasks, fetchTask, createTask, updateTask, deleteTask } from '../..
 const MSP = (state, ownProps) => {
     //let tasks = Object.values(state.entities.tasks);
     // let tasks;
-    // console.log(ownProps)
-    let tasks = ownProps.parentID?
-    tasks = Object.values(state.entities.tasks).filter(task => task.parent_id === ownProps.parentID)
-    :
-    tasks = Object.values(state.entities.tasks).filter(task => task.parent_id === null);
+    console.log(ownProps)
+    let tasks;
+    if(ownProps.parentID){
+        tasks = Object.values(state.entities.tasks).filter(task => task.parent_id === ownProps.parentID)
+    }else{
+        if(ownProps.listID){
+            console.log("resetting list of tasks")
+            tasks = Object.values(state.entities.tasks).filter(task => task.parent_id === null && task.list_id === ownProps.listID);
+            console.log(tasks);
+        }else{
+            tasks = Object.values(state.entities.tasks).filter(task => task.parent_id === null);
+        }
+    }
+    
 
     let completedTasks = tasks.filter(tsk=>(tsk.complete));
     let incompletedTasks = tasks.filter(tsk=>(!tsk.complete));

@@ -38,7 +38,7 @@ class TasksIndex extends React.Component {
     }
 
     componentDidMount(){
-        this.props.fetchTasks();
+        // this.props.fetchTasks();
 
         setTimeout(this.tasksForDisplay,500);
     }
@@ -217,6 +217,7 @@ class TasksIndex extends React.Component {
 
                 <div className="tasks-index-new-task-form-container">
                     <NewTaskForm 
+                        listID={this.props.listID}
                         subtask={subtask} 
                         createTask={this.props.createTask}
                         parentID={parentID}

@@ -48,6 +48,7 @@ class NewTaskForm extends React.Component {
             // console.log(newTask)
         }else{
             newTask = this.state.newTask;
+            newTask.list_id=this.props.listID;
             this.props.createTask(newTask);
         }
         this.setState({
@@ -94,7 +95,12 @@ class NewTaskForm extends React.Component {
         const display = (
             <div className="tasks">
                 <div onFocus={this.newTaskFocusToggle} onBlur={this.newTaskFocusToggle} className="task-input-container">
-                    <input  className="task-input" onKeyPress={this.keyPressed} type="text" placeholder={placeHolderText} value={this.state.newTask.title} onChange={this.upd('title')}/>
+                    <input  className="task-input" 
+                            onKeyPress={this.keyPressed} 
+                            type="text" 
+                            placeholder={placeHolderText} 
+                            value={this.state.newTask.title} 
+                            onChange={this.upd('title')}/>
                 </div>
 
                 <div className={optionalTagsClass}>

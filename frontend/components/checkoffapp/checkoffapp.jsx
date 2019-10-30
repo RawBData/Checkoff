@@ -14,7 +14,8 @@ class CheckoffApp extends React.Component {
       super(props)
       this.state = {
         showMenu: true,
-        selectedList: "All Tasks",
+        selectedList: null,
+        selectedListID: null,
         displayTask:{},
         selectedTasks:[],
         showingTask: false,
@@ -28,11 +29,14 @@ class CheckoffApp extends React.Component {
       this.completeTask = this.completeTask.bind(this);
       this.updateTask = this.updateTask.bind(this);
       this.deleteTasks = this.deleteTasks.bind(this);
+      this.changeListDisplay = this.changeListDisplay.bind(this);
+      this.reset = this.reset.bind(this);
 
     }
 
     componentDidMount(){
       this.props.fetchTasks();
+      this.props.fetchLists();
     }
 
     toggleMenu(){
@@ -47,19 +51,6 @@ class CheckoffApp extends React.Component {
       })
     }
 
-        // resetClock(newClock){
-    //   let newSecs = newClock || 15;
-    //   this.setState({
-    //       mins:0,
-    //       secs: newSecs,
-    //       time: this.props.seconds
-    //   })
-    // }
-
-    // this.clock = React.createRef();
-    //        this.clock.current.resetClock();
-
-    //<h1>Clock:&nbsp;&nbsp;</h1><h1 className="clock"><Clock seconds={10} ref={this.clock}/></h1>
 
     displayTaskToggle(task){
 
@@ -176,7 +167,8 @@ class CheckoffApp extends React.Component {
 
 
           case "due_date":
-            console.log("ni checkoff due_date change")
+          case "list":
+            console.log("ni checkoff due_date/list change")
             this.props.updateTask(updatedTask);
           break;
 
@@ -232,7 +224,27 @@ class CheckoffApp extends React.Component {
       
       
       
-  }
+    
+    
+    }
+
+    changeListDisplay(list){
+      console.log("in checkoff changeListDisplay",list)
+      this.reset();
+      setTimeout(()=>{
+        this.setState({
+          selectedList:list.name,
+          selectedListID:list.id
+        })
+      },0)
+    }
+
+    reset(){
+      this.setState({
+        selectedList:undefined,
+        selectedListID:undefined
+      })
+    }
 
 
   
@@ -252,7 +264,14 @@ class CheckoffApp extends React.Component {
                   <figure>
                     <img src={window.logoURL_short} alt="logo-dark" className="app-logo"/>
                   </figure>
-                  <Menu />
+
+                  <Menu 
+                    changeListDisplay={this.changeListDisplay}
+                    lists={this.props.lists}
+                    createList={this.props.createList}
+                    deleteList={this.props.deleteList}
+                  />
+
                   <div className="hire-me">
                     <hr/>
                     <a href="https://www.linkedin.com/in/benjaminrawner/">
@@ -262,8 +281,9 @@ class CheckoffApp extends React.Component {
               </div>
 
               <div className="main-tasks-index">
-                <TasksIndexContainer 
-                        ref={this.taskChecked}
+                <TasksIndexContainer
+                        listName={this.state.selectedList}
+                        listID={this.state.selectedListID}
                         selectedTasks={this.state.selectedTasks}
                         fetchTask={this.props.fetchTask} 
                         deleteTasks={this.props.deleteTask} 
@@ -276,7 +296,11 @@ class CheckoffApp extends React.Component {
               </div>
 
               <div className="main-list-details">
-                  <ListShow listName={this.state.selectedList} tasks={this.props.tasks}/>
+                  <ListShow 
+                    listName={this.state.selectedList} 
+                    tasks={this.props.tasks}
+                    changeListDisplay={this.changeListDisplay}
+                    />
               </div>
 
               <div className={this.state.showingTask?"main-task-show main-task-show-display":"main-task-show"}>
@@ -286,6 +310,7 @@ class CheckoffApp extends React.Component {
                             displayTaskToggle={this.displayTaskToggle}
                             deleteTasks={this.deleteTasks}
                             completeSubtasks={this.props.updateTask}
+                            lists={this.props.lists}
                   />
               </div>
 
