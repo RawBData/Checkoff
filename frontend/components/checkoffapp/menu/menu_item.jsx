@@ -45,7 +45,6 @@ class MenuItem extends React.Component {
     }
 
     deleteList(id){
-        console.log(id);
         this.props.changeListDisplay("All Tasks");
         this.props.deleteList(id);
     }

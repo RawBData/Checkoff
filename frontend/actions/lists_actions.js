@@ -72,7 +72,6 @@ err => dispatch(receiveListsErrors(err.responseJSON))
 
 export const updateList = (list) => dispatch => UTILLists.updateList(list)
 .then(response => {
-    console.log("thunk",response)
     dispatch(receiveList(response));
     dispatch(clearListsErrors());
 },

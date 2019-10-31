@@ -134,14 +134,12 @@ class CheckoffApp extends React.Component {
          break;
       }
 
-      console.log(task)
     }
 
     // completeTask(tsk.id)
     completeTask(taskID){
       let task = this.props.tasks.filter(tsk=>{return tsk.id === taskID})[0];
       task.complete = true;
-      console.log(task);
       this.props.updateTask(task);
       
     }
@@ -155,15 +153,14 @@ class CheckoffApp extends React.Component {
     updateTask(newAttributeObject,task){
         
       let updatedTask = task;
-      console.log("in checkoff update",newAttributeObject);
-      console.log("task",task);
+      // console.log("in checkoff update",newAttributeObject);
+      // console.log("task",task);
       
       switch (newAttributeObject.type) {
 
           case "title":
           case "due_date":
           case "list":
-            console.log("ni checkoff due_date/list/title change")
             this.props.updateTask(updatedTask);
           break;
 
@@ -175,14 +172,11 @@ class CheckoffApp extends React.Component {
                   
               updatedTask.newNote = newAttributeObject.note;
 
-              console.group(updatedTask);
               this.props.updateTask(updatedTask);
           break;
 
           case "complete":
-              console.log(this.state.selectedTasks);
               this.state.selectedTasks.forEach(tsk=>{
-                console.log(tsk)
                 tsk.complete = true;
                 this.props.updateTask(tsk);
               })
@@ -198,9 +192,7 @@ class CheckoffApp extends React.Component {
             
             //in this case we are passing the tags in "task" variable of the function
             let newTags = updatedTask;
-            console.log("in tags",newTags);
             this.state.selectedTasks.forEach(tsk=>{
-              console.log(tsk)
               let currentTags=[];
               if(tsk.tags.length>0){
                 tsk.tags.forEach(t=>currentTags.push(t.title))
@@ -224,7 +216,6 @@ class CheckoffApp extends React.Component {
     }
 
     changeListDisplay(list){
-      console.log("in checkoff changeListDisplay",list)
       this.reset();
       setTimeout(()=>{
         this.setState({

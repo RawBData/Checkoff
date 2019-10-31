@@ -65,9 +65,7 @@ class Notes extends React.Component {
 
 
     keyPressed(event) {
-        console.log(event.key)
         if (event.key === "Enter") {
-            console.log(event)
           this.handleSubmit()
         }
       }

@@ -38,11 +38,9 @@ class TaskShow extends React.Component {
 
     updateTask(newAttributeObject){
         
-      console.log(newAttributeObject)
       let task = this.props.task;
 
       if(newAttributeObject.type === "title"){
-        console.log("test");
         if(this.state.title.length>0 && this.state.title !== this.props.task.title){
           task.title=this.state.title;
         }else{
@@ -60,6 +58,9 @@ class TaskShow extends React.Component {
 
       if(newAttributeObject.type === "due_date"){
         task.due_date = this.state.dueDate;
+        this.setState({
+          dueDate:null
+        })
       }
       
       if(newAttributeObject.type === "list"){
@@ -94,7 +95,6 @@ class TaskShow extends React.Component {
           break;
 
           case "dismiss":
-              console.log("in display toggle dismiss")
               this.setState({
                 selectedSubTasks: []
               });

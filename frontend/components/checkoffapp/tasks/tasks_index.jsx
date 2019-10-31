@@ -60,10 +60,8 @@ class TasksIndex extends React.Component {
     }
 
     tasksForDisplay(){
-        // console.log(this.state.tasks)
         // let htmlTasksArray = this.props.tasks//.map((task, idx )=> (<li draggable key={task.id}><TasksIndexItem task={task}/></li>));
         let displayTasksArray = this.state.completedView? this.props.completedTasks : this.props.incompletedTasks;
-        //console.log(htmlTasksArray)
         this.setState({
             tasks: displayTasksArray
          })
@@ -74,13 +72,7 @@ class TasksIndex extends React.Component {
         if (this.props.selectedTasks.length>0){
             if(this.props.subtask){
                 this.props.completeSubtasks();
-                // this.state.tasksSelected.forEach(tsk => {
-                //     console.log(tsk)
-                //     tsk.complete=true;
-                //     this.props.completeSubtasks(tsk);
-                // })
             }else{
-                // console.log("in tasks index")
                 this.props.updateTask({type:"complete"},this.state.tasksSelected[0]);
             }
         }
@@ -94,7 +86,6 @@ class TasksIndex extends React.Component {
     };
 
     onDraggedOver(index){
-        // console.log(index)
         const draggedOverTask = this.state.tasks[index];
         //do nothing if task is trying to replace itself
         if (this.draggedTask === draggedOverTask) {
@@ -132,8 +123,6 @@ class TasksIndex extends React.Component {
     addTag(){
         if(this.props.selectedTasks.length>0){
             this.setState({tagDisplay:!this.state.tagDisplay})
-
-            // console.log("adding tag");
         }
     }
 
@@ -146,15 +135,11 @@ class TasksIndex extends React.Component {
     }
 
     selectTag(){
-        // console.log("tag selected")
     }
 
     refreshTasks(){
-
         setTimeout(this.props.fetchTasks, 1000)
-        // this.props.fetchTasks();
         this.tasksForDisplay();
-        console.log(this.state.tasks)
     }
 
     
