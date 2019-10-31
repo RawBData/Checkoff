@@ -1,89 +1,89 @@
 @font-face {
     font-family: "MuseoSansRounded";
-    src: url('fonts/MPLUSRounded1c-Thin.ttf');
-    //src: url('fonts/MuseoSansRounded-100-webfont-&1449602652.eot#iefix') format('embedded-opentype'), url('fonts/MuseoSansRounded-100-webfont-1449602652.woff') format('woff'), url('fonts/MuseoSansRounded-100-webfont-1449602652.ttf') format('truetype'), url('fonts/MuseoSansRounded-100-webfont-1449602652.svg') format('svg');
+    src: url(asset-path('MPLUSRounded1c-Thin.ttf'));
+    //src: url(asset-path('MuseoSansRounded-100-webfont-&1449602652.eot#iefix') format('embedded-opentype'), url(asset-path('MuseoSansRounded-100-webfont-1449602652.woff') format('woff'), url(asset-path('MuseoSansRounded-100-webfont-1449602652.ttf')) url(asset-path('MuseoSansRounded-100-webfont-1449602652.svg') format('svg');
     font-weight: 100;
   }
   @font-face {
     font-family: "MuseoSansRounded";
-    src: url('fonts/MPLUSRounded1c-Light.ttf');
-    //src: url('fonts/MuseoSansRounded-300-webfont-&1449602366.eot#iefix') format('embedded-opentype'), url('fonts/MuseoSansRounded-300-webfont-1449602366.woff') format('woff'), url('fonts/MuseoSansRounded-300-webfont-1449602366.ttf') format('truetype'), url('fonts/MuseoSansRounded-300-webfont-1449602366.svg') format('svg');
+    src: url(asset-path('MPLUSRounded1c-Light.ttf'));
+    //src: url(asset-path('MuseoSansRounded-300-webfont-&1449602366.eot#iefix') format('embedded-opentype'), url(asset-path('MuseoSansRounded-300-webfont-1449602366.woff') format('woff'), url(asset-path('MuseoSansRounded-300-webfont-1449602366.ttf')) url(asset-path('MuseoSansRounded-300-webfont-1449602366.svg') format('svg');
     font-weight: 300;
   }
   @font-face {
     font-family: "MuseoSansRounded";
-    src: url('fonts/MPLUSRounded1c-Medium.ttf');
-    //src: url('fonts/MuseoSansRounded-500-webfont-&1449602366.eot#iefix') format('embedded-opentype'), url('fonts/MuseoSansRounded-500-webfont-1449602366.woff') format('woff'), url('fonts/MuseoSansRounded-500-webfont-1449602366.ttf') format('truetype'), url('fonts/MuseoSansRounded-500-webfont-1449602366.svg') format('svg');
+    src: url(asset-path('MPLUSRounded1c-Medium.ttf'));
+    //src: url(asset-path('MuseoSansRounded-500-webfont-&1449602366.eot#iefix') format('embedded-opentype'), url(asset-path('MuseoSansRounded-500-webfont-1449602366.woff') format('woff'), url(asset-path('MuseoSansRounded-500-webfont-1449602366.ttf')) url(asset-path('MuseoSansRounded-500-webfont-1449602366.svg') format('svg');
     font-weight: 500;
   }
   @font-face {
     font-family: "MuseoSansRounded";
-    src: url('fonts/MPLUSRounded1c-Bold.ttf');
-    //src: url('fonts/MuseoSansRounded-700-webfont-&1448013952.eot#iefix') format('embedded-opentype'), url('fonts/MuseoSansRounded-700-webfont-1448013979.woff') format('woff'), url('fonts/MuseoSansRounded-700-webfont-1448013976.ttf') format('truetype'), url('fonts/MuseoSansRounded-700-webfont-1448013974.svg') format('svg');
+    src: url(asset-path('MPLUSRounded1c-Bold.ttf'));
+    //src: url(asset-path('MuseoSansRounded-700-webfont-&1448013952.eot#iefix') format('embedded-opentype'), url(asset-path('MuseoSansRounded-700-webfont-1448013979.woff') format('woff'), url(asset-path('MuseoSansRounded-700-webfont-1448013976.ttf')) url(asset-path('MuseoSansRounded-700-webfont-1448013974.svg') format('svg');
     font-weight: 700;
   }
   @font-face {
     font-family: "MuseoSansRounded";
-    src: url('fonts/MPLUSRounded1c-ExtraBold.ttf');
-    //src: url('fonts/MuseoSansRounded-900-webfont-&1449602652.eot#iefix') format('embedded-opentype'), url('fonts/MuseoSansRounded-900-webfont-1449602652.woff') format('woff'), url('fonts/MuseoSansRounded-900-webfont-1449602652.ttf') format('truetype'), url('fonts/MuseoSansRounded-900-webfont-1449602652.svg') format('svg');
+    src: url(asset-path('MPLUSRounded1c-ExtraBold.ttf'));
+    //src: url(asset-path('MuseoSansRounded-900-webfont-&1449602652.eot#iefix') format('embedded-opentype'), url(asset-path('MuseoSansRounded-900-webfont-1449602652.woff') format('woff'), url(asset-path('MuseoSansRounded-900-webfont-1449602652.ttf')) url(asset-path('MuseoSansRounded-900-webfont-1449602652.svg') format('svg');
     font-weight: 900;
   }
   @font-face {
     font-family: "MuseoSansRounded";
-    src: url('fonts/MPLUSRounded1c-Black.ttf');
-    //src: url('fonts/MuseoSansRounded-1000-webfont-&1449602652.eot#iefix') format('embedded-opentype'), url('fonts/MuseoSansRounded-1000-webfont-1449602652.woff') format('woff'), url('fonts/MuseoSansRounded-1000-webfont-1449602652.ttf') format('truetype'), url('fonts/MuseoSansRounded-1000-webfont-1449602652.svg') format('svg');
+    src: url(asset-path('MPLUSRounded1c-Black.ttf'));
+    //src: url(asset-path('MuseoSansRounded-1000-webfont-&1449602652.eot#iefix') format('embedded-opentype'), url(asset-path('MuseoSansRounded-1000-webfont-1449602652.woff') format('woff'), url(asset-path('MuseoSansRounded-1000-webfont-1449602652.ttf')) url(asset-path('MuseoSansRounded-1000-webfont-1449602652.svg') format('svg');
     font-weight: 1000;
   }
   @font-face {
     font-family: "Open Sans";
-    src: url('fonts/Open-Sans-300-1449602307.eot');
-    src: url('fonts/Open-Sans-300-&1449602307.eot#iefix') format('embedded-opentype'), url('fonts/Open-Sans-300-1449602307.woff2') format('woff2'), url('fonts/Open-Sans-300-1449602307.woff') format('woff'), url('fonts/Open-Sans-300-1449602307.ttf') format('truetype'), url('fonts/Open-Sans-300-1449602307.svg') format('svg');
+    src: url(asset-path('Open-Sans-300-1449602307.ttf'));//url(asset-path('Open-Sans-300-1449602307.eot');
+    //src: url(asset-path('Open-Sans-300-&1449602307.eot#iefix') format('embedded-opentype'), url(asset-path('Open-Sans-300-1449602307.woff2') format('woff2'), url(asset-path('Open-Sans-300-1449602307.woff') format('woff'), url(asset-path('Open-Sans-300-1449602307.ttf')) url(asset-path('Open-Sans-300-1449602307.svg') format('svg');
     font-weight: 300;
   }
   @font-face {
     font-family: "Open Sans";
-    src: url('fonts/Open-Sans-regular-1448014050.eot');
-    src: url('fonts/Open-Sans-regular-&1448014050.eot#iefix') format('embedded-opentype'), url('fonts/Open-Sans-regular-1448014068.woff2') format('woff2'), url('fonts/Open-Sans-regular-1448014066.woff') format('woff'), url('fonts/Open-Sans-regular-1448014064.ttf') format('truetype'), url('fonts/Open-Sans-regular-1448014061.svg') format('svg');
+    src: url(asset-path('Open-Sans-regular-1448014064.ttf'));//url(asset-path('Open-Sans-regular-1448014050.eot');
+    //src: url(asset-path('Open-Sans-regular-&1448014050.eot#iefix') format('embedded-opentype'), url(asset-path('Open-Sans-regular-1448014068.woff2') format('woff2'), url(asset-path('Open-Sans-regular-1448014066.woff') format('woff'), url(asset-path('Open-Sans-regular-1448014064.ttf')) url(asset-path('Open-Sans-regular-1448014061.svg') format('svg');
     font-weight: 400;
   }
   @font-face {
     font-family: "Open Sans";
-    src: url('fonts/Open-Sans-600-1449602307.eot');
-    src: url('fonts/Open-Sans-600-&1449602307.eot#iefix') format('embedded-opentype'), url('fonts/Open-Sans-600-1449602307.woff2') format('woff2'), url('fonts/Open-Sans-600-1449602307.woff') format('woff'), url('fonts/Open-Sans-600-1449602307.ttf') format('truetype'), url('fonts/Open-Sans-600-1449602307.svg') format('svg');
+    src: url(asset-path('Open-Sans-600-1449602307.ttf'));//url(asset-path('Open-Sans-600-1449602307.eot');
+    //src: url(asset-path('Open-Sans-600-&1449602307.eot#iefix') format('embedded-opentype'), url(asset-path('Open-Sans-600-1449602307.woff2') format('woff2'), url(asset-path('Open-Sans-600-1449602307.woff') format('woff'), url(asset-path('Open-Sans-600-1449602307.ttf')) url(asset-path('Open-Sans-600-1449602307.svg') format('svg');
     font-weight: 600;
   }
   @font-face {
     font-family: "Open Sans";
-    src: url('fonts/Open-Sans-700-1449602307.eot');
-    src: url('fonts/Open-Sans-700-&1449602307.eot#iefix') format('embedded-opentype'), url('fonts/Open-Sans-700-1449602307.woff2') format('woff2'), url('fonts/Open-Sans-700-1449602307.woff') format('woff'), url('fonts/Open-Sans-700-1449602307.ttf') format('truetype'), url('fonts/Open-Sans-700-1449602307.svg') format('svg');
+    src: url(asset-path('Open-Sans-700-1449602307.ttf'));//url(asset-path('Open-Sans-700-1449602307.eot');
+    //src: url(asset-path('Open-Sans-700-&1449602307.eot#iefix') format('embedded-opentype'), url(asset-path('Open-Sans-700-1449602307.woff2') format('woff2'), url(asset-path('Open-Sans-700-1449602307.woff') format('woff'), url(asset-path('Open-Sans-700-1449602307.ttf')) url(asset-path('Open-Sans-700-1449602307.svg') format('svg');
     font-weight: 700;
   }
   @font-face {
     font-family: "Material Icons";
-    src: url('fonts/MaterialIcons-Regular-1448014126.eot');
-    src: url('fonts/MaterialIcons-Regular-&1448014126.eot#iefix') format('embedded-opentype'), url('fonts/MaterialIcons-Regular-1448014141.woff2') format('woff2'), url('fonts/MaterialIcons-Regular-1448014134.woff') format('woff'), url('fonts/MaterialIcons-Regular-1448014132.ttf') format('truetype');
+    src: url(asset-path('MaterialIcons-Regular-1448014126.eot'));
+    //src: url(asset-path('MaterialIcons-Regular-&1448014126.eot#iefix') format('embedded-opentype'), url(asset-path('MaterialIcons-Regular-1448014141.woff2') format('woff2'), url(asset-path('MaterialIcons-Regular-1448014134.woff') format('woff'), url(asset-path('MaterialIcons-Regular-1448014132.ttf'))
     font-weight: 400;
   }
   @font-face {
     font-family: "Blokletters Viltstift";
-    src: url('fonts/Blokletters-Viltstift-webfont-1507524140.eot');
-    src: url('fonts/Blokletters-Viltstift-webfont-&1507524140.eot#iefix') format('embedded-opentype'), url('fonts/Blokletters-Viltstift-webfont-1507524140.woff') format('woff'), url('fonts/Blokletters-Viltstift-webfont-1507524140.ttf') format('truetype'), url('fonts/Blokletters-Viltstift-webfont-1507524140.svg') format('svg');
+    src: url(asset-path('Blokletters-Viltstift-webfont-1507524140.eot'));
+    //src: url(asset-path('Blokletters-Viltstift-webfont-&1507524140.eot#iefix') format('embedded-opentype'), url(asset-path('Blokletters-Viltstift-webfont-1507524140.woff') format('woff'), url(asset-path('Blokletters-Viltstift-webfont-1507524140.ttf')) url(asset-path('Blokletters-Viltstift-webfont-1507524140.svg') format('svg');
     font-weight: 100;
   }
   @font-face {
     font-family: "Sue Ellen Francisco";
-    src: url('fonts/sueellenfrancisco-webfont-1388644162.eot');
-    src: url('fonts/sueellenfrancisco-webfont-&1388644162.eot#iefix') format('embedded-opentype'), url('fonts/sueellenfrancisco-webfont-1388644162.woff') format('woff'), url('fonts/sueellenfrancisco-webfont-1388644162.ttf') format('truetype'), url('fonts/sueellenfrancisco-webfont-1388644162.svg') format('svg');
+    src: url(asset-path('sueellenfrancisco-webfont-1388644162.eot'));
+   // src: url(asset-path('sueellenfrancisco-webfont-&1388644162.eot#iefix') format('embedded-opentype'), url(asset-path('sueellenfrancisco-webfont-1388644162.woff') format('woff'), url(asset-path('sueellenfrancisco-webfont-1388644162.ttf')) url(asset-path('sueellenfrancisco-webfont-1388644162.svg') format('svg');
   }
   @font-face {
     font-family: "Captain Comic Pro";
-    src: url('fonts/captain_comic_pro-webfont-1507524140.eot');
-    src: url('fonts/captain_comic_pro-webfont-&1507524140.eot#iefix') format('embedded-opentype'), url('fonts/captain_comic_pro-webfont-1507524140.woff') format('woff'), url('fonts/captain_comic_pro-webfont-1507524140.ttf') format('truetype'), url('fonts/captain_comic_pro-webfont-1507524140.svg') format('svg');
+    src: url(asset-path('captain_comic_pro-webfont-1507524140.eot'));
+    //src: url(asset-path('captain_comic_pro-webfont-&1507524140.eot#iefix') format('embedded-opentype'), url(asset-path('captain_comic_pro-webfont-1507524140.woff') format('woff'), url(asset-path('captain_comic_pro-webfont-1507524140.ttf')) url(asset-path('captain_comic_pro-webfont-1507524140.svg') format('svg');
   }
   @font-face {
     font-family: "VincHand";
-    src: url('fonts/VincHand.ttf-1507524140.eot');
-    src: url('fonts/VincHand.ttf-&1507524140.eot#iefix') format('embedded-opentype'), url('fonts/VincHand.ttf-1507524140.woff') format('woff'), url('fonts/VincHand.ttf-1507524140.svg') format('svg');
+    src: url(asset-path('VincHand.ttf-1507524140.eot'));
+    //src: url(asset-path('VincHand.ttf-&1507524140.eot#iefix') format('embedded-opentype'), url(asset-path('VincHand.ttf-1507524140.woff') format('woff'), url(asset-path('VincHand.ttf-1507524140.svg') format('svg');
   }
 
   .h1, .h2, .h3, .h4, .h5, .h6 {
@@ -99,8 +99,8 @@
 
   @font-face {
     font-family: 'FontAwesome';
-    src: url("fonts/fontawesome-webfont-v=4.3.0.eot");
-    src: url("fonts/fontawesome-webfont-.eot#iefix&v=4.3.0") format("embedded-opentype"), url("fonts/fontawesome-webfont-v=4.3.0.woff2") format("woff2"), url("fonts/fontawesome-webfont-v=4.3.0.woff") format("woff"), url("fonts/fontawesome-webfont-v=4.3.0.ttf") format("truetype"), url("fonts/fontawesome-webfont-v=4.3.0.svg#fontawesomeregular") format("svg");
+    src: url(asset-path("fontawesome-webfont-v=4.3.0.eot"));
+    //src: url(asset-path("fontawesome-webfont-.eot#iefix&v=4.3.0") format("embedded-opentype"), url(asset-path("fontawesome-webfont-v=4.3.0.woff2") format("woff2"), url(asset-path("fontawesome-webfont-v=4.3.0.woff") format("woff"), url(asset-path("fontawesome-webfont-v=4.3.0.ttf")) url(asset-path("fontawesome-webfont-v=4.3.0.svg#fontawesomeregular") format("svg");
     font-weight: normal;
     font-style: normal;
   }

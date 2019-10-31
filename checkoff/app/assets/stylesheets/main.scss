@@ -1,0 +1,397 @@
+@import 'fonts.scss';
+
+$company_color_main_background: #d7e7f4;
+$company_color_list_background: #e4eef8;
+$company_color_highlighted_task: #feffd7;
+
+// $mobile-end: 850px;
+// $tablet-start: 850px;
+$tablet-end: 1021px;
+$xl-desktop: 1260px;
+
+// @mixin tablet {
+//     @media (min-width: #{$tablet-start}) and (max-width: #{$tablet-end}) {
+//         @content;
+//     }
+// }
+
+@mixin tablet {
+    @media (max-width: #{$tablet-end}) {
+        @content;
+    }
+}
+
+@mixin xlDesktop {
+    @media (min-width: #{$xl-desktop}) {
+        @content;
+    }
+}
+
+
+
+// @mixin mobile {
+//     @media (max-width: #{$mobile-end}) {
+//         @content;
+//     }
+// }
+
+.main-app{
+
+    font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    cursor: pointer;
+    display: flex;
+    height: 100vh;
+    flex-direction: column;
+    overflow: hidden;
+    
+
+    .main-banner{
+        //height: 30px;
+    }
+
+    .body-with-menu{
+        display: grid;
+        padding: 0 0 0 0;
+        height: 100vh;
+        // transition: grid-template-columns 5s;
+        grid-template-columns: 0px minmax(419px,1fr) 1fr;
+        animation: columns-change 1s ease .1s 1 forwards;
+        
+
+        @keyframes columns-change {
+            0% {
+                grid-template-columns: 0px minmax(419px,1fr) 1fr;
+            }
+            5% {
+                grid-template-columns: 10px minmax(419px,1fr) 1fr;
+            }
+            10% {
+                grid-template-columns: 20px minmax(419px,1fr) 1fr;
+            }
+            15%{
+                grid-template-columns: 40px minmax(419px,1fr) 1fr;
+            }
+            20%{
+                grid-template-columns: 70px minmax(419px,1fr) 1fr;
+            }
+            30% {
+                grid-template-columns: 100px minmax(419px,1fr) 1fr;
+            }
+            40% {
+                grid-template-columns: 120px minmax(419px,1fr) 1fr;
+            }
+            50% {
+                grid-template-columns: 130px minmax(419px,1fr) 1fr;
+            }
+            60%{
+                grid-template-columns: 150px minmax(419px,1fr) 1fr;
+            }
+            80%{
+                grid-template-columns: 170px minmax(419px,1fr) 1fr;
+            }
+            100%{
+                grid-template-columns: 180px minmax(419px,1fr) 1fr;
+            }
+        }
+
+
+        //grid-template-columns: 180px minmax(419px,1fr) 1fr;
+
+        @include tablet{
+            grid-template-columns: 0px 1fr;
+            animation: tablet-columns-change 1s ease .1s 1 forwards;
+            
+    
+            @keyframes tablet-columns-change {
+                0% {
+                    grid-template-columns: 90px 1fr;
+                }
+                15% {
+                    grid-template-columns: 110px 1fr;
+                }
+                30% {
+                    grid-template-columns: 140px 1fr;
+                }
+                45% {
+                    grid-template-columns: 160px 1fr;
+                }
+                60% {
+                    grid-template-columns: 170px 1fr;
+                }
+                75% {
+                    grid-template-columns: 180px 1fr;
+                }
+                90% {
+                    grid-template-columns: 190px 1fr;
+                }
+                100% {
+                    grid-template-columns: 180px 1fr;
+                }
+            }
+        }
+
+        @include xlDesktop{
+            grid-template-columns: 0px 1fr 1fr;
+            animation: xlDesktop-columns-change 1s ease .1s 1 forwards;
+            
+    
+            @keyframes xlDesktop-columns-change {
+                0% {
+                    grid-template-columns: 90px 1fr 1fr;
+                }
+                15% {
+                    grid-template-columns: 110px 1fr 1fr;
+                }
+                30% {
+                    grid-template-columns: 140px 1fr 1fr;
+                }
+                45% {
+                    grid-template-columns: 170px 1fr 1fr;
+                }
+                60% {
+                    grid-template-columns: 180px 1fr 1fr;
+                }
+                75% {
+                    grid-template-columns: 190px 1fr 1fr;
+                }
+                90% {
+                    grid-template-columns: 200px 1fr 1fr;
+                }
+                100% {
+                    grid-template-columns: 210px 1fr 1fr;
+                }
+            }
+        }
+    }
+
+    .body-without-menu{
+        display: grid;
+        grid-template-columns: 180px minmax(419px,1fr) 1fr;
+        padding: 0 0 0 0;
+        height: 100vh;
+        transition: grid-template-columns 5s;
+
+        animation: columns-shrink 1s ease .1s 1 forwards;
+        
+
+        @keyframes columns-shrink {
+            0% {
+                grid-template-columns: 180px minmax(419px,1fr) 1fr;
+            }
+            5% {
+                grid-template-columns: 170px minmax(419px,1fr) 1fr;
+            }
+            10% {
+                grid-template-columns: 150px minmax(419px,1fr) 1fr;
+            }
+            15%{
+                grid-template-columns: 130px minmax(419px,1fr) 1fr;
+            }
+            20%{
+                grid-template-columns: 110px minmax(419px,1fr) 1fr;
+            }
+            30% {
+                grid-template-columns: 100px minmax(419px,1fr) 1fr;
+            }
+            40% {
+                grid-template-columns: 80px minmax(419px,1fr) 1fr;
+            }
+            50% {
+                grid-template-columns: 60px minmax(419px,1fr) 1fr;
+            }
+            60%{
+                grid-template-columns: 40px minmax(419px,1fr) 1fr;
+            }
+            80%{
+                grid-template-columns: 30px minmax(419px,1fr) 1fr;
+            }
+            100%{
+                grid-template-columns: 2px minmax(419px,1fr) 1fr;
+            }
+        }
+
+        @include tablet{
+            grid-template-columns: 180px 1fr;
+            animation: columns-shrink 1s ease .1s 1 forwards;
+
+            @keyframes columns-shrink {
+                0% {
+                    grid-template-columns: 180px 1fr;
+                }
+                5% {
+                    grid-template-columns: 170px 1fr;
+                }
+                10% {
+                    grid-template-columns: 150px 1fr;
+                }
+                15%{
+                    grid-template-columns: 130px 1fr;
+                }
+                20%{
+                    grid-template-columns: 110px 1fr;
+                }
+                30% {
+                    grid-template-columns: 100px 1fr;
+                }
+                40% {
+                    grid-template-columns: 80px 1fr;
+                }
+                50% {
+                    grid-template-columns: 60px 1fr;
+                }
+                60%{
+                    grid-template-columns: 40px 1fr;
+                }
+                80%{
+                    grid-template-columns: 30px 1fr;
+                }
+                100%{
+                    grid-template-columns: 2px 1fr;
+                }
+            }
+        }
+
+        @include xlDesktop{
+            grid-template-columns: 210px minmax(419px,1fr) 1fr;
+            animation: columns-shrink 1s ease .1s 1 forwards;
+        }
+    }
+
+    .main-body{
+        margin-top: 38px;
+        padding-right: 12px;
+        background-color: $company_color_main_background;
+
+        // @include tablet{
+        //     grid-template-columns: 180px 1fr;
+        // }
+
+        // @include xlDesktop{
+        //     grid-template-columns: 210px 1fr 1fr;
+        // }
+
+        .main-left-content-bar{
+            z-index: 1;
+            // background-color: pink;
+            grid-column-start: 1;
+            grid-column-end: 2;
+            grid-row-start: 1;
+            grid-row-end: 2;
+            height:100%;
+
+            display:grid;
+            grid-template-rows: 82px minmax(338px, 1fr) 162px;
+
+            figure{
+                background-color: $company_color_main_background;
+                margin: 0px;
+                padding-top: 13px;
+                padding-bottom: 6px;
+            }
+
+            .app-logo{
+                height:69px;
+            }
+
+            .hire-me{
+                // background-color: pink;
+                border-top: 30px;
+                border-top-color: red;
+                position: absolute;
+                bottom: 0px;
+
+                hr{
+                    width: 100%;
+                    display: block; 
+                    height: 1px;
+                    border: 0; 
+                    border-top: 1px solid #ccc; 
+                    padding: 0;
+                }
+
+                img{
+                    height: 15vh;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    padding-left: 40px;
+                }
+            }
+            
+        }
+        
+        .hide-main-left-content-bar{
+            width: 0px;
+            transition: width 3s;     
+        }
+
+        .main-tasks-index{
+            z-index: 2;
+            // display:flex;
+            background-color: transparent;
+            grid-column-start: 2;
+            grid-column-end: 3;
+            grid-row-start: 1;
+            grid-row-end: 2;
+            padding-bottom: 3px;
+            // height:100%;
+        }
+
+        .main-list-details{
+            grid-column-start: 3;
+            grid-column-end: 4;
+            grid-row-start: 1;
+            grid-row-end: 2;
+
+            background-color: $company_color_list_background;
+            margin-top: 12px;
+            border-radius: 3px;
+
+            @include tablet{
+                display: none;
+            }
+        }
+
+        .main-list-details-hide{
+            display: none;
+        }
+
+        .main-task-show{
+            display:none;
+            background-color: white;
+            margin-top: 10px;
+            border-radius: 10px;
+            grid-column-start: 3;
+            grid-column-end: 4;
+            grid-row-start: 1;
+            grid-row-end: 2;
+            height:100%;
+        }
+
+        .main-task-show-display{
+            display: flex;
+            margin-left: 5px;
+        }
+
+        .main-task-hide{
+            display: none;
+        }
+
+        .task-show-container{
+            width:99%;
+            padding-left: 22px;
+        }
+
+        //Task Container styling continued in task_show.scss
+
+
+
+
+
+
+    }
+
+
+    
+
+}

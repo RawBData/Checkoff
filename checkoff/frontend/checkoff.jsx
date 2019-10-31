@@ -4,6 +4,8 @@ import {signUp, login, logout} from './actions/session_actions';
 import configureStore from './store/store';
 import Root from './components/root';
 
+import {fetchTasks, createTask, updateTask, deleteTask} from './util/tasks_api_util'
+
 document.addEventListener("DOMContentLoaded", () => {
 
   //signing up and signing in
@@ -29,6 +31,12 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   const store = configureStore(preloadedState);
+
+  //temporay Task ajax calls
+  window.fetchTasks = fetchTasks;
+  window.createTask = createTask;
+  window.updateTask = updateTask;
+  window.deleteTask = deleteTask;
 
   window.store = store;
   window.getState = store.getState;

@@ -1,0 +1,136 @@
+
+.menu-main{
+    margin-left: 8px;
+    margin-top: 5px;
+}
+
+.menu-display{
+    
+    // div:hover{
+    //     background-color: white;
+    // }
+    
+    hr{
+        width: 147px;
+        display: block; 
+        height: 1px;
+        border: 0; 
+        border-top: 1px solid #ccc; 
+        padding: 0;
+    }
+    
+}
+
+.menu-item-display{
+
+    .menu-item-container{
+
+        
+        .heading{
+            display: flex;
+            
+            
+            .menu-carrot{
+                margin-right: 7px;
+                font-size: 11px;
+                padding-top: 3.25px;
+            }
+            
+            .menu-carrot:hover{
+                background-color: purple;
+            }
+
+
+        } 
+
+        .heading:hover{
+            background-color: whitesmoke;
+        }
+        
+        .heading-list{
+            display:flex;
+            flex-direction: column;
+            transition: display 5s; 
+        }
+        
+        .hide-heading-list{
+            transition: display 5s; 
+            display:none;
+            
+        }
+        
+
+
+        .all-tasks{
+            margin-left: 12px;
+        }
+
+        .all-tasks:hover{
+            background-color: whitesmoke;
+        }
+        
+        .all-tasks-carrot{
+            
+        }
+        
+        .heading-title{
+            font-size: 13px;
+            width: 90%;
+        }
+
+        .menu-item-list-ul{
+            margin-left: 13px;
+
+            li{
+                padding-top: 4px;
+                padding-top: 4px;
+                display: flex;
+                justify-content: space-between;
+                align-items: flex-end;
+            }
+
+            li:hover{
+                background-color: rgb(251, 239, 239);
+            }
+        }
+
+        .menu-list-li:hover{
+            
+        }
+
+        .new-list-input-container{
+            display: flex;
+
+            .new-list-button-container{
+                background-color: lightblue;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                width: 20%;
+                padding-top: 4px;
+            }
+            input{
+                width: 80%;
+            }
+
+            input:focus {
+                outline:none;
+            }
+
+
+        }
+        
+    }
+}
+
+.list-item-delete:hover{
+    display:none;
+    color:red;
+}
+
+.menu-list-li:hover + .list-item-delete , .list-item-delete:hover {
+    display: inline-block;
+}
+
+
+    
