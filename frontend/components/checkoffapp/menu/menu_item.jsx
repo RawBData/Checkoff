@@ -16,7 +16,8 @@ class MenuItem extends React.Component {
         this.openMenuDetailToggle = this.openMenuDetailToggle.bind(this);
         this.keyPressed = this.keyPressed.bind(this);
         this.upd = this.upd.bind(this);
-        this.createList = this.createList.bind(this)
+        this.createList = this.createList.bind(this);
+        this.deleteList = this.deleteList.bind(this);
     }
 
     componentDidMount(){
@@ -41,6 +42,12 @@ class MenuItem extends React.Component {
                 name:''
             })
         }
+    }
+
+    deleteList(id){
+        console.log(id);
+        this.props.changeListDisplay("All Tasks");
+        this.props.deleteList(id);
     }
 
     upd(field){
@@ -74,7 +81,10 @@ class MenuItem extends React.Component {
         
         
         let listItemArray = this.props.listItems.length > 0?
-        (this.props.listItems.map(listItem => (<li key={listItem.id}  onClick={()=>this.props.changeListDisplay(listItem)} ><h1 className="heading-title">{listItem.name}</h1></li>)))
+        (this.props.listItems.map(listItem => (<li className="menu-list-li" key={listItem.id}>
+            <h1 className="heading-title" onClick={()=>this.props.changeListDisplay(listItem)}>{listItem.name}</h1>
+            <i className="fa fa-trash list-item-delete" value={listItem.id} onClick={()=>this.deleteList(listItem.id)}/>
+            </li>)))
         :
         (<li></li>);
 

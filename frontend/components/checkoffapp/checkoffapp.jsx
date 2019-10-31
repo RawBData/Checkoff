@@ -161,14 +161,9 @@ class CheckoffApp extends React.Component {
       switch (newAttributeObject.type) {
 
           case "title":
-            console.log("ni checkoff title change")
-            this.props.updateTask(updatedTask);
-          break;
-
-
           case "due_date":
           case "list":
-            console.log("ni checkoff due_date/list change")
+            console.log("ni checkoff due_date/list/title change")
             this.props.updateTask(updatedTask);
           break;
 

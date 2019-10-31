@@ -118,8 +118,21 @@ $xl-desktop: 1260px;
 
         .actions-row-2-icon:hover{
         //    background-color: pink;
-           color: $grey-icon;
+        //    color: $grey-icon;
         }
+
+        .trash:hover{
+            color:red;
+        }
+
+        .check:hover{
+            color:#2bb22b;
+        }
+
+        .tag:hover{
+            color:gold;;
+        }
+
 
 
         .tag-selector-hide{

@@ -6,9 +6,9 @@
 
 .menu-display{
     
-    div:hover{
-        background-color: white;
-    }
+    // div:hover{
+    //     background-color: white;
+    // }
     
     hr{
         width: 147px;
@@ -42,6 +42,10 @@
 
 
         } 
+
+        .heading:hover{
+            background-color: whitesmoke;
+        }
         
         .heading-list{
             display:flex;
@@ -60,6 +64,10 @@
         .all-tasks{
             margin-left: 12px;
         }
+
+        .all-tasks:hover{
+            background-color: whitesmoke;
+        }
         
         .all-tasks-carrot{
             
@@ -67,6 +75,7 @@
         
         .heading-title{
             font-size: 13px;
+            width: 90%;
         }
 
         .menu-item-list-ul{
@@ -74,11 +83,22 @@
 
             li{
                 padding-top: 4px;
+                padding-top: 4px;
+                display: flex;
+                justify-content: space-between;
+                align-items: flex-end;
+            }
+
+            li:hover{
+                background-color: rgb(251, 239, 239);
             }
         }
 
+        .menu-list-li:hover{
+            
+        }
+
         .new-list-input-container{
-            background-color:red;
             display: flex;
 
             .new-list-button-container{
@@ -101,6 +121,15 @@
         }
         
     }
+}
+
+.list-item-delete:hover{
+    display:none;
+    color:red;
+}
+
+.menu-list-li:hover + .list-item-delete , .list-item-delete:hover {
+    display: inline-block;
 }
 
 

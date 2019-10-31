@@ -52,7 +52,7 @@ class Api::ListsController < ApplicationController
         if @list
             @list.destroy
             # render json: @list
-            render json: @list, include: :tags
+            render json: @list
         else
             render ['Could not find list']
         end

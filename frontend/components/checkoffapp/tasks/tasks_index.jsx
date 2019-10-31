@@ -194,10 +194,10 @@ class TasksIndex extends React.Component {
 
                     
                     <div className="actions-row-2">
-                        <i onClick={()=>this.deleteSelectedTasksArray()} className="fa fa-trash print-icon actions-row-2-icon"></i>
-                        <i onClick={()=>this.completeTask()} className="fa fa-check print-icon actions-row-2-icon"></i>
+                        <i onClick={()=>this.deleteSelectedTasksArray()} className="fa fa-trash print-icon actions-row-2-icon trash"></i>
+                        <i onClick={()=>this.completeTask()} className="fa fa-check print-icon actions-row-2-icon check"></i>
                         <div>
-                            <div onClick={()=>this.addTag()} className="fa fa-tag print-icon actions-row-2-icon">
+                            <div onClick={()=>this.addTag()} className="fa fa-tag print-icon actions-row-2-icon tag">
                             </div>
                             <div className={tagSelectorDisplayClass}>
                                 <div>
