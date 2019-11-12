@@ -46,14 +46,12 @@ class Banner extends React.Component {
               <Link to='/'>
                 <img className="logo-banner" src={window.logoURL} alt="checkoff_logo" />
               </Link>
+                <Link onClick={()=>this.props.demoLogin({username:"a",password:"123456"})} className="button demo" to="/">Demo</Link>
             </figure>
             <div className="banner-nav">
-              <Link className="button mobile-hide" to="/">Tour</Link>
+              <div className="button mobile-hide"><a href="https://www.linkedin.com/in/benjaminrawner/">About Me</a></div>
               <Link className="button last-button" to="/login">Log in</Link>
-              <div className="sign-up-demo">
                 <Link className="button signup-button" to="/signup">Sign up for free</Link>
-                <Link onClick={()=>this.props.demoLogin({username:"a",password:"123456"})} className="button demo" to="/">Demo</Link>
-              </div>
             </div>
       </header>  
     );

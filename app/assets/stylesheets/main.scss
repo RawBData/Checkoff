@@ -291,6 +291,7 @@ $xl-desktop: 1260px;
 
             .app-logo{
                 height:69px;
+                margin: 0 0 0 10px;
             }
 
             .hire-me{
@@ -301,11 +302,18 @@ $xl-desktop: 1260px;
                 bottom: 0px;
 
                 hr{
-                    width: 100%;
-                    display: block; 
+                    // width: 100%;
+                    // display: block; 
+                    // height: 1px;
+                    // border: 0; 
+                    // border-top: 1px solid #ccc; 
+                    // padding: 0;
+
+                    width: 200px;
+                    display: block;
                     height: 1px;
-                    border: 0; 
-                    border-top: 1px solid #ccc; 
+                    border: 0;
+                    border-top: 1px solid #ccc;
                     padding: 0;
                 }
 
@@ -319,7 +327,7 @@ $xl-desktop: 1260px;
             }
             
         }
-        
+
         .hide-main-left-content-bar{
             width: 0px;
             transition: width 3s;     
@@ -365,7 +373,8 @@ $xl-desktop: 1260px;
             grid-column-end: 4;
             grid-row-start: 1;
             grid-row-end: 2;
-            height:100%;
+            height:96%;
+            overflow: hidden;
         }
 
         .main-task-show-display{
@@ -394,4 +403,12 @@ $xl-desktop: 1260px;
 
     
 
+}
+
+
+.hire-me-login{
+    margin-top: 70px;
+    img{
+        height: 200px;
+    }
 }
