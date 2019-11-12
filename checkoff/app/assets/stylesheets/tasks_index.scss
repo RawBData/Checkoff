@@ -41,7 +41,7 @@ $xl-desktop: 1260px;
 
 .tasks_index{
     padding-top:5px;
-    height:100vh;
+    //height:100vh;
 
     
 
@@ -233,7 +233,7 @@ $xl-desktop: 1260px;
     }
     
     .task-index-tasks{
-        height: 78vh;
+        height: 83vh;
         overflow: scroll;
         background-color: white;
         z-index: 1;
@@ -246,6 +246,14 @@ $xl-desktop: 1260px;
     // }
 }
 
+
+.task-index-tasks-show{
+    height: 78vh;
+    overflow: scroll;
+    background-color: white;
+    z-index: 1;
+
+}
 .task-form-component-container{
     display: flex;
     width: 100%;

@@ -25,11 +25,11 @@
 
     .menu-item-container{
 
-        
         .heading{
             display: flex;
-            
-            
+            // background-color: whitesmoke;            
+            width: 170px;
+
             .menu-carrot{
                 margin-right: 7px;
                 font-size: 11px;
@@ -90,7 +90,6 @@
             }
 
             li:hover{
-                background-color: rgb(251, 239, 239);
             }
         }
 
@@ -133,4 +132,17 @@
 }
 
 
+.lists{
+    margin-left: 12px;
+}
+
+
+.list-title{
+    font-size: 13px;
+    width: 90%;
+}
+
+.list-title:hover{
+    background-color: rgb(251, 239, 239);
+}
     

@@ -17,7 +17,9 @@
     }
 
     .subtasks{
-        display: flex;
+        // display: flex;
+        overflow: scroll;
+        height: 85%;
     }
 
     .tasks{

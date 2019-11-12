@@ -81,7 +81,7 @@ class MenuItem extends React.Component {
         
         let listItemArray = this.props.listItems.length > 0?
         (this.props.listItems.map(listItem => (<li className="menu-list-li" key={listItem.id}>
-            <h1 className="heading-title" onClick={()=>this.props.changeListDisplay(listItem)}>{listItem.name}</h1>
+            <h1 className="list-title" onClick={()=>this.props.changeListDisplay(listItem)}>{listItem.name}</h1>
             <i className="fa fa-trash list-item-delete" value={listItem.id} onClick={()=>this.deleteList(listItem.id)}/>
             </li>)))
         :
@@ -100,7 +100,7 @@ class MenuItem extends React.Component {
         )
         : this.props.headingTitle === "Lists"?
         (
-            <div className="menu-item-display">
+            <div className="menu-item-display lists">
 
                     <div className="menu-item-container">
                         <div className="heading"  onClick={()=>this.openMenuDetailToggle("menuSelected")}>

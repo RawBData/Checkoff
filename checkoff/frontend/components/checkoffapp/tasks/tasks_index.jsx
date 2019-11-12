@@ -149,6 +149,7 @@ class TasksIndex extends React.Component {
         //add modularity by setting task or subtask forking
         const subtask = this.props.subtask? true : false;
         const parentID = this.props.subtask? this.props.parentID : null;
+        const tasksIndexClass = this.props.subtask? "task-index-tasks-show":"task-index-tasks";
         const arrayForDisplay = this.state.tasks//.filter(tsk=>{return tsk.complete === this.state.completedView});
         
         
@@ -210,7 +211,7 @@ class TasksIndex extends React.Component {
                     />
                 </div>
 
-                <div className="task-index-tasks">
+                <div className={tasksIndexClass}>
                     <ul>
                         {arrayForDisplay.map((task, idx )=> (<li draggable 
                                                                     key={task.id}

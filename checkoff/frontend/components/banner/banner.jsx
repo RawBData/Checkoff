@@ -27,31 +27,31 @@ class Banner extends React.Component {
         <div className="settings">
           <i className="fa fa-cloud banner-icon setting-icons"></i>
           <i className="fa fa-bell banner-icon setting-icons"></i>
-          <div className="setting-cog" onClick={logout}>
-            <i className="fa fa-cog banner-icon setting-icons cog"></i>
-            <i className="fa fa-caret-down banner-icon cog-carrot"></i>
+          <div className="setting-dropdown">
+            <div className="setting-cog">
+              <i className="fa fa-cog banner-icon setting-icons cog"></i>
+              <i className="fa fa-caret-down banner-icon cog-carrot"></i>
+            </div>
+            <div className="dropdown-items">
+              <h1 onClick={logout}>Logout</h1>
+            </div>
           </div>
         </div>
       </header>
     ) 
-    : //this is the middle of the ternary
+    : //Below is the banner if the user has not logged in yet
     (
           <header className="banner-splash">
             <figure className="figure">
               <Link to='/'>
                 <img className="logo-banner" src={window.logoURL} alt="checkoff_logo" />
               </Link>
+                <Link onClick={()=>this.props.demoLogin({username:"a",password:"123456"})} className="button demo" to="/">Demo</Link>
             </figure>
             <div className="banner-nav">
-              <Link className="button mobile-hide" to="/">Tour</Link>
-              <Link className="button mobile-hide" to="/">What's New</Link>
-              <Link className="button mobile-hide" to="/">Upgrade</Link>
-              <Link className="button mobile-hide" to="/">Help</Link>
+              <div className="button mobile-hide"><a href="https://www.linkedin.com/in/benjaminrawner/">About Me</a></div>
               <Link className="button last-button" to="/login">Log in</Link>
-              <div className="sign-up-demo">
                 <Link className="button signup-button" to="/signup">Sign up for free</Link>
-                <Link onClick={()=>this.props.demoLogin({username:"a",password:"123456"})} className="button demo" to="/">Demo</Link>
-              </div>
             </div>
       </header>  
     );
