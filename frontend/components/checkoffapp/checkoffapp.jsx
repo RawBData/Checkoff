@@ -260,7 +260,7 @@ class CheckoffApp extends React.Component {
 
                   <div className="hire-me">
                     <hr/>
-                    <a href="https://www.linkedin.com/in/benjaminrawner/">
+                    <a href="https://www.linkedin.com/in/benjaminrawner/" target="_blank">
                       <img className="personal_image_splash_03" src={window.personal_03} alt="personal03" />
                     </a>
                   </div>

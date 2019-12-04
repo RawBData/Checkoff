@@ -267,7 +267,7 @@ $xl-desktop: 1260px;
         .add-task-actions{
             display: flex;
             flex-direction: row;
-            justify-content: space-between;
+            justify-content: flex-end;
             align-items: center;
 
             .add-task-optional-tags-container{

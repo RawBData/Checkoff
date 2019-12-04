@@ -57,21 +57,6 @@ class newtagForm extends React.Component {
                         <button onClick={()=>this.handleSubmit()} disabled={disableButton}>tag</button>
                     </div>
                 </div>
-
-                {/* <div className={optionaltagsClass}>
-                    <div className="add-tag-optional-tags-container">
-                        <i className="fa fa-calendar-check-o tags-icons"></i>
-                        <i className="fa fa-calendar-plus-o tags-icons"></i>
-                        <i className="fa fa-exclamation tags-icons"></i>
-                        <i className="fa fa-list-alt tags-icons"></i>
-                        <i className="fa fa-refresh tags-icons"></i>
-                        <i className="fa fa-map-marker tags-icons"></i>
-                        <i className="fa fa-clock-o tags-icons"></i>
-                        <i className="fa fa-user tags-icons"></i> 
-                    </div>
-
-                    
-                </div> */}
             </div>
         );
     

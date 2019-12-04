@@ -104,7 +104,7 @@ class NewTaskForm extends React.Component {
                 </div>
 
                 <div className={optionalTagsClass}>
-                    <div className="add-task-optional-tags-container">
+                    {/* <div className="add-task-optional-tags-container">
                         <i className="fa fa-calendar-check-o tags-icons"></i>
                         <i className="fa fa-calendar-plus-o tags-icons"></i>
                         <i className="fa fa-exclamation tags-icons"></i>
@@ -113,7 +113,7 @@ class NewTaskForm extends React.Component {
                         <i className="fa fa-map-marker tags-icons"></i>
                         <i className="fa fa-clock-o tags-icons"></i>
                         <i className="fa fa-user tags-icons"></i> 
-                    </div>
+                    </div> */}
 
                     <div className="add-task-button-container">
                         <button onClick={()=>this.handleSubmit()} disabled={disableButton} >{buttonText}</button>
