@@ -167,13 +167,9 @@ class TasksIndex extends React.Component {
             <div className="tasks_index">
                 <div className="tasks-index-actions">
                     <div className="actions-row-1">
-                        <div className="action-cog-container" onClick={()=>{return "things"}}>
-                            <i className="fa fa-cog tasks-cog"></i>
-                            <i className="fa fa-caret-down tasks-cog-carrot"></i>
-                        </div>
                         <h5 className="action-link" onClick={()=>this.toggleCompleteView(true)}>complete</h5>
                         <h5 className="action-link" onClick={()=>this.toggleCompleteView(false)}>incomplete</h5>
-                        <i className="fa fa-print print-icon"></i>
+                        {/* <i className="fa fa-print print-icon"></i> */}
                     </div>
 
 

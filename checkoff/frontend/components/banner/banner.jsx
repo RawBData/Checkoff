@@ -25,8 +25,6 @@ class Banner extends React.Component {
           </div>
         </div>
         <div className="settings">
-          <i className="fa fa-cloud banner-icon setting-icons"></i>
-          <i className="fa fa-bell banner-icon setting-icons"></i>
           <div className="setting-dropdown">
             <div className="setting-cog">
               <i className="fa fa-cog banner-icon setting-icons cog"></i>
@@ -49,7 +47,7 @@ class Banner extends React.Component {
                 <Link onClick={()=>this.props.demoLogin({username:"a",password:"123456"})} className="button demo" to="/">Demo</Link>
             </figure>
             <div className="banner-nav">
-              <div className="button mobile-hide"><a href="https://www.linkedin.com/in/benjaminrawner/">About Me</a></div>
+              <div className="button mobile-hide"><a href="https://www.linkedin.com/in/benjaminrawner/" target="_blank" >About Me</a></div>
               <Link className="button last-button" to="/login">Log in</Link>
                 <Link className="button signup-button" to="/signup">Sign up for free</Link>
             </div>

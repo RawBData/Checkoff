@@ -33,7 +33,7 @@
             .menu-carrot{
                 margin-right: 7px;
                 font-size: 11px;
-                padding-top: 3.25px;
+                padding-top: 6.25px;
             }
             
             .menu-carrot:hover{
@@ -76,14 +76,14 @@
         .heading-title{
             font-size: 13px;
             width: 90%;
+            padding: 4px 0 4px 0px;
         }
 
         .menu-item-list-ul{
             margin-left: 13px;
 
             li{
-                padding-top: 4px;
-                padding-top: 4px;
+                padding: 5px 0px 5px 0px;
                 display: flex;
                 justify-content: space-between;
                 align-items: flex-end;
@@ -139,7 +139,8 @@
 
 .list-title{
     font-size: 13px;
-    width: 90%;
+    width: 85%;
+    padding: 2px 0 2px 0;
 }
 
 .list-title:hover{
