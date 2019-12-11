@@ -4,7 +4,12 @@ class Api::TasksController < ApplicationController
         @task = Task.new(task_params)
         @task.author_id = current_user.id
         if @task.save
+<<<<<<< HEAD
           render json: @task
+=======
+          # render json: @task
+          render json: @task, include: :tags
+>>>>>>> 241e2e361686c302b605e8e0484da50fb764acde
         else
           render json: @task.errors.full_messages, status: 422
         end
@@ -19,14 +24,38 @@ class Api::TasksController < ApplicationController
 
         @task = current_user.tasks.find(params[:id])
 
+<<<<<<< HEAD
 
         if @task && @task.update(task_params)
           render json: @task
+=======
+        #updating notes array with new note
+        
+        newParams = task_params
+
+        if @task
+          addNote = newParams["newNote"]
+          newNotesArray = @task.notes.push(addNote)
+          newParams["notes"] = newNotesArray
+          newParams.delete(:newNote)
+        end
+
+        p newParams
+
+        if @task && @task.update(newParams)
+          # render json: @task
+          render json: @task, include: :tags
+>>>>>>> 241e2e361686c302b605e8e0484da50fb764acde
         elsif !@task
           render json: ['Could not locate task'], status: 400
         else
           render json: @task.errors.full_messages, status: 401
         end
+<<<<<<< HEAD
+=======
+
+
+>>>>>>> 241e2e361686c302b605e8e0484da50fb764acde
     end
       
     def show
@@ -36,14 +65,25 @@ class Api::TasksController < ApplicationController
       
     def index
         @tasks = current_user.tasks
+<<<<<<< HEAD
         render json: @tasks
+=======
+        
+        render json: @tasks, include: :tags
+
+>>>>>>> 241e2e361686c302b605e8e0484da50fb764acde
     end
       
     def destroy
         @task = current_user.tasks.find(params[:id])
         if @task
           @task.destroy
+<<<<<<< HEAD
           render json: @task
+=======
+          # render json: @task
+          render json: @task, include: :tags
+>>>>>>> 241e2e361686c302b605e8e0484da50fb764acde
         else
           render ['Could not find task']
         end
@@ -56,7 +96,16 @@ class Api::TasksController < ApplicationController
       end
       
       def task_params
+<<<<<<< HEAD
         params.require(:task).permit(:title, :start_date, :due_date, :priority, :estimate)
       end
 
 end
+=======
+        params.require(:task).permit(:title, :newNote, :complete, :notes, :start_date, :due_date, :priority, :list_id, :estimate, :parent_id,  tag_names: [])
+      end
+
+end
+
+# add_column :table_name, :column_name, :string, array: true, default: []
+>>>>>>> 241e2e361686c302b605e8e0484da50fb764acde

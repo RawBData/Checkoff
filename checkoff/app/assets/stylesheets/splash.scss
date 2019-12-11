@@ -40,7 +40,7 @@ $tablet-end: 1000px;
 
 .splash-page{
 
-    background-color:$kolor_green_sea;
+    // background-color:$kolor_green_sea;
     //font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
     font-family: $font-museo;
     color: white;
@@ -134,6 +134,20 @@ $tablet-end: 1000px;
 
 }
 
+/*==================
+      Footer
+====================*/
+.footer-container{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  color: grey;
+}
+
+.personal_image_splash{
+  height: 15vh;
+}
 
 /*
 

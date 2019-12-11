@@ -212,7 +212,12 @@ class SessionForm extends React.Component {
           </div>
 
           <div className="curator">
-            <h1>my image</h1>
+              <div className="hire-me hire-me-login">
+                    <hr/>
+                    <a href="https://www.linkedin.com/in/benjaminrawner/" target="_blank">
+                      <img src={window.personal_03} alt="personal03" />
+                    </a>
+                  </div>
           </div>
 
         </span>
