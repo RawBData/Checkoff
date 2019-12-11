@@ -1,0 +1,75 @@
+$grey: #828c95;
+$completion_color: #dbe9f6;
+
+@import 'fonts.scss';
+
+.list-details-container{
+    padding: 34px 0px 0px 27px;
+
+    .list-details{
+        display: flex;
+        justify-content: flex-start;
+        font-family: MuseoSansRounded;
+        font-weight: 400;
+
+        .list-icons{
+            color: $grey;
+            margin-left: 10px;
+            font-size: 14px;
+            padding-top: 8px;
+            
+        }
+
+        .cal-icon{
+            padding-top: 6px;
+            font-size: 13px;
+            margin-left: 8px;
+        }
+
+        h1{
+            font-size: 18px;
+        }
+
+    }
+
+
+    .list-completion-container{
+        display: flex;
+        justify-content: flex-start;
+        padding-left: 1px;
+        padding-top: 13px;
+        font-family: MuseoSansRounded;
+
+        .completion-container{
+            background-color: $completion_color;
+            border-radius: 3px;
+            padding: 5px 8px 1px 14px;
+
+            h1{
+                height: 23px;
+                font-size: 18px;
+                font-weight: 900;
+            }
+
+            p{
+                font-size: 12px;
+            }
+            
+        }
+
+        .num-tasks-container{
+            h1{
+                color: #1960bc;
+            }
+        } 
+        
+        .num-completed-container {
+            margin-left: 5px;
+            color: #828c95;
+            h1{
+                color: #828c95;
+            }
+        }
+        
+    }
+}

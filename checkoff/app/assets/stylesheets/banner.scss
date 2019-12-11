@@ -14,7 +14,12 @@ $kolor_blue: #49517e;
 $kolor_red: #CF1103;
 $kolor_navy: #29354B;
 $company_color: #1760bf;
+$company_color_light: #7893b6;
 
+
+$banner-icon-color:#b5d0ed;
+$search-input-color:#3b80cb;
+$banner-hover:#29354B;
 
 
 $main-color: #ada0ee;
@@ -25,8 +30,52 @@ $font-museo: "MuseoSansRounded", "Helvetica Neue", Helvetica, Arial, sans-serif;
 @import 'fonts';
 
 
-.banner {
+$mobile-end: 770px;
+$tablet-start: 770px;
+$tablet-end: 1000px;
+$tablet-main-end: 1021px;
+$xl-desktop: 1260px;
 
+@mixin mobile {
+    @media (max-width: #{$mobile-end}) {
+        @content;
+    }
+}
+
+@mixin tablet {
+    @media (min-width: #{$tablet-start}) and (max-width: #{$tablet-end}) {
+        @content;
+    }
+}
+
+@mixin tablet-main {
+    @media (max-width: #{$tablet-main-end}) {
+        @content;
+    }
+}
+
+@mixin xlDesktop {
+    @media (min-width: #{$xl-desktop}) {
+        @content;
+    }
+}
+
+
+// @function bkrnd-cl($search-input-color) {
+//     // Avoid making new strings if we don't need to.
+//     @if == 0 {
+//       @return $insert;
+//     }
+  
+//     $before: str-slice($string, 0, $index);
+//     $after: str-slice($string, $index);
+//     @return $before + $insert + $after;
+//   }
+
+
+
+.banner-splash {
+    
     font-family: MuseoSansRounded, "Helvetica Neue", Helvetica, Arial, sans-serif;
     font-weight: 700;
     // position: fixed;
@@ -35,7 +84,24 @@ $font-museo: "MuseoSansRounded", "Helvetica Neue", Helvetica, Arial, sans-serif;
     // z-index: 99;
     top: 0;
     // margin-bottom: -114px;
+    color: white;
+    // border: 0px solid white;
+    animation: color-change 10s ease-in-out infinite;
 
+        @keyframes color-change {
+            0% {
+                background-color: $company_color;
+            }
+            40% {
+                background-color: $company_color;
+            }
+            50% {
+                background-color: $company_color_light;
+              }
+            90% {
+                background-color: $company_color_light;
+            }
+        }
 
     background-color: $company_color;
 
@@ -51,12 +117,12 @@ $font-museo: "MuseoSansRounded", "Helvetica Neue", Helvetica, Arial, sans-serif;
 
     .figure{
         background-color: none;
-        padding-right: 2vw;
+        // padding-right: 2vw;
 
         img{
-            max-height: 110%;
-            min-height: 5%;
-            min-width: 27%;
+            // max-height: 110%;
+            // min-height: 5%;
+            // min-width: 27%;
         }
     }
     .button {
@@ -85,6 +151,18 @@ $font-museo: "MuseoSansRounded", "Helvetica Neue", Helvetica, Arial, sans-serif;
         color:$kolor_yellow;
     }
 
+    .mobile-hide{
+        @include mobile{
+            display: none;
+        }
+    }
+
+    .tablet-change-nav-button{
+        @include tablet{
+            padding-right: 14px;
+        }
+    }
+
     .signup-button{
         // background-color:red;
         border: 2px solid white;
@@ -101,14 +179,28 @@ $font-museo: "MuseoSansRounded", "Helvetica Neue", Helvetica, Arial, sans-serif;
         float: left;
         width: 210px;
         position:relative;  
+
+        @include tablet{
+            width: 112px;
+        }
+
+        @include mobile{
+            width: 195px;  
+        }
     }
 
     .banner-nav{
         display: flex;
+        border: 0px solid inherit;
+        margin-right: 37px;
     }
 
     .demo{
         font-size: 1.5vw;
+
+        @include mobile{
+            font-size: 19px;
+        }
      }
 }
 
@@ -120,7 +212,7 @@ $font-museo: "MuseoSansRounded", "Helvetica Neue", Helvetica, Arial, sans-serif;
     padding: 20px;
     background: lightblue;
     align-items: center;
- }
+}
 
  .sign-up-demo{
      display: grid;
@@ -128,27 +220,166 @@ $font-museo: "MuseoSansRounded", "Helvetica Neue", Helvetica, Arial, sans-serif;
     grid-template-rows: auto auto;
     align-content: center;
     grid-gap: 11px;
- }
+    border: 0px solid inherit;
+}
+
+
+.banner-main{
+    z-index: 4;
+    display: flex;
+    justify-content: space-between;
+    background-color: $company_color;
+    width:100%;
+    height: 38px;
+
+    position: fixed;
+    // top: 0;
+
+    .left-banner{
+        display: flex;
+    }
+    
+    .banner-icon{
+        color:$banner-icon-color;
+        border-radius: 5px;
+        // height: 10px;
+        // width: 10px;
+    }
 
 
 
-// .logo {
-//     background-image: url(/assets/logo.png);
-//     display: flex;
-//     height: 93px;
-//     margin-bottom: 7px;
+    .bars {
+        font-size:25px;
+        //display: inline-block;
+        padding: 9px;
+        transform: scale(.9, .7);
+        -webkit-transform: scale(.9, .7); /* Safari and Chrome */
+        -moz-transform: scale(.9, .7); /* Firefox */
+        -ms-transform: scale(.9, .7); /* IE 9+ */
+        -o-transform: scale(.9, .7); /* Opera */
+    }
 
-// }
+    .bars:hover{
+        background-color: $banner-hover;
+        color:white;
+    }
 
-// .logo-letters {
-//     font-variant-caps: small-caps;
-//     font-size: 316%;
-//     color: green;
-//     margin-bottom: 0%;
-//     margin-top: 0%;
-// }
+    .hamburger{
+        width:171px;
+        display: flex;
+        margin-left:9px;
+        //margin-bottom: 8px;
+        justify-content: flex-start;
+        align-items: center;
+        font-size: 18px;
+    }
 
-// .map-container {
-//     width: 500px;
-//     height: 500px;
-// }
+    .search{
+        
+        display: flex;
+        align-items: center;
+        background-color: $search-input-color;
+        width:295px;
+        margin-top: 5px;
+        margin-bottom: 4px;
+        border-radius: 3px;
+        margin-left: 0px;
+        transition: margin-left 1.5s;  
+        
+        @include xlDesktop{
+            margin-left: 30px;
+            transition: margin-left 1.5s;  
+        }
+
+        input:focus{
+            outline: none;
+        }
+    }
+
+    .search:focus-within{
+        background-color: white;
+        
+    }
+
+    .search:hover{
+        background-color: white;
+        color:white;
+    }
+
+    .search-icon{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding-left: 14px;
+        padding-right: 8px;
+        font-size: 17px;
+        color:$banner-icon-color;
+        height: 10px;
+        width: 10px;
+    }
+
+    .search-input{
+        background-color: transparent;
+        border-color: transparent;
+        width: 225px;
+        font-size: 14px;
+    }
+
+    .settings{
+        width: 130px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-right:11px;
+        
+    }
+
+    
+
+    .setting-icons{
+        font-size: 22px;
+        padding: 6px;
+        //padding-bottom: 12px;
+        //display: inline-block;
+        // transform: scale(.9, .7);
+        // -webkit-transform: scale(.9, .7); /* Safari and Chrome */
+        // -moz-transform: scale(.9, .7); /* Firefox */
+        // -ms-transform: scale(.9, .7); /* IE 9+ */
+        // -o-transform: scale(.9, .7); /* Opera */
+    }
+
+
+    .setting-cog{
+        display: flex;
+        margin-right: 1px;
+        border-radius: 5px;
+        padding-right: 2px;
+        .cog{
+            // margin-right: 2px;
+            font-size: 24px;
+        }
+
+        .cog-carrot{
+          font-size: 12px;
+        //   padding: 7px; 
+          padding-top: 13px;
+        }
+    }
+
+    .setting-cog:hover{
+        background-color: $banner-hover;
+    }
+
+
+    .setting-cog:hover > *{
+        // margin: 0px -8px;
+        color:white;
+    }
+
+    .setting-icons:hover{
+        background-color: $banner-hover;
+        color:white;
+    }
+
+}
+

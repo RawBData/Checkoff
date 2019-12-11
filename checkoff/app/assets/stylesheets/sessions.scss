@@ -4,7 +4,7 @@
 
 @import 'fonts.scss';
 
-$kolor_grey: #636367;
+$kolor_grey_1: #636367;
 $kolor_yellow: #faff38;
 $kolor_orange: #fa6d40;
 $kolor_orange_dark: #c43923;
@@ -29,9 +29,9 @@ $main-color: #ada0ee;
 $font-museo: "MuseoSansRounded", "Helvetica Neue", Helvetica, Arial, sans-serif;
 $company_color: #1760bf;
 
+$mobile-end: 850px;
+$tablet-start: 850px;
 $tablet-end: 1036px;
-$tablet-start: 769px;
-$mobile-end: 769px;
 
 
 @mixin tablet {
@@ -192,7 +192,7 @@ $mobile-end: 769px;
         .other-session-button {
             text-decoration: none;
             background-color: $kolor_grey;
-            color:$company_color;
+            color:$kolor_grey_1;
             border-radius: 3px;
             float: right;
             margin: 43px -2px 0 0;
@@ -235,6 +235,11 @@ $mobile-end: 769px;
                 display: flex;
                 justify-content: center;
             }
+
+            @include tablet{
+                display: flex;
+                justify-content: center;
+            }
         }
 
         .form-setup{
@@ -244,6 +249,10 @@ $mobile-end: 769px;
             margin-left: 57px;
 
             @include mobile{
+                margin-left: 0px;
+            }
+
+            @include tablet{
                 margin-left: 0px;
             }
             

@@ -16,6 +16,11 @@ class User < ApplicationRecord
     validates :username, presence: true, uniqueness: true
     validates :password_digest, :session_token, presence: true
     validates :password, length: { minimum: 6 }, allow_nil: true
+
+    # tasks assocations
+    has_many :tasks,
+    foreign_key: :author_id,
+    class_name: :Task
   
     # This allows us to run methods before running validations
     # In this case, we need to have a session_token when a user is first created

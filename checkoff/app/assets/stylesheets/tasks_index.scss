@@ -1,0 +1,274 @@
+$list-show-background-color: #e4eef8;
+$icon-color: #6d6d6d;
+$tasks-cog-icon: #8c8c8c;
+$tasks_grey: rgb(156, 151, 151);
+
+$grey-icon: #6e6e6e;
+$task-index-border-radius: 7px;
+
+@import 'fonts.scss';
+
+$tablet-end: 1021px;
+$xl-desktop: 1260px;
+
+@mixin tablet {
+    @media (max-width: #{$tablet-end}) {
+        @content;
+    }
+}
+
+@mixin xlDesktop {
+    @media (min-width: #{$xl-desktop}) {
+        @content;
+    }
+}
+
+
+
+.task-index-container{
+    margin-top: 12px;
+    background-color: white;
+    //top right down left
+    border-top-right-radius: $task-index-border-radius;
+    border-top-left-radius: $task-index-border-radius;
+    transition: margin-top 1s;
+    @include tablet{
+        margin-top: 57px;
+        transition: margin-top 1s;
+    }
+
+}
+
+.tasks_index{
+    padding-top:5px;
+    height:100vh;
+
+    
+
+    .tasks-index-actions{
+        display: flex;
+        flex-direction: column;
+
+        .actions-row-1{
+            //background-color: burlywood;
+            display: flex;
+            flex-direction: row-reverse;
+            align-items: flex-end;
+            padding-right: 15px;
+            border-bottom: 1px dotted silver;
+            transition: height 1s;
+            height: 45px;
+            
+            @include tablet{
+                transition: height 1s;
+                height: 53px;
+            }
+
+            .action-link{
+                margin-top: 0;
+                margin-bottom:0;
+            }
+
+            .print-icon{
+                color: $grey-icon;
+                font-size: 14px;
+            }
+
+            .action-cog-container{
+                display: flex;
+                margin-right: 1px;
+                border-radius: 5px;
+                padding-right: 2px;
+                color: $tasks-cog-icon;
+                
+                .tasks-cog{
+                    // margin-right: 2px;
+                    font-size: 19px;
+                }
+        
+                .tasks-cog-carrot{
+                    font-size: 12px;
+                    padding-left: 4px;
+                    padding-top: 4px;
+                }
+            }
+
+        }
+
+        .actions-row-1 > * {
+            padding-right: 27px;
+            padding-bottom: 4px;
+        }
+        
+        .actions-row-2{
+            display: flex;
+            flex-direction: row-reverse;
+            align-items: flex-end;
+            border-bottom: 1px dotted silver;
+            height: 50px;
+        }
+
+    }
+
+    .tasks-index-new-task-form-container{
+        display: flex;
+        flex-direction: row-reverse;
+        align-items: flex-end;
+        border-bottom: 1px dotted silver;
+        transition: height 1s;
+        height: auto;
+
+    }
+    
+    .task-index-tasks{
+        background-color: white;
+        z-index: 1;
+    }
+}
+
+.task-form-component-container{
+    display: flex;
+    width: 100%;
+    height: 100%;
+    .tasks{
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        justify-content: space-between;
+
+        .add-task-actions{
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: center;
+
+            .add-task-optional-tags-container{
+                margin-left: 13px;
+                padding-bottom: 13px;
+                .tags-icons{
+                    color: $grey-icon;
+                    margin-right: 17px;
+                }
+
+                .tags-icons:hover{
+                    color: darken($grey-icon, 40%);
+                }
+            }
+        }
+
+        .hide-add-task-actions{
+            height: 0px;
+            z-index: -1;
+            transition: height 1s;
+        }
+        
+        .task-input-container{
+            display: flex;
+            justify-content: center;
+            height: 33px;
+            padding-top: 10px;
+            margin-bottom: 9px;
+
+            input::placeholder{
+                padding-left: 6px;
+                font-size: 14px;
+                color: $tasks_grey;
+            }
+        }
+
+        .task-input{
+            width: 100%;
+            margin-right: 13px;
+            margin-left: 13px;
+            border-radius: 3px;
+            border-color: #cccac3;
+            border: 1px solid $tasks_grey;
+            padding-left: 6px;
+            font-size: 14px;
+            
+        }
+
+
+        .add-task-button-container{
+            
+            color: white;
+            
+            font-family: MuseoSansRounded;
+            font-weight: 800;
+            font-size: 14px;
+            margin-bottom: 8px;
+            margin-right: 14px;
+
+            button{
+                background-color: #2E8CEB;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                border-radius: 3px;
+                padding: 6px 15px 6px 14px;
+            }
+
+            button:disabled{
+                background-color: rgb(169, 203, 236);
+            }
+        }
+    }
+}
+
+.task-index-item-container{
+    display:flex;
+    justify-content: space-between;
+    border-bottom: 1px dotted silver;
+    height: 30px;
+    padding-left: 14px; 
+
+    .t_i_i_left-side{
+
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        font-size: 12px;
+
+
+        .priority-color{
+            background-color: #cccccc;
+            width: 3px;
+            height: 27px;
+        }
+
+    }
+
+    .t_i_i_right-side{
+
+    }
+
+}
+
+.task-index-item-container:hover {
+    background-color: #ffffcd;
+}
+
+
+.checkbox-container{
+    padding-left: 4px;
+    padding-bottom: 2px;
+    width: 28px;
+
+    .task-checkbox{
+        
+          
+    }
+
+    .checkmark {
+        // position: absolute;
+        // top: 0;
+        // left: 0;
+        height: 25px;
+        width: 25px;
+    }
+
+    input:checked{
+        background-color: white;
+      }
+    
+}
