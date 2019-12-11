@@ -14,13 +14,16 @@ class NewTaskForm extends React.Component {
         super(props)
         this.state = {
             newTask: {
-                title: ""
+                title: "",
+                tag_names:[]
             },
+            inputText:'',
             newTaskFocus: false
         }
 
         this.handleSubmit = this.handleSubmit.bind(this);
-        this.newTaskFocusToggle = this.newTaskFocusToggle.bind(this);
+        this.newTaskFocusToggle = this.newTaskFocusToggle.bind(this); 
+        this.keyPressed = this.keyPressed.bind(this);
     }
 
     componentDidMount(){
@@ -35,8 +38,19 @@ class NewTaskForm extends React.Component {
     }
 
     handleSubmit(){
-        console.log("in submit")
-        this.props.createTask(this.state.newTask)
+        // console.log(this.props.parentID)
+        let newTask;
+        if(this.props.subtask){
+            newTask = this.state.newTask;
+            newTask.parent_id = this.props.parentID;
+            this.props.createTask(newTask);
+
+            // console.log(newTask)
+        }else{
+            newTask = this.state.newTask;
+            newTask.list_id=this.props.listID;
+            this.props.createTask(newTask);
+        }
         this.setState({
             newTask: {
                 title: ""
@@ -53,9 +67,27 @@ class NewTaskForm extends React.Component {
 
           })
         }
-      }
+    }
+
+    keyPressed(event) {
+        // console.log(event.key)
+        if (event.key === "Enter") {
+            // console.log(event)
+          this.handleSubmit()
+        }
+    }
     
     render(){
+        // console.log(this.props)
+        let placeHolderText;
+        let buttonText;
+        if (this.props.subtask){
+            placeHolderText = "Add a sub-task...";
+            buttonText = "Add Sub Task"
+        }else{
+            placeHolderText = "Add a task...";
+            buttonText = "Add Task"
+        }
 
         let optionalTagsClass = this.state.newTaskFocus? "add-task-actions" : "hide-add-task-actions";
         let disableButton= this.state.newTask.title.length < 1? true : false;
@@ -63,11 +95,16 @@ class NewTaskForm extends React.Component {
         const display = (
             <div className="tasks">
                 <div onFocus={this.newTaskFocusToggle} onBlur={this.newTaskFocusToggle} className="task-input-container">
-                    <input  className="task-input" type="text" placeholder="Add a task..." value={this.state.title} onChange={this.upd('title')}/>
+                    <input  className="task-input" 
+                            onKeyPress={this.keyPressed} 
+                            type="text" 
+                            placeholder={placeHolderText} 
+                            value={this.state.newTask.title} 
+                            onChange={this.upd('title')}/>
                 </div>
 
                 <div className={optionalTagsClass}>
-                    <div className="add-task-optional-tags-container">
+                    {/* <div className="add-task-optional-tags-container">
                         <i className="fa fa-calendar-check-o tags-icons"></i>
                         <i className="fa fa-calendar-plus-o tags-icons"></i>
                         <i className="fa fa-exclamation tags-icons"></i>
@@ -76,10 +113,10 @@ class NewTaskForm extends React.Component {
                         <i className="fa fa-map-marker tags-icons"></i>
                         <i className="fa fa-clock-o tags-icons"></i>
                         <i className="fa fa-user tags-icons"></i> 
-                    </div>
+                    </div> */}
 
                     <div className="add-task-button-container">
-                        <button onClick={()=>this.handleSubmit()} disabled={disableButton} >Add Task</button>
+                        <button onClick={()=>this.handleSubmit()} disabled={disableButton} >{buttonText}</button>
                     </div>
                 </div>
             </div>

@@ -25,8 +25,12 @@ class ListShow extends React.Component {
     
     render(){
 
-        let numTasks = this.props.tasks.length;
-        let numCompletedTasks = this.props.tasks.length;
+        let allTasks = this.props.tasks.filter(tsk => {return tsk.parent_id === null})
+        let incompleteTasks = allTasks.filter(tsk => {return !tsk.complete});
+        let completedTasks = this.props.tasks.filter(tsk => {return tsk.complete});
+        
+        let numTasks = allTasks.length;
+        let numCompletedTasks = completedTasks.length;
     
         const display = (
 
@@ -34,9 +38,7 @@ class ListShow extends React.Component {
 
             <div className="list-details-container">
                 <div className="list-details">
-                    <h1>{this.props.listName}</h1>
-                    <i className="fa fa-rss list-icons"></i>
-                    <i className="fa fa-calendar list-icons cal-icon"></i>
+                    <h1>{this.props.listName || "All Tasks"}</h1>
                 </div>
 
                 <div className="list-completion-container">

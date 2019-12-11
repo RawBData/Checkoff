@@ -21,6 +21,11 @@ class User < ApplicationRecord
     has_many :tasks,
     foreign_key: :author_id,
     class_name: :Task
+
+     # lists assocations
+     has_many :lists,
+     foreign_key: :author_id,
+     class_name: :List
   
     # This allows us to run methods before running validations
     # In this case, we need to have a session_token when a user is first created

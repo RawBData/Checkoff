@@ -2,3 +2,13 @@ w10 d 5 - todos
 
 w11 d 1 - pokedex
 
+todo
+create lists
+    hook up lists to menu
+    change list based on selection
+
+create tags
+    allow tags to be created for each
+    show tags on show page
+
+Taskshow edit attributes

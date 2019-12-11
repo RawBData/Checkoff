@@ -9,7 +9,7 @@ export const CLEAR_TASK_ERRORS = 'CLEAR_TASK_ERRORS';
 
 
 export const receiveTasks = (tasks) => {
-
+    
     return({
         type: RECEIVE_TASKS,
         tasks
