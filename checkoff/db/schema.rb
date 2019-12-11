@@ -10,20 +10,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-<<<<<<< HEAD
-ActiveRecord::Schema.define(version: 2019_09_17_172519) do
-=======
 ActiveRecord::Schema.define(version: 2019_10_30_023159) do
->>>>>>> 241e2e361686c302b605e8e0484da50fb764acde
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-<<<<<<< HEAD
-  create_table "tasks", force: :cascade do |t|
-    t.string "title", null: false
-    t.text "notes"
-=======
   create_table "list_tasks", force: :cascade do |t|
     t.integer "author_id", null: false
     t.integer "list_id", null: false
@@ -60,7 +51,6 @@ ActiveRecord::Schema.define(version: 2019_10_30_023159) do
 
   create_table "tasks", force: :cascade do |t|
     t.string "title", null: false
->>>>>>> 241e2e361686c302b605e8e0484da50fb764acde
     t.date "start_date"
     t.date "due_date"
     t.integer "author_id", null: false
@@ -71,10 +61,7 @@ ActiveRecord::Schema.define(version: 2019_10_30_023159) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "priority"
-<<<<<<< HEAD
-=======
     t.text "notes"
->>>>>>> 241e2e361686c302b605e8e0484da50fb764acde
     t.index ["author_id"], name: "index_tasks_on_author_id"
     t.index ["list_id"], name: "index_tasks_on_list_id"
     t.index ["parent_id"], name: "index_tasks_on_parent_id"

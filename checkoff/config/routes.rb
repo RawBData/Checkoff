@@ -9,12 +9,9 @@ Rails.application.routes.draw do
     resources :users, only: [:create, :show, :update] 
     
     resources :tasks, only: [:create, :show, :update, :index, :destroy]
-<<<<<<< HEAD
-=======
 
     resources :lists, only: [:create, :show, :update, :index, :destroy]
 
->>>>>>> 241e2e361686c302b605e8e0484da50fb764acde
   end
 
 end

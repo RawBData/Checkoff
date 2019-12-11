@@ -1,8 +1,5 @@
 class Task < ApplicationRecord
-<<<<<<< HEAD
-=======
     serialize :notes, Array
->>>>>>> 241e2e361686c302b605e8e0484da50fb764acde
     validates :title, :author_id, presence: true
     validates :complete, inclusion: { in: [ true , false ] }
 
@@ -10,8 +7,6 @@ class Task < ApplicationRecord
     foreign_key: :author_id,
     class_name: :User
 
-<<<<<<< HEAD
-=======
     has_many :taggings
     has_many :tags, through: :taggings, source: :tag
     
@@ -22,5 +17,4 @@ class Task < ApplicationRecord
         end
     end
 
->>>>>>> 241e2e361686c302b605e8e0484da50fb764acde
 end

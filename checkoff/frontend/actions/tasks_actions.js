@@ -9,11 +9,7 @@ export const CLEAR_TASK_ERRORS = 'CLEAR_TASK_ERRORS';
 
 
 export const receiveTasks = (tasks) => {
-<<<<<<< HEAD
-
-=======
     
->>>>>>> 241e2e361686c302b605e8e0484da50fb764acde
     return({
         type: RECEIVE_TASKS,
         tasks

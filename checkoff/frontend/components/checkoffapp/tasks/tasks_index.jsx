@@ -7,33 +7,13 @@ import React from "react";
 // import Tasks from './tasks/tasks';
 import TasksIndexItem from './tasks_index_item';
 import NewTaskForm from './new_task_form';
-<<<<<<< HEAD
-=======
 import NewTagForm from './new_tag_form';
->>>>>>> 241e2e361686c302b605e8e0484da50fb764acde
 
 
 
 class TasksIndex extends React.Component {
     constructor(props){
         super(props)
-<<<<<<< HEAD
-        this.state={
-            tasksSelected: false,
-        }
-    }
-
-    componentDidMount(){
-        
-    }
-    
-    render(){
-
-        const actionsRow2Display = this.state.tasksSelected?
-        ("task-specific-actions")
-        :
-        ("hide-task-specific-actions");
-=======
         this.tasksArray = this.props.tasks
         this.state={
             tagDisplay:false,
@@ -179,7 +159,6 @@ class TasksIndex extends React.Component {
         :
         ("hide-task-specific-actions");
         const tagSelectorDisplayClass = this.state.tagDisplay? "tag-selector-show" : "tag-selector-hide"
->>>>>>> 241e2e361686c302b605e8e0484da50fb764acde
 
             
     
@@ -188,18 +167,6 @@ class TasksIndex extends React.Component {
             <div className="tasks_index">
                 <div className="tasks-index-actions">
                     <div className="actions-row-1">
-<<<<<<< HEAD
-                        <div className="action-cog-container" onClick={()=>{return "things"}}>
-                            <i className="fa fa-cog tasks-cog"></i>
-                            <i className="fa fa-caret-down tasks-cog-carrot"></i>
-                        </div>
-                        <h5 className="action-link">complete</h5>
-                        <h5 className="action-link">incomplete</h5>
-                        <i className="fa fa-print print-icon"></i>
-                    </div>
-                    <div className="actions-row-2">
-
-=======
                         <h5 className="action-link" onClick={()=>this.toggleCompleteView(true)}>complete</h5>
                         <h5 className="action-link" onClick={()=>this.toggleCompleteView(false)}>incomplete</h5>
                         {/* <i className="fa fa-print print-icon"></i> */}
@@ -227,19 +194,10 @@ class TasksIndex extends React.Component {
                             </div>
 
                         </div>
->>>>>>> 241e2e361686c302b605e8e0484da50fb764acde
                     </div>
                 </div>
 
                 <div className="tasks-index-new-task-form-container">
-<<<<<<< HEAD
-                    <NewTaskForm createTask={this.props.createTask}/>
-                </div>
-
-                <div className="task-index-tasks">
-                    <ul>
-                        {this.props.tasks.map(task => (<li key={task.id}><TasksIndexItem task={task}/></li>))}
-=======
                     <NewTaskForm 
                         listID={this.props.listID}
                         subtask={subtask} 
@@ -268,7 +226,6 @@ class TasksIndex extends React.Component {
                                                                     />
                                                                 </div>
                                                                 </li>))}
->>>>>>> 241e2e361686c302b605e8e0484da50fb764acde
                     </ul>
                 </div>
                 
