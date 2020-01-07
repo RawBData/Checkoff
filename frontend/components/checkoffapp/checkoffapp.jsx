@@ -8,7 +8,6 @@ import ListShow from './lists/list_show';
 import TaskShow from './tasks/task_show';
 
 
-
 class CheckoffApp extends React.Component {
     constructor(props){
       super(props)
