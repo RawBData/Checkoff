@@ -57,7 +57,7 @@ Checkoff is primarily built with the RAILS stack, a combination of following fou
 
 The overall architecture is summarized in the diagram below:
 
-![Splash](./readme_files/react-auth.png)
+![Splash](./readme_files/rails-react-redux.png)
 
 #### Backend: Rails Server, PostgreSQL
 
