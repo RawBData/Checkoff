@@ -4,9 +4,7 @@ _A "Remember the Milk" clone, is a to do list/organizer/calendar that allows use
 
 [Checkoff Live](https://checkoff-rem-the-milk.herokuapp.com/ "Checkoff")
 
-![Add Task](https:.gif)
-![Move Tasks](https://github.com/)
-![Set Dates](https://github.com/)
+![Add Task](app/assets/images/checkoff_logo_black_short.png)
 
 
 ***
