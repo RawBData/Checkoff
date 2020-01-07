@@ -4,9 +4,9 @@ _A "Remember the Milk" clone, is a to do list/organizer/calendar that allows use
 
 [Checkoff Live](https://checkoff-rem-the-milk.herokuapp.com/ "Checkoff")
 
-![Add Task](https://github.com/jbotoro/markdown_images/blob/master/round%201%20super%20fixed.gif)
-![Move Tasks](https://github.com/jbotoro/markdown_images/blob/master/round%202%20gif.gif)
-![Set Dates](https://github.com/jbotoro/markdown_images/blob/master/round%203%20gif.gif)
+![Add Task](https:.gif)
+![Move Tasks](https://github.com/)
+![Set Dates](https://github.com/)
 
 
 ***
@@ -154,22 +154,21 @@ Use Redux to pass data into the front end for display
 The goal is to create a unique user experience that is intuitive to use and quick to pick up. The design is based on the website Remember the Milk.
 
 
-![splash page](https://github.com/jbotoro/markdown_images/blob/master/splash%20markdown%20.png)
-
+![splash page](https://github.com/jbo
 
 
 **This single page web app will have a splash page with a sign up and login. Once logged in, a user is greeted with a display dashboard with current tasks.**
 - **Create Tasks**: Users can add new task
 
-![create task](https://github.com/jbotoro/markdown_images/blob/master/round-1-markdown.png)
+![create task](https://github.com/jb)
 
 - **Edit Tasks**: Users can add new task
 
-![edit task](https://github.com/jbotoro/markdown_images/blob/master/round%202%20markdown.png)
+![edit task](https://github.com/jbo)
 
 - **Create and Display Lists**: Users can add new task
 
-![create lists](https://github.com/jbotoro/markdown_images/blob/master/round%202%20markdown.png)
+![create lists](https://github.com/jbo)
 
 
 
