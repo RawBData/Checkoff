@@ -158,11 +158,11 @@ The goal is to create a unique user experience that is intuitive to use and quic
 
 ![create task](readme_files/create_task.gif)
 
-- **Edit Tasks**: Users can add new task
+- **Edit Tasks**: Users can edit all tasks
 
 ![edit task](readme_files/edit_task.gif)
 
-- **Create and Display Lists**: Users can add new task
+- **Create and Display Lists**: Users can create new lists and add tasks to it
 
 ![create lists](readme_files/create_list.gif)
 
