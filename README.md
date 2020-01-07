@@ -65,8 +65,8 @@ The overall architecture is summarized in the diagram below:
 
 On the backend we will be using PostgreSQL to house our data. The backend routes will be managed by Rails routes following the RESTful API design pattern. With this design, the CRUD cycle was implemented for all muteable data objects.
 
-Trivialand will have mutliple models.
-- A User's model which tracks an individual players personal stats, username, and ranking.
+Checkoff will have mutliple models.
+- A User's model which tracks an individual users personal data, username, and password.
 ```ruby
     create_table "users" do |t|
         t.string "username"
@@ -78,7 +78,7 @@ Trivialand will have mutliple models.
         t.index ["username"], name: "index_users_on_username", unique: true
     end
 ```
-- A List which can contain a reference to task objects.
+- A List which can contain a reference to the aurthor id.
 
 ```ruby
     create_table "lists", force: :cascade do |t|
@@ -90,7 +90,7 @@ Trivialand will have mutliple models.
         t.index ["name"], name: "index_lists_on_title"
     end
 ```
-- A task which can contain a reference to subtask objects and notes.
+- A task which can contain a reference to subtask objects and notes and list id.
 
 ```ruby
     create_table "tasks", force: :cascade do |t|
