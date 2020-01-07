@@ -14,11 +14,9 @@ _A "Remember the Milk" clone, is a to do list/organizer/calendar that allows use
 ***
 
 
-Checkoff is a minimal viable product a to-list website, very much like "Remember The Milk". It has all of the normal CRUD cycle on the backend with RESTful API's as the endpoints for data management. On the front end, React and Redux are used to create a seemless interface that is intuituve and reactive.
+Checkoff is a minimal viable product to-list website, very much like "Remember The Milk". It has all of the normal CRUD cycles on the backend with RESTful API's as the endpoints for data management. On the front end, React and Redux are used to create a seemless interface that is intuituve and reactive.
 
 The main engineering challenges faced were
-
- addressing engineering challenges with real time gaming. These are challenges can be broken down in three categories
 
 
 - Database Management: Using Rails and Active Record to effecively strore data using assocations and tables. This design allows for large scaling while at the same does not compromise connection quality.
