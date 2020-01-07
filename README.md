@@ -23,11 +23,11 @@ The main engineering challenges faced were
 
 - User Authorization/Encryption: Users can interact on multiple platforms with almost an exact experience.
 
-- Persistant: Using Rails to allow users to perform any function of the CRUD cycle as long as they logged in and using React Redux to intuitively present that information.
+- Persistant: Using Rails to allow users to perform any function of the CRUD cycle as long as they logged in. Using React Redux to intuitively present that information.
 
 
 
-Checkoff is primarily built with the RAILS stack, a combination of following four technologies: Rails, SQL, React, and Node.
+Checkoff is primarily built with the RAILS stack, a combination of following four technologies: Rails, SQL, React, and Redux.
 
 
 ***
@@ -55,7 +55,7 @@ Checkoff is primarily built with the RAILS stack, a combination of following fou
 
 ### Architecture
 
-Checkoff is primarily built with the RAILS stack, a combination of following four technologies: Rails, SQL, React, and Node. It features creative use of websockets, multiple API's and CSS graphics in conjunction with client side rendering with React.
+Checkoff is primarily built with the RAILS stack, a combination of following four technologies: Rails, SQL, React, and Redux. It features creative use of rails server technology, multiple API's and CSS graphics in conjunction with client side rendering with React with data passed in through Redux.
 
 The overall architecture is summarized in the diagram below:
 
@@ -116,7 +116,7 @@ Checkoff will have mutliple models.
 
 
 ```
-- Fill all the CRUD cycle necessities
+- Other models fill all the CRUD cycle necessities
 
 
 
