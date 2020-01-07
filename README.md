@@ -59,7 +59,7 @@ Checkoff is primarily built with the RAILS stack, a combination of following fou
 
 The overall architecture is summarized in the diagram below:
 
-![Splash](./docs/mern.png)
+![Splash](./readme_files/react-auth.png)
 
 #### Backend: Rails Server, PostgreSQL
 
@@ -116,7 +116,7 @@ Checkoff will have mutliple models.
 
 
 ```
--Fill all the CRUD cycle necessities
+- Fill all the CRUD cycle necessities
 
 
 
@@ -128,22 +128,22 @@ Checkoff will have mutliple models.
 
 
 
-Use Redux to pass data into the front end for display
-```javascript
-  const configureStore = (preloadedState = {})=>{
-  return createStore(rootReducer,preloadedState,applyMiddleware(thunk));
-};
-```
+- Use Redux to pass data into the front end for display
+    ```javascript
+    const configureStore = (preloadedState = {})=>{
+    return createStore(rootReducer,preloadedState,applyMiddleware(thunk));
+    };
+    ```
 
 - Use the Redux Reducer to manage changes to state.
-```javascript
-  const rootReducer = combineReducers({
-  entities: entitiesReducer,
-  session: sessionReducer,
-  errors: errorsReducer
-});
+    ```javascript
+    const rootReducer = combineReducers({
+    entities: entitiesReducer,
+    session: sessionReducer,
+    errors: errorsReducer
+    });
 
-```
+    ```
 
 
 ***
