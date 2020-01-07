@@ -90,7 +90,7 @@ Checkoff will have mutliple models.
         t.index ["name"], name: "index_lists_on_title"
     end
 ```
-- A task which can contain a reference to subtask objects and notes and list id.
+- A task which can contain a reference to parent task objects (if any), notes and list id.
 
 ```ruby
     create_table "tasks", force: :cascade do |t|
@@ -124,7 +124,7 @@ Checkoff will have mutliple models.
 
 - Clearly defined media queries to ensure performance  & consistent user experience across multiple platforms.
 
-- By building mobile first we can guarantee that all user experiences will be synchronous, optimized, and uniform.
+- By building mobile first the user's experiences will be synchronous, optimized, and uniform.
 
 
 
@@ -145,7 +145,6 @@ Use Redux to pass data into the front end for display
 
 ```
 
-- We will be managing real-time display of changes by processing information from the upstream and downstream communications between our server and the clients.
 
 ***
 ## UI/UX
