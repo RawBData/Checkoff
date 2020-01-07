@@ -151,7 +151,7 @@ Checkoff will have mutliple models.
 The goal is to create a unique user experience that is intuitive to use and quick to pick up. The design is based on the website Remember the Milk.
 
 
-![splash page](https://github.com/jbo
+![splash page](https://github.com/jbo)
 
 
 **This single page web app will have a splash page with a sign up and login. Once logged in, a user is greeted with a display dashboard with current tasks.**
