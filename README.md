@@ -157,15 +157,15 @@ The goal is to create a unique user experience that is intuitive to use and quic
 **This single page web app will have a splash page with a sign up and login. Once logged in, a user is greeted with a display dashboard with current tasks.**
 - **Create Tasks**: Users can add new task
 
-![create task](https://github.com/jb)
+![create task](readme_files/create_task.gif)
 
 - **Edit Tasks**: Users can add new task
 
-![edit task](https://github.com/jbo)
+![edit task](readme_files/edit_task.gif)
 
 - **Create and Display Lists**: Users can add new task
 
-![create lists](https://github.com/jbo)
+![create lists](readme_files/create_list.gif)
 
 
 
