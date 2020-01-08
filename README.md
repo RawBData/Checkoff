@@ -44,7 +44,7 @@ Checkoff is primarily built with the RAILS stack, a combination of following fou
 ### Bonus Features
 
 - [ ] Colorful user display for creatings tags or deleting tasks
-- [ ] Lists can be dsiplayed specifically
+- [ ] Lists can display specific tasks assigned to it
 - [ ] Completed and incompleted tasks are displayed on demand
 
 ***
