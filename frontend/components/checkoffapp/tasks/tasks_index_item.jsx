@@ -24,25 +24,6 @@ class TasksIndexItem extends React.Component {
  
   }
 
-
-  // onChecked(e){
-  //   console.log(e.target);
-  //   let displayTask = this.props.task;
-  //   if(this.state.checked){
-  //     displayTask.on = false;
-  //     displayTask.checked=false;
-  //     this.props.displayTaskToggle(displayTask);
-  //   }else{
-  //     displayTask.on = true;
-  //     displayTask.checked=true;
-  //     this.props.displayTaskToggle(displayTask);
-  //   }
-    
-  //   this.setState({
-  //     checked: !this.state.checked,
-  //   })
-  // }
-
   onChecked(e){
     // console.log(e.target);
     let displayTask = this.props.task;

@@ -20,7 +20,6 @@ class TaskShow extends React.Component {
             title:'',
             editingTaskTitle: false,
             newListID: null,
-            list:null
         }
 
         this.displayTaskToggle = this.displayTaskToggle.bind(this);
@@ -65,10 +64,7 @@ class TaskShow extends React.Component {
       }
       
       if(newAttributeObject.type === "list"){
-        task.list_id = this.state.list;
-        this.setState({
-          list:null
-        })
+        task.list_id = this.state.newListID;
       }
         
       this.props.updateTask(newAttributeObject,task);
@@ -203,7 +199,7 @@ class TaskShow extends React.Component {
         // list of all categories complete, due_date, list_id, parent_id, priority, start_date and need to add tags in DB
         let taskTitleDisplay = (this.state.editingTaskTitle === false)? this.props.task.title : this.state.title;
         let dueDateDisplay = this.state.dueDate? this.state.dueDate : this.props.task.due_date? this.props.task.due_date : '';
-        // let taskListDisplay = this.state.list? this.state.list : 
+
 
         const display = this.props.selectedTasksLength === 1?
         (
@@ -230,10 +226,10 @@ class TaskShow extends React.Component {
 
                   <div className="task-show-due-container">
                       <h3>List</h3>
-                      <select value={this.state.list? this.state.list:this.props.task.list_id} onChange={this.upd('list')} onBlur={()=>this.updateTask({type:"list"})}>
+                      <select onChange={this.changeList(this)}>
                         <option value={"None"}>None</option>
                         {this.props.lists.map(lst=>(
-                          <option key={lst.id} value={lst.id}>{lst.name}</option>
+                          <option selected={this.props.task.list_id === lst.id} value={lst.id}>{lst.name}</option>
                         ))}
                       </select>
                   </div>

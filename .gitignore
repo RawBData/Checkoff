@@ -9,6 +9,7 @@
 
 # Ignore personal instuctions
 instructs.txt
+bugs.txt
 
 # Ignore all logfiles and tempfiles.
 /log/*

@@ -150,7 +150,7 @@ class CheckoffApp extends React.Component {
     }
 
     updateTask(newAttributeObject,task){
-        
+      console.log(task)
       let updatedTask = task;
       // console.log("in checkoff update",newAttributeObject);
       // console.log("task",task);
