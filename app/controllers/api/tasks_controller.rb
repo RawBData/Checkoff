@@ -19,12 +19,10 @@ class Api::TasksController < ApplicationController
     def update
 
         @task = current_user.tasks.find(params[:id])
-
-        #updating notes array with new note
-        
         newParams = task_params
-
-        if @task
+        
+        #updating notes array with new note
+        if @task && newParams["newNote"]
           addNote = newParams["newNote"]
           newNotesArray = @task.notes.push(addNote)
           newParams["notes"] = newNotesArray
