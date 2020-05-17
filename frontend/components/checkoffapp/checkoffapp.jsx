@@ -72,14 +72,16 @@ class CheckoffApp extends React.Component {
         case "dismiss":
           // console.log(this.state.selectedTasks)
             // this.taskChecked.current.unCheck();
-            this.state.selectedTasks.forEach(tsk=>{
-              tsk.checked=false;
-            })
-            this.setState({
-              showingTask: !this.state.showingTask,
-              displayTask: {},
-              selectedTasks: []
-            });
+            if (this.state.selectedTasks.length>1){
+              this.state.selectedTasks.forEach(tsk=>{
+                tsk.checked=false;
+              })
+              this.setState({
+                showingTask: !this.state.showingTask,
+                displayTask: {},
+                selectedTasks: []
+              });
+            }
         break;
 
         case "delete":
@@ -221,7 +223,8 @@ class CheckoffApp extends React.Component {
           selectedList:list.name,
           selectedListID:list.id
         })
-      },0)
+      },0);
+      this.displayTaskToggle({on:"dismiss"});
     }
 
     reset(){

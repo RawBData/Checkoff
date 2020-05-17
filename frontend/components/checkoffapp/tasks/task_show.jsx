@@ -230,7 +230,7 @@ class TaskShow extends React.Component {
 
                   <div className="task-show-due-container">
                       <h3>List</h3>
-                      <select value={this.state.list? this.state.list:this.props.task.list_id} onChange={this.upd('list')} onBlur={()=>this.updateTask({type:"list"})}>
+                      <select value={this.state.list? this.state.list:this.props.task.list_id?this.props.task.list_id:''} onChange={this.upd('list')} onBlur={()=>this.updateTask({type:"list"})}>
                         <option value={"None"}>None</option>
                         {this.props.lists.map(lst=>(
                           <option key={lst.id} value={lst.id}>{lst.name}</option>
