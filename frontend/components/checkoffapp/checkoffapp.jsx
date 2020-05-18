@@ -251,6 +251,7 @@ class CheckoffApp extends React.Component {
                   </figure>
 
                   <Menu 
+                    currentSelectedListID={this.state.selectedListID}
                     changeListDisplay={this.changeListDisplay}
                     lists={this.props.lists}
                     createList={this.props.createList}
@@ -265,7 +266,7 @@ class CheckoffApp extends React.Component {
                   </div>
               </div>
 
-              <div className="main-tasks-index">
+              <div className={this.state.showMenu?"main-tasks-index":"main-tasks-index mti-no-menu"}>
                 <TasksIndexContainer
                         listName={this.state.selectedList}
                         listID={this.state.selectedListID}

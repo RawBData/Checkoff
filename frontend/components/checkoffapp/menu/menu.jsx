@@ -23,9 +23,15 @@ class Menu extends React.Component {
         const display = (
             <div className="menu-display">
 
-                <MenuItem headingTitle="All Tasks" changeListDisplay={this.props.changeListDisplay} listItems={[]}/>
+                <MenuItem 
+                    currentSelectedListID={this.props.currentSelectedListID}
+                    headingTitle="All Tasks" 
+                    changeListDisplay={this.props.changeListDisplay} 
+                    listItems={[]}
+                    />
                 <hr/>
                 <MenuItem headingTitle="Lists" 
+                    currentSelectedListID={this.props.currentSelectedListID}
                     changeListDisplay={this.props.changeListDisplay} 
                     listItems={this.props.lists}
                     createList={this.props.createList}
