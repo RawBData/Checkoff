@@ -68,6 +68,8 @@
         .all-tasks:hover{
             background-color: whitesmoke;
         }
+
+
         
         .all-tasks-carrot{
             
@@ -96,6 +98,8 @@
         .menu-list-li:hover{
             
         }
+
+        
 
         .new-list-input-container{
             display: flex;
@@ -145,5 +149,12 @@
 
 .list-title:hover{
     background-color: rgb(251, 239, 239);
+}
+
+.selected-list{
+    font-size: 13px;
+    width: 85%;
+    padding: 2px 0 2px 0;
+    background-color: #9fabb5;
 }
     

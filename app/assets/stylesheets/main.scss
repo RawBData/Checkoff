@@ -375,9 +375,10 @@ $xl-desktop: 1260px;
         }
 
         .main-task-show{
-            display:none;
+            display:flex;
             background-color: white;
             margin-top: 10px;
+            margin-left: 5px;
             border-radius: 10px;
             grid-column-start: 3;
             grid-column-end: 4;
@@ -385,11 +386,12 @@ $xl-desktop: 1260px;
             grid-row-end: 2;
             height:96%;
             overflow: hidden;
+            opacity: 0;
+            transition: 0.3s;
         }
 
         .main-task-show-display{
-            display: flex;
-            margin-left: 5px;
+            opacity: 1;
         }
 
         .main-task-hide{

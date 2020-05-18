@@ -21,11 +21,11 @@ $kolor_blue: #49517e;
 $kolor_red: #CF1103;
 $kolor_navy: #29354B;
 $kolor_grey: rgb(205, 211, 222);
+$kolor_grey_dark: rgb(142, 169, 220);
 
 
 
 $main-color: #ada0ee;
-// $font-sans: "Proxima Nova", "Helvetica Neue", Helvetica, Arial, sans-serif;
 $font-museo: "MuseoSansRounded", "Helvetica Neue", Helvetica, Arial, sans-serif;
 $company_color: #1760bf;
 
@@ -69,7 +69,6 @@ $tablet-end: 1036px;
         color: white;
         display: grid;
         grid-template-columns: 25% auto;
-        // grid-template-rows: 15% 20% 30% auto;
         grid-template-rows: 75px 10% 21% auto;
 
         @include tablet {
@@ -79,9 +78,6 @@ $tablet-end: 1036px;
         @include mobile{
             display: none;
         }
-
-
-        
 
         .blurb{
             grid-column-start: 2;
@@ -144,12 +140,7 @@ $tablet-end: 1036px;
 
 
         .logo-sessions{
-            // max-height: 150%;
-            // min-height: 5%;
-            // min-width: 27%;
-            // max-width: 37%;
             height: 83px;
-            // widows: 179px;
         }
         
         
@@ -174,9 +165,6 @@ $tablet-end: 1036px;
                     height: 292px;
                 }
             }
-
-
-
         }
 
         .session-toggle-container{
@@ -199,20 +187,21 @@ $tablet-end: 1036px;
             font-size: 15px;
             padding: 5px 11px 4px;
             font-weight: 500;
+            transition: 0.5s;
+
 
             @include mobile{
                 float: none;
                 display: table;
-                // visibility: visible;
             }
-
         }
 
         
         .other-session-button:hover {
             // background-color: rgb(109, 109, 24);
             // box-shadow: 1px 1px 1px brown;
-            color:$kolor_lime;
+            color:white;
+            background-color: $kolor_grey_dark;
             cursor: pointer;
         }
 
@@ -272,6 +261,8 @@ $tablet-end: 1036px;
                 margin-bottom: 11px;
                 padding-left: 13px;
                 border: 1px solid #ccc;
+                outline: none;
+                transition: 0.3s;
             }
 
             input::placeholder{
@@ -280,6 +271,10 @@ $tablet-end: 1036px;
                 text-align: left;
                 font-size: 23px;
                 font-weight: 300;
+            }
+
+            input:focus{
+                border-color: $kolor_grey_dark;
             }
 
             button{
@@ -292,6 +287,7 @@ $tablet-end: 1036px;
                 color: white;
                 margin-top: 2%;
                 height: 46px;
+                transition: 0.5s;
             }
 
             button:hover{
@@ -328,23 +324,27 @@ $tablet-end: 1036px;
             }
 
             .demo-button-container{
-                display: flex;
-                
+                display: flex;              
                 align-items: center;
                 background-color: #3b589e;
                 border-radius: 5px;
+                transition: 0.5s;
                 
                 .demo-button{
-                    background-color: #3b589e;
+                    background-color: Transparent;
                     align-self: auto;
-
                 }
+
                 img{
                     height: 44px;
                     margin: 6px;
                     position: absolute;
                     padding-bottom: 11px;
                 }
+            }
+
+            .demo-button-container:hover{
+                background-color: #192f62;
             }
 
 
