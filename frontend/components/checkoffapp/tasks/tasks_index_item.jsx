@@ -86,7 +86,7 @@ class TasksIndexItem extends React.Component {
       
           <div className="t_i_i_right-side">
             {taskTags.map(tag=>(
-              <Tag tag={tag} key={tag.title}/>
+              <Tag tag={tag} key={Math.random(0,100)}/>
             ))}
           </div>
         </div>
