@@ -33,7 +33,7 @@ class Banner extends React.Component {
           </div>
           <div className="search" id="test">
             <i className="fa fa-search search-icon"></i>
-            <input onFocus={()=>{this.props.toggleSearch()}} onBlur={()=>{this.props.toggleSearch()}} value={this.props.setSearchValue?this.props.searchValue:""} onChange={this.handleChange} type="text" className="search-input"/>
+            <input onFocus={()=>{!this.props.searching?this.props.toggleSearch():""}} onBlur={()=>{/*this.props.toggleSearch()*/}} value={this.props.setSearchValue?this.props.searchValue:""} onChange={this.handleChange} type="text" className="search-input"/>
             <i className="fa fa-caret-down search-icon"></i>
           </div>
         </div>

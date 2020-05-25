@@ -22,6 +22,7 @@ class TasksIndex extends React.Component {
             tasksSelected: [],
             completedView:false,
             searching:false,
+            searchCriteria:''
         }
 
         ///ONE_ONE
@@ -55,21 +56,25 @@ class TasksIndex extends React.Component {
     }
 
     componentDidUpdate(){
-        if((!this.state.completedView && (this.props.incompletedTasks.length !== this.state.tasks.length)) || (this.state.completedView && (this.props.completedTasks.length !== this.state.tasks.length)))
+        if((!this.props.searching || this.props.searchCriteria.length<1)
+                    && 
+            (!this.state.completedView && (this.props.incompletedTasks.length !== this.state.tasks.length)) 
+                    || 
+            (this.state.completedView && (this.props.completedTasks.length !== this.state.tasks.length)))
         {
             // console.log("still in update")s
             this.tasksForDisplay();
         }
 
-        if(this.state.searching !== this.props.searching){
+        if(this.props.searching && this.props.searchCriteria.length>0 && this.props.searchResults.length !== this.state.tasks.length){
             this.SearchingTasksDisplay();
         }
     }
 
     tasksForDisplay(){
         // let htmlTasksArray = this.props.tasks//.map((task, idx )=> (<li draggable key={task.id}><TasksIndexItem task={task}/></li>));
-        console.log("setting display tasks")
-        let displayTasksArray = this.props.searchResults[0]?this.props.searchResults:this.state.completedView? this.props.completedTasks : this.props.incompletedTasks;
+        //console.log("setting display tasks")
+        let displayTasksArray = this.state.completedView? this.props.completedTasks : this.props.incompletedTasks;
         this.setState({
             tasks: displayTasksArray
          })
@@ -77,11 +82,10 @@ class TasksIndex extends React.Component {
 
     SearchingTasksDisplay(){
         // let htmlTasksArray = this.props.tasks//.map((task, idx )=> (<li draggable key={task.id}><TasksIndexItem task={task}/></li>));
-        console.log("setting display tasks")
+        console.log("setting searched tasks")
         const displayTasksArray = this.props.searchResults;
         this.setState({
             tasks: displayTasksArray,
-            searching:this.props.searching,
          })
     }
 

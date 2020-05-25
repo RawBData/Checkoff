@@ -8,7 +8,7 @@ import { fetchTasks, fetchTask, createTask, updateTask, deleteTask } from '../..
 const MSP = (state, ownProps) => {
     //let tasks = Object.values(state.entities.tasks);
     // let tasks;
-    console.log(ownProps)
+    // console.log("Task Index Container ownProps",ownProps)
     let tasks;
     if(ownProps.parentID){
         tasks = Object.values(state.entities.tasks).filter(task => task.parent_id === ownProps.parentID)
@@ -25,7 +25,11 @@ const MSP = (state, ownProps) => {
 
     let completedTasks = tasks.filter(tsk=>(tsk.complete));
     let incompletedTasks = tasks.filter(tsk=>(!tsk.complete));
-    let searchResults = incompletedTasks.filter(tsk=>(tsk.title ===  ownProps.searchCriteria));
+
+    //simple filter search looking for string 
+    let searchResults = incompletedTasks.filter(tsk=>{
+        return ownProps.searchCriteria.length>0 && tsk.title.toLowerCase().indexOf(ownProps.searchCriteria.toLowerCase()) !== -1; 
+    });
 
         
 
