@@ -4,9 +4,22 @@ import { Link } from 'react-router-dom';
 class Banner extends React.Component {
   constructor(props){
     super(props)
+    this.handleChange = this.handleChange.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
 
+  handleChange(event) {
+    this.props.getSearchCriteria(event.target.value);
+  }
+
+  handleSubmit(event) {
+    alert('A name was submitted: ' + this.state.value);
+    event.preventDefault();
+  }
+
+
   render(){
+    console.log("props",this.props)
     const currentUser = this.props.currentUser;
     const logout = this.props.logout;
 
@@ -20,7 +33,7 @@ class Banner extends React.Component {
           </div>
           <div className="search" id="test">
             <i className="fa fa-search search-icon"></i>
-            <input type="text" className="search-input"/>
+            <input onFocus={()=>{this.props.toggleSearch()}} onBlur={()=>{this.props.toggleSearch()}} value={this.props.setSearchValue?this.props.searchValue:""} onChange={this.handleChange} type="text" className="search-input"/>
             <i className="fa fa-caret-down search-icon"></i>
           </div>
         </div>

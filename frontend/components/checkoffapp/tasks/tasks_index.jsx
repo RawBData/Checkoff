@@ -20,11 +20,14 @@ class TasksIndex extends React.Component {
             tasksSelectedToggled: false,
             tasks: [],
             tasksSelected: [],
-            completedView:false
+            completedView:false,
+            searching:false,
         }
 
         ///ONE_ONE
         this.tasksForDisplay = this.tasksForDisplay.bind(this);
+        this.SearchingTasksDisplay = this.SearchingTasksDisplay.bind(this);
+        
         this.deleteSelectedTasksArray = this.deleteSelectedTasksArray.bind(this);
         this.displayTaskToggle = this.displayTaskToggle.bind(this);
         this.refreshTasks = this.refreshTasks.bind(this);
@@ -57,13 +60,28 @@ class TasksIndex extends React.Component {
             // console.log("still in update")s
             this.tasksForDisplay();
         }
+
+        if(this.state.searching !== this.props.searching){
+            this.SearchingTasksDisplay();
+        }
     }
 
     tasksForDisplay(){
         // let htmlTasksArray = this.props.tasks//.map((task, idx )=> (<li draggable key={task.id}><TasksIndexItem task={task}/></li>));
-        let displayTasksArray = this.state.completedView? this.props.completedTasks : this.props.incompletedTasks;
+        console.log("setting display tasks")
+        let displayTasksArray = this.props.searchResults[0]?this.props.searchResults:this.state.completedView? this.props.completedTasks : this.props.incompletedTasks;
         this.setState({
             tasks: displayTasksArray
+         })
+    }
+
+    SearchingTasksDisplay(){
+        // let htmlTasksArray = this.props.tasks//.map((task, idx )=> (<li draggable key={task.id}><TasksIndexItem task={task}/></li>));
+        console.log("setting display tasks")
+        const displayTasksArray = this.props.searchResults;
+        this.setState({
+            tasks: displayTasksArray,
+            searching:this.props.searching,
          })
     }
 
@@ -144,7 +162,7 @@ class TasksIndex extends React.Component {
 
     
     render(){
-        // console.log(this.state)
+        console.log("tasks_index_state:",this.state,"tasks_index_props:",this.props)
 
         //add modularity by setting task or subtask forking
         const subtask = this.props.subtask? true : false;

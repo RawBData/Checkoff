@@ -18,6 +18,8 @@ class CheckoffApp extends React.Component {
         displayTask:{},
         selectedTasks:[],
         showingTask: false,
+        searching: false,
+        searchCriteria:''
       }
 
       // this.clock = React.createRef();
@@ -30,13 +32,28 @@ class CheckoffApp extends React.Component {
       this.deleteTasks = this.deleteTasks.bind(this);
       this.changeListDisplay = this.changeListDisplay.bind(this);
       this.reset = this.reset.bind(this);
-
+      this.setSearchCriteria = this.setSearchCriteria.bind(this);
+      this.searchFilterToggle = this.searchFilterToggle.bind(this);
     }
 
     componentDidMount(){
       this.props.fetchTasks();
       this.props.fetchLists();
     }
+
+    searchFilterToggle(searchCriteria){
+      console.log("toggling Search")
+      this.setState({searching:!this.state.searching});
+    }
+
+    setSearchCriteria(searchCriteria){
+      console.log("Searching for:",searchCriteria);
+
+      this.setState({searchCriteria})
+
+    }
+
+    
 
     toggleMenu(){
       this.setState({
@@ -241,7 +258,7 @@ class CheckoffApp extends React.Component {
       const display = (
           <div className="main-app">
             
-            <BannerContainer className="main-banner" toggleMenu={this.toggleMenu}/>
+            <BannerContainer className="main-banner" toggleMenu={this.toggleMenu} toggleSearch={this.searchFilterToggle} getSearchCriteria={this.setSearchCriteria} setSearchValue={this.state.searchCriteria}/>
             
             <div className={ShowMenuToggleClass}>
 
@@ -277,7 +294,8 @@ class CheckoffApp extends React.Component {
                         updateTask={this.updateTask}
                         completeTask={this.completeTask}
                         displayTaskToggle={this.displayTaskToggle}
-
+                        searchCriteria={this.state.searchCriteria}
+                        searching={this.state.searching}
                 />
               </div>
 
