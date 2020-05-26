@@ -10,7 +10,6 @@ class Banner extends React.Component {
   }
 
   handleChange(event) {
-    // console.log(event)
     this.props.getSearchCriteria(event.target.value?event.target.value:"");
   }
 
@@ -21,7 +20,6 @@ class Banner extends React.Component {
 
 
   render(){
-    // console.log("props",this.props)
     const currentUser = this.props.currentUser;
     const logout = this.props.logout;
 

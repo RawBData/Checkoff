@@ -42,13 +42,10 @@ class CheckoffApp extends React.Component {
     }
 
     searchFilterToggle(){
-      // console.log("toggling Search")
       this.setState({searching:!this.state.searching});
     }
 
     setSearchCriteria(searchCriteria){
-      // console.log("Searching for:",searchCriteria);
-
       this.setState({searchCriteria})
 
     }
@@ -87,7 +84,6 @@ class CheckoffApp extends React.Component {
         break;
         
         case "dismiss":
-          // console.log(this.state.selectedTasks)
             // this.taskChecked.current.unCheck();
             this.state.selectedTasks.forEach(tsk=>{
               tsk.checked=false;
@@ -168,9 +164,6 @@ class CheckoffApp extends React.Component {
 
     updateTask(newAttributeObject,task){
       let updatedTask = Array.isArray(task)? task : Object.assign({},task);
-      // console.log("in checkoff update",newAttributeObject);
-      // console.log("task",task);
-      
       switch (newAttributeObject.type) {
 
           case "title":

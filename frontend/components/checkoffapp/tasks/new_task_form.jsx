@@ -38,14 +38,11 @@ class NewTaskForm extends React.Component {
     }
 
     handleSubmit(){
-        // console.log(this.props.parentID)
         let newTask;
         if(this.props.subtask){
             newTask = this.state.newTask;
             newTask.parent_id = this.props.parentID;
             this.props.createTask(newTask);
-
-            // console.log(newTask)
         }else{
             newTask = this.state.newTask;
             newTask.list_id=this.props.listID;
@@ -70,15 +67,12 @@ class NewTaskForm extends React.Component {
     }
 
     keyPressed(event) {
-        // console.log(event.key)
         if (event.key === "Enter") {
-            // console.log(event)
           this.handleSubmit()
         }
     }
     
     render(){
-        // console.log(this.props)
         let placeHolderText;
         let buttonText;
         if (this.props.subtask){

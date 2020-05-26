@@ -68,7 +68,6 @@ class TasksIndex extends React.Component {
             (this.props.subtask && this.state.tasks.length>0 && this.state.tasks[0].parent_id !== this.props.parentID)
         )
         {
-            // console.log("still in update")s
             this.tasksForDisplay();
         }
 
@@ -78,8 +77,6 @@ class TasksIndex extends React.Component {
     }
 
     tasksForDisplay(){
-        // let htmlTasksArray = this.props.tasks//.map((task, idx )=> (<li draggable key={task.id}><TasksIndexItem task={task}/></li>));
-        //console.log("setting display tasks")
         let displayTasksArray = this.state.completedView? this.props.completedTasks : this.props.incompletedTasks;
         this.setState({
             tasks: displayTasksArray
@@ -87,8 +84,6 @@ class TasksIndex extends React.Component {
     }
 
     SearchingTasksDisplay(){
-        // let htmlTasksArray = this.props.tasks//.map((task, idx )=> (<li draggable key={task.id}><TasksIndexItem task={task}/></li>));
-        // console.log("setting searched tasks")
         const displayTasksArray = this.props.searchResults;
         this.setState({
             tasks: displayTasksArray,
@@ -96,7 +91,6 @@ class TasksIndex extends React.Component {
     }
 
     completeTask(){
-        // console.log(this.props.selectedTasks)
         if (this.props.selectedTasks.length>0){
             if(this.props.subtask){
                 this.props.completeSubtasks();
@@ -155,7 +149,6 @@ class TasksIndex extends React.Component {
     }
 
     createNewTag(type,tag){
-        // console.log("creating new tag")
         this.props.updateTask(type,tag)
         this.setState({
             tagDisplay:false,
@@ -172,16 +165,11 @@ class TasksIndex extends React.Component {
 
     
     render(){
-        // console.log("tasks_index_state:",this.state,"tasks_index_props:",this.props)
 
         //add modularity by setting task or subtask forking
         const subtask = this.props.subtask? true : false;
         const parentID = this.props.subtask? this.props.parentID : null;
         const tasksIndexClass = this.props.subtask? "task-index-tasks-show":"task-index-tasks";
-        const arrayForDisplay = this.state.tasks//.filter(tsk=>{return tsk.complete === this.state.completedView});
-        
-        
-        //console.log(this.state.tasks)
         const actionsRow2Display = this.state.tasksSelectedToggled?
         ("task-specific-actions")
         :
@@ -197,7 +185,6 @@ class TasksIndex extends React.Component {
                     <div className="actions-row-1">
                         <h5 className="action-link" onClick={()=>this.toggleCompleteView(true)}>complete</h5>
                         <h5 className="action-link" onClick={()=>this.toggleCompleteView(false)}>incomplete</h5>
-                        {/* <i className="fa fa-print print-icon"></i> */}
                     </div>
 
 

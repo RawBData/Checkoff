@@ -18,18 +18,14 @@ class newtagForm extends React.Component {
     }
 
     handleSubmit(){
-        // console.log("submitting new tag")
         this.props.updateTask({type:"tags"},[this.state.title]);
-        // this.props.refreshTasks();
         this.setState({
                 title: ""
         })
     }
 
     upd(){
-        //console.log("buttons")
         return e => {
-            // console.log(e.target.value)
           this.setState({
               title: e.target.value
           })
@@ -44,9 +40,6 @@ class newtagForm extends React.Component {
     }
     
     render(){
-        //console.log(this.state)
-
-
         let disableButton= this.state.title.length < 1? true : false;
     
         const display = (
