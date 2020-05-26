@@ -25,12 +25,22 @@ class ListShow extends React.Component {
     
     render(){
 
-        let allTasks = this.props.tasks.filter(tsk => {return tsk.parent_id === null})
-        let incompleteTasks = allTasks.filter(tsk => {return !tsk.complete});
-        let completedTasks = this.props.tasks.filter(tsk => {return tsk.complete});
+        console.log(this.props)
+
         
-        let numTasks = allTasks.length;
-        let numCompletedTasks = completedTasks.length;
+        let allTasks, incompleteTasks, completedTasks, numCompletedTasks, listTitle, numTasks;
+
+        if(this.props.listID){
+            allTasks = this.props.tasks.filter(tsk => {return tsk.list_id === this.props.listID})
+            listTitle = this.props.listName;
+        }else{
+            allTasks = this.props.tasks.filter(tsk => {return tsk.parent_id === null})  
+            listTitle = "All Tasks";   
+        }
+
+        numTasks = allTasks.length;
+        incompleteTasks = allTasks.filter(tsk => {return !tsk.complete}).length;
+        completedTasks = numTasks - incompleteTasks; 
     
         const display = (
 
@@ -38,7 +48,7 @@ class ListShow extends React.Component {
 
             <div className="list-details-container">
                 <div className="list-details">
-                    <h1>{this.props.listName || "All Tasks"}</h1>
+                    <h1>{listTitle}</h1>
                 </div>
 
                 <div className="list-completion-container">
@@ -47,7 +57,7 @@ class ListShow extends React.Component {
                         <p>tasks</p>
                     </div>
                     <div className="num-completed-container completion-container">
-                        <h1>{numCompletedTasks}</h1>
+                        <h1>{completedTasks}</h1>
                         <p>completed</p>
                     </div>
                 </div>

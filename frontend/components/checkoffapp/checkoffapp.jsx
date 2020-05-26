@@ -303,6 +303,7 @@ class CheckoffApp extends React.Component {
 
               <div className="main-list-details">
                   <ListShow 
+                    listID={this.state.selectedListID}
                     listName={this.state.selectedList} 
                     tasks={this.props.tasks}
                     changeListDisplay={this.changeListDisplay}
