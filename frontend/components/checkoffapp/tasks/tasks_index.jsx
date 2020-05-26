@@ -56,11 +56,17 @@ class TasksIndex extends React.Component {
     }
 
     componentDidUpdate(){
-        if((!this.props.searching || this.props.searchCriteria.length<1)
+        if(
+            //checking to see if we are currently searching or if the search criteria is blank
+            (!this.props.searching || this.props.searchCriteria.length<1)
                     && 
             (!this.state.completedView && (this.props.incompletedTasks.length !== this.state.tasks.length)) 
                     || 
-            (this.state.completedView && (this.props.completedTasks.length !== this.state.tasks.length)))
+            (this.state.completedView && (this.props.completedTasks.length !== this.state.tasks.length))
+            ||
+            //Checks to see if this is a subtask AND there are already subtasks AND the subtasks parent id's dont match up
+            (this.props.subtask && this.state.tasks.length>0 && this.state.tasks[0].parent_id !== this.props.parentID)
+        )
         {
             // console.log("still in update")s
             this.tasksForDisplay();
@@ -82,7 +88,7 @@ class TasksIndex extends React.Component {
 
     SearchingTasksDisplay(){
         // let htmlTasksArray = this.props.tasks//.map((task, idx )=> (<li draggable key={task.id}><TasksIndexItem task={task}/></li>));
-        console.log("setting searched tasks")
+        // console.log("setting searched tasks")
         const displayTasksArray = this.props.searchResults;
         this.setState({
             tasks: displayTasksArray,
@@ -166,7 +172,7 @@ class TasksIndex extends React.Component {
 
     
     render(){
-        console.log("tasks_index_state:",this.state,"tasks_index_props:",this.props)
+        // console.log("tasks_index_state:",this.state,"tasks_index_props:",this.props)
 
         //add modularity by setting task or subtask forking
         const subtask = this.props.subtask? true : false;
@@ -231,7 +237,7 @@ class TasksIndex extends React.Component {
 
                 <div className={tasksIndexClass}>
                     <ul>
-                        {arrayForDisplay.map((task, idx )=> (<li draggable 
+                        {this.state.tasks.map((task, idx )=> (<li draggable 
                                                                     key={task.id}
                                                                     onDragOver={() => this.onDraggedOver(idx)}
                                                                 >

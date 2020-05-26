@@ -37,6 +37,10 @@ class TaskShow extends React.Component {
         
     }
 
+    componentDidUpdate(){
+      
+    }
+
     updateTask(newAttributeObject){
         
       let task = this.props.task;

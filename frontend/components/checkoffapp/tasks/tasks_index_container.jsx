@@ -9,7 +9,7 @@ const MSP = (state, ownProps) => {
     //let tasks = Object.values(state.entities.tasks);
     // let tasks;
     // console.log("Task Index Container ownProps",ownProps)
-    let tasks;
+    let tasks = [];
     if(ownProps.parentID){
         tasks = Object.values(state.entities.tasks).filter(task => task.parent_id === ownProps.parentID)
     }else{
@@ -28,13 +28,15 @@ const MSP = (state, ownProps) => {
 
     //simple filter search looking for string 
     let searchResults = incompletedTasks.filter(tsk=>{
-        return ownProps.searchCriteria.length>0 && tsk.title.toLowerCase().indexOf(ownProps.searchCriteria.toLowerCase()) !== -1; 
+        return (
+            ownProps.searchCriteria
+            &&
+            ownProps.searchCriteria.length>0 
+            && 
+            tsk.title.toLowerCase().indexOf(ownProps.searchCriteria.toLowerCase()) !== -1
+        ); 
     });
 
-        
-
-    // let tasks = this.state.selectedTasks.filter(tsk => task.id !== tsk.id);
-    //console.log(tasks);
     return (
         {
             tasks,

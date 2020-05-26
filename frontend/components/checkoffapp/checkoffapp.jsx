@@ -42,12 +42,12 @@ class CheckoffApp extends React.Component {
     }
 
     searchFilterToggle(){
-      console.log("toggling Search")
+      // console.log("toggling Search")
       this.setState({searching:!this.state.searching});
     }
 
     setSearchCriteria(searchCriteria){
-      console.log("Searching for:",searchCriteria);
+      // console.log("Searching for:",searchCriteria);
 
       this.setState({searchCriteria})
 
@@ -168,8 +168,8 @@ class CheckoffApp extends React.Component {
 
     updateTask(newAttributeObject,task){
       let updatedTask = Array.isArray(task)? task : Object.assign({},task);
-      console.log("in checkoff update",newAttributeObject);
-      console.log("task",task);
+      // console.log("in checkoff update",newAttributeObject);
+      // console.log("task",task);
       
       switch (newAttributeObject.type) {
 
@@ -259,7 +259,15 @@ class CheckoffApp extends React.Component {
       const display = (
           <div className="main-app">
             
-            <BannerContainer className="main-banner" toggleMenu={this.toggleMenu} searching={this.state.searching} toggleSearch={this.searchFilterToggle} getSearchCriteria={this.setSearchCriteria} setSearchValue={this.state.searchCriteria}/>
+            <BannerContainer 
+              className="main-banner" 
+              showingTask={this.state.showingTask}
+              toggleTaskShow={this.displayTaskToggle}
+              toggleMenu={this.toggleMenu} 
+              searching={this.state.searching} 
+              toggleSearch={this.searchFilterToggle} 
+              getSearchCriteria={this.setSearchCriteria} 
+              setSearchValue={this.state.searchCriteria}/>
             
             <div className={ShowMenuToggleClass}>
 

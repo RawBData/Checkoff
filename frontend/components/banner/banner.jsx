@@ -4,12 +4,14 @@ import { Link } from 'react-router-dom';
 class Banner extends React.Component {
   constructor(props){
     super(props)
+    this.state = {searchVal:this.props.searchValue}
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   handleChange(event) {
-    this.props.getSearchCriteria(event.target.value);
+    // console.log(event)
+    this.props.getSearchCriteria(event.target.value?event.target.value:"");
   }
 
   handleSubmit(event) {
@@ -19,7 +21,7 @@ class Banner extends React.Component {
 
 
   render(){
-    console.log("props",this.props)
+    // console.log("props",this.props)
     const currentUser = this.props.currentUser;
     const logout = this.props.logout;
 
@@ -33,8 +35,19 @@ class Banner extends React.Component {
           </div>
           <div className="search" id="test">
             <i className="fa fa-search search-icon"></i>
-            <input onFocus={()=>{!this.props.searching?this.props.toggleSearch():""}} onBlur={()=>{/*this.props.toggleSearch()*/}} value={this.props.setSearchValue?this.props.searchValue:""} onChange={this.handleChange} type="text" className="search-input"/>
-            <i className="fa fa-caret-down search-icon"></i>
+            <input 
+              onFocus={()=>{
+                !this.props.searching ? this.props.toggleSearch():"";
+                this.props.showingTask ? this.props.toggleTaskShow({on:"dismiss"}):""}} 
+              onBlur={()=>{/*this.props.toggleSearch()*/}} 
+              value={this.props.setSearchValue?this.props.searchValue:this.state.searchVal} 
+              onChange={this.handleChange} 
+              type="text" 
+              className="search-input"/>
+            <i 
+              className="fa fa-close search-icon"
+              onClick={this.handleChange}
+              ></i>
           </div>
         </div>
         <div className="settings">
