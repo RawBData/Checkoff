@@ -169,7 +169,6 @@ class CheckoffApp extends React.Component {
           case "title":
           case "due_date":
           case "list":
-            console.log(this.state.selectedTasks)
             this.props.updateTask(updatedTask);
           break;
 
