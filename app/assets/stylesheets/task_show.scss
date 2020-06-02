@@ -26,27 +26,7 @@
         
     }
 
-    .close-button-container{
-        display: flex;
-        justify-content: flex-end;
-        padding: 13px;
-        color: white;
-        cursor: pointer;
-    }
 
-    .close-task-button:hover{
-        background-color: rgb(178, 180, 181);
-    }
-
-    .close-task-button{
-        background-color: lightslategray;
-        border-radius: 6px;
-        padding: 0 6px 0 6px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        height: 32px;
-    }
 
     .task-show-input{
         font-size: 25px;
@@ -74,12 +54,49 @@
         }
     }
 
-    .delete-tasks-tasks-show{
-        
+    
+
+}
+
+.close-button-container{
+    display: flex;
+    justify-content: flex-end;
+    padding: 13px;
+    color: white;
+    cursor: pointer;
+}
+
+.close-task-button:hover{
+    background-color: rgb(178, 180, 181);
+}
+
+.close-task-button{
+    background-color: lightslategray;
+    border-radius: 6px;
+    padding: 0 6px 0 6px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 32px;
+}
+
+.delete-tasks-tasks-show{
+}
+
+.update-tasks-list{
+    select{
+        font-size: 25px;
     }
+}
 
-    .update-tasks-list{
+.delete-tasks{
+    background-color: rgb(178, 180, 181);
+    color:red;
+    margin: 0 15px 0 0;
+    font-size: 30px;
+}
 
-    }
-
+.delete-tasks:hover{
+    background-color:red;
+    color:rgb(178, 180, 181);
 }

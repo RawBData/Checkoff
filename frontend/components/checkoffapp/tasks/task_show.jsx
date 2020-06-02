@@ -293,16 +293,20 @@ class TaskShow extends React.Component {
         (
             
             <div className="task_show">
-                <div className={"close-button-container"}>
+                <div className={"close-button-container close-tasks"}>
                   <div className="close-task-button" onClick={this.hideTaskShow}>
                       <h5>close x</h5>
                   </div>
                 </div>
+
                 <div className={"delete-tasks-tasks-show"}>
-                  <div className="close-task-button" onClick={this.deleteTasks}>
-                      <h5>Delete Tasks</h5>
+                  <div className="close-task-button delete-tasks" onClick={this.deleteTasks}>
+                      <h5>Delete Tasks <i className="fa fa-trash list-item-delete"/></h5>    
                   </div>
                 </div>
+
+                <hr/>
+
                 <div className="update-tasks-list">
                       <h3>Move Tasks to List</h3>
                       <select value={this.state.list? 
