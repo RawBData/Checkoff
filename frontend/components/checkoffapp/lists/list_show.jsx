@@ -25,7 +25,6 @@ class ListShow extends React.Component {
     
     render(){
 
-        console.log(this.props)
 
         
         let allTasks, incompleteTasks, completedTasks, numCompletedTasks, listTitle, numTasks;

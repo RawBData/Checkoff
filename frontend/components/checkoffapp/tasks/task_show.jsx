@@ -74,6 +74,13 @@ class TaskShow extends React.Component {
           list:null
         })
       }
+
+      if(newAttributeObject.type === "tasksChangeList"){
+        task.list_id = this.state.list;
+        this.setState({
+          list:null
+        })
+      }
         
       this.props.updateTask(newAttributeObject,task);
     }
@@ -291,11 +298,27 @@ class TaskShow extends React.Component {
                       <h5>close x</h5>
                   </div>
                 </div>
-                <div className={"close-button-container"}>
+                <div className={"delete-tasks-tasks-show"}>
                   <div className="close-task-button" onClick={this.deleteTasks}>
                       <h5>Delete Tasks</h5>
                   </div>
                 </div>
+                <div className="update-tasks-list">
+                      <h3>Move Tasks to List</h3>
+                      <select value={this.state.list? 
+                                        this.state.list : 
+                                        this.props.sameList && this.props.task.list_id? 
+                                          this.props.task.list_id:''} 
+                                          
+                              onChange={this.upd('list')} 
+                              onBlur={()=>this.updateTask({type:"tasksChangeList"})}
+                        >
+                        <option value={"None"}>None</option>
+                        {this.props.lists.map(lst=>(
+                          <option key={lst.id} value={lst.id}>{lst.name}</option>
+                        ))}
+                      </select>
+                  </div>
             </div>
         );
     

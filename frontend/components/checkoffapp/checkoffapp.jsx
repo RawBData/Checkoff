@@ -169,6 +169,7 @@ class CheckoffApp extends React.Component {
           case "title":
           case "due_date":
           case "list":
+            console.log(this.state.selectedTasks)
             this.props.updateTask(updatedTask);
           break;
 
@@ -181,6 +182,18 @@ class CheckoffApp extends React.Component {
               updatedTask.newNote = newAttributeObject.note;
 
               this.props.updateTask(updatedTask);
+          break;
+
+          case "tasksChangeList":
+            let selectedTasks = [...this.state.selectedTasks];
+            selectedTasks.forEach(tsk=>{
+              tsk.list_id = updatedTask.list_id;
+              this.props.updateTask(tsk);
+            })
+
+            this.setState({
+              selectedTasks: selectedTasks,
+            })
           break;
 
           case "complete":
@@ -311,7 +324,9 @@ class CheckoffApp extends React.Component {
               </div>
 
               <div className={this.state.showingTask?"main-task-show main-task-show-display":"main-task-show"}>
-                  <TaskShow selectedTasksLength={this.state.selectedTasks.length} 
+                  <TaskShow 
+                            sameList={this.state.selectedTasks.length>1 && this.state.selectedTasks.every(tsk=>(this.state.selectedTasks[0].list_id === tsk.list_id))}
+                            selectedTasksLength={this.state.selectedTasks.length} 
                             task={this.state.displayTask} 
                             updateTask={this.updateTask}
                             displayTaskToggle={this.displayTaskToggle}
