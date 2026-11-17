@@ -1,5 +1,7 @@
 # Checkoff
 
+> **Legacy project:** Some of the data sources in this project may no longer work because their free APIs have been shut down or have changed since it was built. The code is set up so any of these APIs can easily be swapped for current, paid-access data sets.
+
 _A "Remember the Milk" clone, is a to do list/organizer/calendar that allows users to create task (and subtasks) with tags and notes._
 
 [Checkoff Live](https://checkoff-rem-the-milk.herokuapp.com/ "Checkoff")
